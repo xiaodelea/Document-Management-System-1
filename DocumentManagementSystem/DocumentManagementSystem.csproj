@@ -190,6 +190,7 @@
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
     <Compile Include="Models\Domains\Entities\Document.cs" />
     <Compile Include="Models\ViewModels\Documents\BreadField\BreadField.cs" />
+    <Compile Include="Models\ViewModels\Documents\CreateChapter\CreateChapter.cs" />
     <Compile Include="Models\ViewModels\Documents\Create\Create.cs" />
     <Compile Include="Models\ViewModels\Documents\Details\Details.cs" />
     <Compile Include="Models\ViewModels\Documents\Details\ItemChapter.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Views\Documents\Index_List.cshtml" />
     <Content Include="Views\Documents\BreadField.cshtml" />
     <Content Include="Views\Documents\Details_ListChapters.cshtml" />
+    <Content Include="Views\Documents\CreateChapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,9 +17,17 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// </summary>
         public ItemChapter(Models.Domains.Entities.Chapter target)
         {
+            this.ChapterId = target.ChapterId;
+
             this.ChapterName = target.ChapterName;
             this.Priority = target.Priority;
         }
+
+
+
+
+
+        public Guid ChapterId { get; set; }
 
 
 

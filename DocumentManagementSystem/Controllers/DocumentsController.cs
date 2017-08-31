@@ -126,5 +126,58 @@ namespace DocumentManagementSystem.Controllers
 
             return PartialView(targetV);
         }
+
+        /// <summary>
+        /// 新增章节。
+        /// </summary>
+        /// <param name="documentId">归属的文档ID。</param>
+        /// <returns></returns>
+        public ActionResult CreateChapter(Guid documentId)
+        {
+            var targetV = new Models.ViewModels.Documents.CreateChapter.CreateChapter(documentId);
+
+            return View(targetV);
+        }
+
+        /// <summary>
+        /// 新增章节。
+        /// </summary>
+        /// <param name="targetV">视图对象。</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateChapter([Bind]Models.ViewModels.Documents.CreateChapter.CreateChapter targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new Models.Domains.Entities.DMsDbContext();
+
+                var target = targetV.GetReturn();
+                db.Chapters.Add(target);
+
+                db.SaveChanges();
+
+                return RedirectToAction("Details", new { id = targetV.DocumentId });
+            }
+
+            return View(targetV);
+        }
+
+        /// <summary>
+        /// 删除章节。
+        /// </summary>
+        /// <param name="chapterId">章节ID。</param>
+        /// <returns></returns>
+        public ActionResult DeleteChapter(Guid chapterId)
+        {
+            var db = new Models.Domains.Entities.DMsDbContext();
+
+            var target = db.Chapters.Find(chapterId);
+
+            db.Chapters.Remove(target);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = target.DocumentId });
+        }
     }
 }
