@@ -15,7 +15,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateChapter
             var document = db.Documents.Find(documentId);
 
             this.DocumentId = documentId;
-            this.Priority = document.Chapters.Max(c => c.Priority) + 1;
+            if (document.Chapters.Count() == 0)
+                this.Priority = 1;
+            else
+                this.Priority = document.Chapters.Max(c => c.Priority) + 1;
         }
 
         public CreateChapter()
