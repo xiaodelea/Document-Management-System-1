@@ -3,11 +3,13 @@
 <table class="table table-bordered table-condensed table-hover">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.ChapterName)
             </th>
-            <th>
+            <th class="text-center" width="60px">
                 @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center" width="60px">
             </th>
         </tr>
     </thead>
@@ -18,8 +20,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ChapterName)
                 </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.ActionLink("删除", "DeleteChapter", new { chapterId = item.ChapterId })
                 </td>
             </tr>
         }

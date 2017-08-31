@@ -116,6 +116,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// 文档日期。
         /// </summary>
         [Display(Name = "文档日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DocumentTime { get; set; }
 
         /// <summary>
