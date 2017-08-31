@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201708310052267_ChapterAddField1.Designer.cs">
       <DependentUpon>201708310052267_ChapterAddField1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708310738548_ChapterChange.cs" />
+    <Compile Include="Migrations\201708310738548_ChapterChange.Designer.cs">
+      <DependentUpon>201708310738548_ChapterChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domains\Entities\Chapter.cs" />
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
@@ -286,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708310052267_ChapterAddField1.resx">
       <DependentUpon>201708310052267_ChapterAddField1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708310738548_ChapterChange.resx">
+      <DependentUpon>201708310738548_ChapterChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -46,6 +46,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// <summary>
         /// 章节名称。
         /// </summary>
+        [Required]
         [Display(Name = "章节名称")]
         public virtual string ChapterName { get; set; }
 
