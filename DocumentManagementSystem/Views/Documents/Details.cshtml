@@ -1,0 +1,204 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Documents.Details.Details
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@Html.ActionLink("文档", "Index", "Documents", null, null)</li>
+    @Html.Action("BreadField", new { Model.DocumentId, activeCurrentNode = false })
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div>
+    <hr />
+</div>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocumentId)
+            <button class="btn btn-default btn-sm" data-clipboard-text="@(Model.DocumentId)">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                复制
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NodeName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NodeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocumentTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsChecked)
+        </dt>
+        <dd>
+            <input id="IsChecked" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="SetChecked" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="SetUnChecked" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsNoted)
+        </dt>
+        <dd>
+            <input id="IsNoted" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="SetNoted" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="SetUnNoted" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsGetAllChildren)
+        </dt>
+        <dd>
+            <input id="IsGetAllChildren" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="SetGetAllChildren" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="SetUnGetAllChildren" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+        <dd>
+            @Html.Raw(string.IsNullOrEmpty(Model.Remarks) ? string.Empty : @Model.Remarks.Replace("\n", "<br />"))
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <p>
+        @if (Model.ParentDocumentId == null)
+        {
+            <a href="@Url.Action("Index")" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                一览
+            </a>
+        }
+        else
+        {
+            <a href="@Url.Action("Details", new { id = Model.ParentDocumentId })" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                父节点
+            </a>
+        }
+        <a href="@Url.Action("Edit", new { id = Model.DocumentId})" class="btn btn-default">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            编辑
+        </a>
+    </p>
+</div>
+
+<div>
+    <hr />
+</div>
+
+<div class="row">
+    @* 子项目 *@
+    <div class="col-md-6">
+        <p>
+            <a id="CreateChild" href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增子节点
+            </a>
+            <a id="CannotCreateChild" class="btn btn-default disabled" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增子节点
+            </a>
+        </p>
+        <div>
+            @Html.Partial("Details_ListChildDocuments", Model.ListChildDocuments)
+        </div>
+    </div>
+
+    @* 章节 *@
+    <div class="col-md-6">
+        <p>
+            <a href="@Url.Action("CreateChapter", new { documentId = Model.DocumentId })" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增章节
+            </a>
+        </p>
+        <div>
+            @Html.Partial("Details_ListChapters", Model.ListChapters)
+        </div>
+    </div>
+</div>
+
+<script>
+    var flagIsChecked =@Model.IsChecked.ToString().ToLower();
+    var flagIsNoted =@Model.IsNoted.ToString().ToLower();
+    var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
+
+    var urlServicesGetDocument = '@Url.Action("GetDocument","services", new { id = Model.DocumentId })';
+
+    var urlServicesDocumentSetChecked = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsChecked&value=true';
+    var urlServicesDocumentSetUnChecked =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsChecked&value=false';
+    var urlServicesDocumentSetNoted = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=true';
+    var urlServicesDocumentSetUnNoted =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=false';
+    var urlServicesDocumentSetGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=true';
+    var urlServicesDocumentSetUnGetAllChildren =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=false';
+</script>
+
+@section Scripts {
+    <script src="~/Scripts/clipboard.min.js"></script>
+    <script src="~/Scripts/dms-normal.js"></script>
+    <script src="~/Scripts/dms-documents-details.js"></script>
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Documents.Index.Item>
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="text-center" width="70">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NodeName)
+            </th>
+            <th class="text-center" width="70">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+            <th class="text-center" width="70">
+                @Html.DisplayNameFor(model => model.IsNoted)
+            </th>
+            <th class="text-center" width="70">
+                @Html.DisplayNameFor(model => model.IsGetAllChildren)
+            </th>
+            <th class="text-center" width="70">
+                @Html.DisplayNameFor(model => model.IsHasRemarks)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.ActionLink(item.NodeName, "Details", new { id = item.DocumentId })
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsChecked)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsNoted)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsGetAllChildren)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsHasRemarks)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

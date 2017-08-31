@@ -1,0 +1,15 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Documents.BreadField.BreadField
+
+@foreach (var item in Model.List)
+{
+    <li>@Html.ActionLink(item.NodeName, "Details", "Documents", new { id = item.DocumentId }, null)</li>
+}
+
+@if (Model.ActiveCurrentNode)
+{
+    <li>@Html.ActionLink(Model.Current.NodeName, "Details", "Documents", new { id = Model.Current.DocumentId }, null)</li>
+}
+else
+{
+    <li>@Model.Current.NodeName</li>
+}
