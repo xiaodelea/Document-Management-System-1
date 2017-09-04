@@ -164,6 +164,41 @@ namespace DocumentManagementSystem.Controllers
         }
 
         /// <summary>
+        /// 新增文档章节-批量。
+        /// </summary>
+        /// <param name="documentId">文档ID。</param>
+        /// <returns></returns>
+        public ActionResult CreateChapterBatch(Guid documentId)
+        {
+            var targetV = new Models.ViewModels.Documents.CreateChapterBatch.CreateChapterBatch(documentId);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateChapterBatch([Bind()]Models.ViewModels.Documents.CreateChapterBatch.CreateChapterBatch targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new Models.Domains.Entities.DMsDbContext();
+
+                var targetList = targetV.GetReturnList();
+
+                foreach (var target in targetList)
+                {
+                    db.Chapters.Add(target);
+                }
+
+                db.SaveChanges();
+
+                return RedirectToAction("Details", new { id = targetV.DocumentId });
+            }
+
+            return View(targetV);
+        }
+
+        /// <summary>
         /// 删除章节。
         /// </summary>
         /// <param name="chapterId">章节ID。</param>

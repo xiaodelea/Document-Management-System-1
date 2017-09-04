@@ -175,6 +175,10 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增章节
             </a>
+            <a href="@Url.Action("CreateChapterBatch", new { documentId = Model.DocumentId })" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增章节-批量
+            </a>
         </p>
         <div>
             @Html.Partial("Details_ListChapters", Model.ListChapters)
