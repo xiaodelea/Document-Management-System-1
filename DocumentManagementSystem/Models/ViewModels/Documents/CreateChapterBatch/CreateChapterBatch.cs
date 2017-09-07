@@ -59,7 +59,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateChapterBatc
                 itemChapter.ChapterId = Guid.NewGuid();
                 itemChapter.DocumentId = this.DocumentId;
 
-                itemChapter.ChapterName = itemInput;
+                itemChapter.ChapterName = itemInput.Trim();
                 itemChapter.Priority = ++maxPriority;
 
                 itemChapter.UpdateTime = DateTime.Now;

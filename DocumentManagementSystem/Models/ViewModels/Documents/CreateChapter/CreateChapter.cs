@@ -58,7 +58,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateChapter
             target.ChapterId = Guid.NewGuid();
             target.DocumentId = this.DocumentId;
 
-            target.ChapterName = this.ChapterName;
+            target.ChapterName = this.ChapterName.Trim();
             target.Priority = this.Priority;
 
             target.UpdateTime = DateTime.Now;
