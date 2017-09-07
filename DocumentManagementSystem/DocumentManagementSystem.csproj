@@ -253,6 +253,8 @@
     <Content Include="Views\Documents\Details_ListChapters.cshtml" />
     <Content Include="Views\Documents\CreateChapter.cshtml" />
     <Content Include="Views\Documents\CreateChapterBatch.cshtml" />
+    <Content Include="Views\Documents\CreateByUrl.cshtml" />
+    <Content Include="Views\Documents\CreateByUrlMicrosoftDocs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,65 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Documents.CreateByUrlMicrosoftDocs.CreateByUrlMicrosoftDocs
+
+@{
+    ViewBag.Title = "通过URL新增文档 MicrosoftDocs";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(c => Model.ParentDocumentId)
+        @Html.HiddenFor(c => Model.Url)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NodeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NodeName, new { htmlAttributes = new { @class = "form-control" , id = "NodeName" } })
+                @Html.ValidationMessageFor(model => model.NodeName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <p>
+        @if (Model.ParentDocumentId != null)
+        {
+            <a href="@Url.Action("Details", new { id = Model.ParentDocumentId })" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                返回
+            </a>
+        }
+        else
+        {
+            <a href="@Url.Action("Index")" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                返回
+            </a>
+        }
+    </p>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#NodeName').focus();
+        });
+    </script>
+}

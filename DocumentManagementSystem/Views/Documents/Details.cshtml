@@ -162,6 +162,14 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点
             </a>
+            <a id="CreateChildByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增子节点用URL
+            </a>
+            <a id="CannotCreateChildByUrl" class="btn btn-default disabled" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增子节点用URL
+            </a>
         </p>
         <div>
             @Html.Partial("Details_ListChildDocuments", Model.ListChildDocuments)

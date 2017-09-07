@@ -93,6 +93,7 @@ function refreshContent() {
 
     //新增子节点 按钮
     refreshAddChildButton(flagIsGetAllChildren, 'CreateChild', 'CannotCreateChild');
+    refreshAddChildButton(flagIsGetAllChildren, 'CreateChildByUrl', 'CannotCreateChildByUrl');
 }
 
 //重新获取Flag
