@@ -102,6 +102,50 @@ namespace DocumentManagementSystem.Controllers
             return View(targetV);
         }
 
+        public ActionResult CreateByUrlMicrosoftDocs(Guid? parentDocumentId, string url)
+        {
+            var targetV = new Models.ViewModels.Documents.CreateByUrlMicrosoftDocs.CreateByUrlMicrosoftDocs(parentDocumentId, url);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateByUrlMicrosoftDocs([Bind()]Models.ViewModels.Documents.CreateByUrlMicrosoftDocs.CreateByUrlMicrosoftDocs targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocs(targetV.Url, targetV.NodeName);
+
+                bool result;
+
+                result = targetB.GetPage();
+                if (!result)
+                    return HttpNotFound();
+
+                result = targetB.ParsePage();
+                if (!result)
+                    return HttpNotFound();
+
+                var target = targetB.GetReturn();
+
+                var db = new Models.Domains.Entities.DMsDbContext();
+
+                target.DocumentId = Guid.NewGuid();
+                target.ParentDocumentId = targetV.ParentDocumentId;
+                {
+                    target.Priority = db.Documents.Where(c => c.ParentDocumentId == targetV.ParentDocumentId).Max(c => c.Priority);
+                    if (target.Priority == null) target.Priority = 1;
+                }
+                target.UpdateTime = DateTime.Now;
+
+                db.Documents.Add(target);
+                db.SaveChanges();
+            }
+
+            return View(targetV);
+        }
+
         /// <summary>
         /// 编辑。
         /// </summary>
