@@ -70,6 +70,38 @@ namespace DocumentManagementSystem.Controllers
             return View(targetV);
         }
 
+        public ActionResult CreateByUrl(Guid? parentDocumentId)
+        {
+            var targetV = new Models.ViewModels.Documents.CreateByUrl.CreateByUrl(parentDocumentId);
+            var targetW = new Models.ViewModels.Documents.CreateByUrl.SelectionWorker(targetV);
+
+            ViewBag.CodeOfSolver = targetW.CodesOfSolver;
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateByUrl([Bind()]Models.ViewModels.Documents.CreateByUrl.CreateByUrl targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                switch (targetV.CodeOfSolver)
+                {
+                    case "MicrosoftDocs":
+                        return RedirectToAction("CreateByUrlMicrosoftDocs", targetV);
+                    default:
+                        return HttpNotFound();
+                }
+            }
+
+            var targetW = new Models.ViewModels.Documents.CreateByUrl.SelectionWorker(targetV);
+
+            ViewBag.CodeOfSolver = targetW.CodesOfSolver;
+
+            return View(targetV);
+        }
+
         /// <summary>
         /// 编辑。
         /// </summary>
