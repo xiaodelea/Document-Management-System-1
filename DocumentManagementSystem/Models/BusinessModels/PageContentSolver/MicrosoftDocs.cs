@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using HtmlAgilityPackExtension;
+
 namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
 {
     public class MicrosoftDocs : Base
@@ -45,16 +47,16 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
             try
             {
                 var div_main = DOM.GetElementbyId("main");
-                //var div_main_h1 = div_main.MyGetNode("h1", 1);
-                //var div_main_div1 = div_main.MyGetNode("div", "class", "metadata loading", 1);
-                //var div_main_div1_div1 = div_main_div1.MyGetNode("div", 1);
-                //var div_main_div1_div1_time = div_main_div1_div1.MyGetNode("time", "class", "date", 1);
+                var div_main_h1 = div_main.MyGetNode("h1", 1);
+                var div_main_div1 = div_main.MyGetNode("div", "class", "metadata loading", 1);
+                var div_main_div1_div1 = div_main_div1.MyGetNode("div", 1);
+                var div_main_div1_div1_time = div_main_div1_div1.MyGetNode("time", "class", "date", 1);
 
-                //this.Document.Title = div_main_h1.InnerText;
-                //this.Document.NodeName = this.NodeName;
-                //this.Document.DocumentTime = DateTime.Parse(div_main_div1_div1_time.Attributes["datetime"].Value);
-                //this.Document.UpdateTimeForHTTPGet = DateTime.Now;
-                //this.Document.Url = this.Url;
+                this.Document.Title = div_main_h1.InnerText;
+                this.Document.NodeName = this.NodeName;
+                this.Document.DocumentTime = DateTime.Parse(div_main_div1_div1_time.Attributes["datetime"].Value);
+                this.Document.UpdateTimeForHTTPGet = DateTime.Now;
+                this.Document.Url = this.Url;
             }
             catch
             {
