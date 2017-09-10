@@ -134,7 +134,7 @@ namespace DocumentManagementSystem.Controllers
                 target.DocumentId = Guid.NewGuid();
                 target.ParentDocumentId = targetV.ParentDocumentId;
                 {
-                    target.Priority = db.Documents.Where(c => c.ParentDocumentId == targetV.ParentDocumentId).Max(c => c.Priority);
+                    target.Priority = db.Documents.Where(c => c.ParentDocumentId == targetV.ParentDocumentId).Max(c => c.Priority) + 1;
                     if (target.Priority == null) target.Priority = 1;
                 }
                 target.UpdateTime = DateTime.Now;
