@@ -190,6 +190,34 @@ namespace DocumentManagementSystem.Controllers
         }
 
         /// <summary>
+        /// 删除。
+        /// </summary>
+        /// <param name="id">文档ID。</param>
+        /// <returns>父文档页面（如果有父文档）或一览（如果无父文档）。</returns>
+        /// <remarks>直接删除。不提示。</remarks>
+        public ActionResult Delete(Guid id)
+        {
+            var db = new Models.Domains.Entities.DMsDbContext();
+
+            var target = db.Documents.Find(id);
+
+            if (target == null)
+                return HttpNotFound();
+
+            var parentDocumentId = target.ParentDocumentId;
+
+            target.ParentDocumentId = null;
+            db.SaveChanges();
+            db.Documents.Remove(target);
+            db.SaveChanges();
+
+            if (parentDocumentId != null)
+                return RedirectToAction("Details", new { id = parentDocumentId });
+            else
+                return RedirectToAction("Index");
+        }
+
+        /// <summary>
         /// 面包屑。
         /// </summary>
         /// <param name="id">当前文档ID。</param>
