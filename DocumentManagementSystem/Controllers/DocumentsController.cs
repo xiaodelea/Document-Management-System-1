@@ -141,6 +141,8 @@ namespace DocumentManagementSystem.Controllers
 
                 db.Documents.Add(target);
                 db.SaveChanges();
+
+                return RedirectToAction("Details", new { id = target.ParentDocumentId });
             }
 
             return View(targetV);
