@@ -68,7 +68,7 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
 
         public override Models.Domains.Entities.Document GetReturn()
         {
-            throw new NotImplementedException();
+            return this.Document;
         }
     }
 }
