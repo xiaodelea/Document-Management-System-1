@@ -142,6 +142,11 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// </summary>
         public virtual string Remarks { get; set; }
 
+        /// <summary>
+        /// 阅读时间。
+        /// </summary>
+        public virtual int? MinutesToRead { get; set; }
+
 
 
 
