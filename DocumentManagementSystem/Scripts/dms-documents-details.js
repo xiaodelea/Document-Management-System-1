@@ -12,8 +12,8 @@ $(document).ready(function () {
 function buttonBinding() {
     $("#SetChecked").click(buttonHandlerSetChecked);
     $("#SetUnChecked").click(buttonHandlerSetUnChecked);
-    $("#SetNoted").click(buttonHandlerSetNoted);
-    $("#SetUnNoted").click(buttonHandlerSetUnNoted);
+    //$("#SetNoted").click(buttonHandlerSetNoted);
+    //$("#SetUnNoted").click(buttonHandlerSetUnNoted);
     $("#SetGetAllChildren").click(buttonHandlerSetGetAllChildren);
     $("#SetUnGetAllChildren").click(buttonHandlerSetUnGetAllChildren);
 }
@@ -87,7 +87,7 @@ function refreshContent() {
     //更新查阅相关
     refreshButtonsCheckedboxes(flagIsChecked, 'SetChecked', 'SetUnChecked', 'IsChecked');
     //更新笔记相关
-    refreshButtonsCheckedboxes(flagIsNoted, 'SetNoted', 'SetUnNoted', 'IsNoted');
+    //refreshButtonsCheckedboxes(flagIsNoted, 'SetNoted', 'SetUnNoted', 'IsNoted');
     //更新子节点相关
     refreshButtonsCheckedboxes(flagIsGetAllChildren, 'SetGetAllChildren', 'SetUnGetAllChildren', 'IsGetAllChildren');
 

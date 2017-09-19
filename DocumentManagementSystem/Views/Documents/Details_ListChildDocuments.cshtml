@@ -12,10 +12,10 @@
             <th class="text-center" width="8%">
                 @Html.DisplayNameFor(model => model.IsChecked)
             </th>
-            <th class="text-center">
+            @*<th class="text-center">
                 @Html.DisplayNameFor(model => model.IsNoted)
-            </th>
-            <th class="text-center">
+            </th>*@
+            <th class="text-center" width="10%">
                 @Html.DisplayNameFor(model => model.IsGetAllChildren)
             </th>
             <th class="text-center" width="8%">
@@ -36,9 +36,9 @@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsChecked)
                 </td>
-                <td class="text-center">
+                @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsNoted)
-                </td>
+                </td>*@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsGetAllChildren)
                 </td>
