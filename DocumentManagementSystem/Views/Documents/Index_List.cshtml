@@ -21,6 +21,9 @@
             <th class="text-center" width="70">
                 @Html.DisplayNameFor(model => model.IsHasRemarks)
             </th>
+            <th class="text-center" width="6%">
+                @Html.DisplayNameFor(model => model.TotalMinutesToRead)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +47,9 @@
                 </td>
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsHasRemarks)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.TotalMinutesToRead)
                 </td>
             </tr>
         }

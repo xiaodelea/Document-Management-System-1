@@ -27,6 +27,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Edit
             this.Url = document.Url;
             this.DocumentTime = document.DocumentTime;
             this.Remarks = document.Remarks;
+            this.MinutesToRead = document.MinutesToRead;
         }
 
         /// <summary>
@@ -97,6 +98,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Edit
         [Display(Name = "备注")]
         public string Remarks { get; set; }
 
+        [Display(Name = "阅读时间")]
+        public int? MinutesToRead { get; set; }
+
 
 
 
@@ -113,6 +117,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Edit
             document.Url = this.Url;
             document.DocumentTime = this.DocumentTime;
             document.Remarks = this.Remarks;
+            document.MinutesToRead = this.MinutesToRead;
         }
     }
 }

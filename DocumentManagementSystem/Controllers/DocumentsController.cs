@@ -115,7 +115,8 @@ namespace DocumentManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocs(targetV.Url, targetV.NodeName);
+                //var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocs(targetV.Url, targetV.NodeName);
+                var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocs(targetV);
 
                 bool result;
 

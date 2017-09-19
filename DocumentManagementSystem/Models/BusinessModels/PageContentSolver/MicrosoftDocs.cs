@@ -14,11 +14,19 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
             this.NodeName = nodeName;
         }
 
+        public MicrosoftDocs(Models.ViewModels.Documents.CreateByUrlMicrosoftDocs.CreateByUrlMicrosoftDocs targetV) : base(targetV.Url)
+        {
+            this.NodeName = targetV.NodeName;
+            this.MinutesToRead = targetV.MinutesToRead;
+        }
+
 
 
 
 
         public string NodeName { get; set; }
+
+        public int? MinutesToRead { get; set; }
 
 
 
@@ -57,6 +65,7 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
                 this.Document.DocumentTime = DateTime.Parse(div_main_div1_div1_time.Attributes["datetime"].Value);
                 this.Document.UpdateTimeForHTTPGet = DateTime.Now;
                 this.Document.Url = this.Url;
+                this.Document.MinutesToRead = this.MinutesToRead;
             }
             catch
             {

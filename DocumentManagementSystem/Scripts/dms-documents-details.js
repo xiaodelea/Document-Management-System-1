@@ -94,6 +94,9 @@ function refreshContent() {
     //新增子节点 按钮
     refreshAddChildButton(flagIsGetAllChildren, 'CreateChild', 'CannotCreateChild');
     refreshAddChildButton(flagIsGetAllChildren, 'CreateChildByUrl', 'CannotCreateChildByUrl');
+
+    //更新数据显示
+    refreshDataDisplay();
 }
 
 //重新获取Flag
@@ -104,6 +107,7 @@ function refreshFlag() {
             flagIsChecked = data.IsChecked;
             flagIsNoted = data.IsNoted;
             flagIsGetAllChildren = data.IsGetAllChildren;
+            intTotalMinutesToRead = data.TotalMinutesToRead;
 
             refreshContent();
         },
@@ -133,4 +137,8 @@ function refreshAddChildButton(flag, id_Able, id_Unable) {
         document.getElementById(id_Able).style.display = "";
         document.getElementById(id_Unable).style.display = "none";
     }
+}
+
+function refreshDataDisplay() {
+    document.getElementById('TotalMinutesToRead').innerHTML = intTotalMinutesToRead;
 }

@@ -68,6 +68,14 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.MinutesToRead, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MinutesToRead, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MinutesToRead, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(Model => Model.Remarks, new { htmlAttributes = new { @class = "form-control" }, cols = "50", rows = "10" })

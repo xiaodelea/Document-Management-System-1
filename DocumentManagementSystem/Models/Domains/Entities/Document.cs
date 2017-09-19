@@ -179,5 +179,17 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// 章节集合。
         /// </summary>
         public virtual List<Chapter> Chapters { get; set; }
+
+
+
+
+
+        public int? TotalMinutesToRead
+        {
+            get
+            {
+                return this.ChildDocuments.Sum(c => c.TotalMinutesToRead) + (this.IsChecked ? this.MinutesToRead : 0);
+            }
+        }
     }
 }

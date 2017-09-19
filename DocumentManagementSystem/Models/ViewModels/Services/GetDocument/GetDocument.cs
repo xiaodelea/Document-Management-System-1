@@ -33,6 +33,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             //this.SourceTextHashCode = document.SourceTextHashCode;
             //this.Remarks = document.Remarks;
             //this.UpdateTime = document.UpdateTime;
+            this.TotalMinutesToRead = document.TotalMinutesToRead;
         }
 
 
@@ -96,6 +97,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         /// 文档日期。
         /// </summary>
         //public DateTime? DocumentTime { get; set; }
+
+        public int? TotalMinutesToRead { get; set; }
 
 
 

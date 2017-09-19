@@ -27,6 +27,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.IsNoted = document.IsNoted;
             this.IsGetAllChildren = document.IsGetAllChildren;
             this.IsHasRemarks = !string.IsNullOrEmpty(document.Remarks);
+            this.TotalMinutesToRead = document.TotalMinutesToRead;
         }
 
 
@@ -78,5 +79,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// </summary>
         [Display(Name = "备注")]
         public bool IsHasRemarks { get; set; }
+
+        [Display(Name = "累计时间")]
+        public int? TotalMinutesToRead { get; set; }
     }
 }

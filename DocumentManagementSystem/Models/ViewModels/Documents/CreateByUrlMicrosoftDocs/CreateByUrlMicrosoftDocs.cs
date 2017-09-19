@@ -32,5 +32,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateByUrlMicros
 
         [Required]
         public string NodeName { get; set; }
+
+        public int? MinutesToRead { get; set; }
     }
 }

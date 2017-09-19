@@ -75,6 +75,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Create
         [Display(Name = "文档日期")]
         public DateTime? DocumentTime { get; set; }
 
+        [Display(Name = "阅读时间")]
+        public int? MinutesToRead { get; set; }
+
 
 
 
@@ -95,6 +98,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Create
             target.Priority = this.Priority;
             target.Url = this.Url;
             target.DocumentTime = this.DocumentTime;
+            target.MinutesToRead = this.MinutesToRead;
 
             target.UpdateTimeForHTTPGet = new DateTime(1900, 1, 1);
 

@@ -67,6 +67,20 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.MinutesToRead)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MinutesToRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMinutesToRead)
+        </dt>
+        <dd>
+            <span id="TotalMinutesToRead">@Html.DisplayFor(model => model.TotalMinutesToRead)</span>
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.IsChecked)
         </dt>
         <dd>
@@ -198,6 +212,7 @@
     var flagIsChecked =@Model.IsChecked.ToString().ToLower();
     var flagIsNoted =@Model.IsNoted.ToString().ToLower();
     var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
+    var intTotalMinutesToRead=@Model.TotalMinutesToRead;
 
     var urlServicesGetDocument = '@Url.Action("GetDocument","services", new { id = Model.DocumentId })';
 
