@@ -6,10 +6,10 @@
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.ChapterName)
             </th>
-            <th class="text-center" width="60px">
+            <th class="text-center" width="8%">
                 @Html.DisplayNameFor(model => model.Priority)
             </th>
-            <th class="text-center" width="60px">
+            <th class="text-center" width="6%">
             </th>
         </tr>
     </thead>
@@ -23,8 +23,11 @@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Priority)
                 </td>
-                <td>
-                    @Html.ActionLink("删除", "DeleteChapter", new { chapterId = item.ChapterId })
+                <td class="text-center">
+                    <a href="@Url.Action("DeleteChapter", new { chapterId=item.ChapterId })">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        
+                    </a>
                 </td>
             </tr>
         }
