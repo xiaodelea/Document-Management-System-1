@@ -93,9 +93,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         /// </summary>
         public bool IsGetAllChildren { get; set; }
 
-        /// <summary>
-        /// 文档日期。
-        /// </summary>
+        ///// <summary>
+        ///// 文档日期。
+        ///// </summary>
         //public DateTime? DocumentTime { get; set; }
 
         public int? TotalMinutesToRead { get; set; }
