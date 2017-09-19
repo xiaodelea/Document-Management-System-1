@@ -24,7 +24,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.NodeName = document.NodeName;
             this.Priority = document.Priority;
             this.IsChecked = document.IsChecked;
-            this.IsNoted = document.IsNoted;
+            //this.IsNoted = document.IsNoted;
             this.IsGetAllChildren = document.IsGetAllChildren;
             this.IsHasRemarks = !string.IsNullOrEmpty(document.Remarks);
             this.TotalMinutesToRead = document.TotalMinutesToRead;
@@ -62,11 +62,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         [Display(Name = "查阅")]
         public bool IsChecked { get; set; }
 
-        /// <summary>
-        /// 是否有笔记。
-        /// </summary>
-        [Display(Name = "笔记")]
-        public bool IsNoted { get; set; }
+        ///// <summary>
+        ///// 是否有笔记。
+        ///// </summary>
+        //[Display(Name = "笔记")]
+        //public bool IsNoted { get; set; }
 
         /// <summary>
         /// 是否已获取全部子节点。

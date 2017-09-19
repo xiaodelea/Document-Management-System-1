@@ -25,7 +25,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;
             this.IsChecked = target.IsChecked;
-            this.IsNoted = target.IsNoted;
+            //this.IsNoted = target.IsNoted;
             this.IsGetAllChildren = target.IsGetAllChildren;
             this.Url = target.Url;
             this.DocumentTime = target.DocumentTime;
@@ -96,11 +96,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         [Display(Name = "查阅")]
         public bool IsChecked { get; set; }
 
-        /// <summary>
-        /// 是否有笔记。
-        /// </summary>
-        [Display(Name = "笔记")]
-        public bool IsNoted { get; set; }
+        ///// <summary>
+        ///// 是否有笔记。
+        ///// </summary>
+        //[Display(Name = "笔记")]
+        //public bool IsNoted { get; set; }
 
         /// <summary>
         /// 是否已获取全部子节点。
