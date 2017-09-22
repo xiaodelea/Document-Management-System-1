@@ -129,6 +129,22 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.IsBookmarked)
+        </dt>
+        <dd>
+            <input id="IsBookmarked" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="SetBookmarked" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="SetUnBookmarked" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Remarks)
         </dt>
         <dd>
@@ -213,6 +229,7 @@
     @*var flagIsNoted =@Model.IsNoted.ToString().ToLower();*@ var flagIsNoted = false;    
     var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
     var intTotalMinutesToRead=@Model.TotalMinutesToRead;
+    var flagIsBookmarked=@Model.IsBookmarked.ToString().ToLower();
 
     var urlServicesGetDocument = '@Url.Action("GetDocument","services", new { id = Model.DocumentId })';
 
@@ -222,6 +239,8 @@
     var urlServicesDocumentSetUnNoted =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=false';
     var urlServicesDocumentSetGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=true';
     var urlServicesDocumentSetUnGetAllChildren =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=false';
+    var urlServicesDocumentSetBookmarked = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsBookmarked&value=true';
+    var urlServicesDocumentSetUnBookmarked =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsBookmarked&value=false';
 </script>
 
 @section Scripts {

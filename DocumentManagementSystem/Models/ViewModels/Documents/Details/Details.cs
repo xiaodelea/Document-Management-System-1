@@ -32,6 +32,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.Remarks = target.Remarks;
             this.MinutesToRead = target.MinutesToRead;
             this.TotalMinutesToRead = target.TotalMinutesToRead;
+            this.IsBookmarked = target.IsBookmarked;
 
             this.ListChildDocuments = target.ChildDocuments.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId).Select(c => new ItemChildDocument(c)).ToList();
 
@@ -132,6 +133,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
 
         [Display(Name = "累计时间")]
         public int? TotalMinutesToRead { get; set; }
+
+        [Display(Name = "书签")]
+        public bool IsBookmarked { get; set; }
 
 
 

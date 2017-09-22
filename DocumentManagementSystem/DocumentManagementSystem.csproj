@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201709191249184_DocumentAddField3.Designer.cs">
       <DependentUpon>201709191249184_DocumentAddField3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709220319102_DocumentAddField4.cs" />
+    <Compile Include="Migrations\201709220319102_DocumentAddField4.Designer.cs">
+      <DependentUpon>201709220319102_DocumentAddField4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
@@ -214,6 +218,8 @@
     <Compile Include="Models\ViewModels\Documents\Details\ItemChapter.cs" />
     <Compile Include="Models\ViewModels\Documents\Details\ItemChildDocument.cs" />
     <Compile Include="Models\ViewModels\Documents\Edit\Edit.cs" />
+    <Compile Include="Models\ViewModels\Documents\IndexBookmark\IndexBookmark.cs" />
+    <Compile Include="Models\ViewModels\Documents\IndexBookmark\Item.cs" />
     <Compile Include="Models\ViewModels\Documents\Index\Index.cs" />
     <Compile Include="Models\ViewModels\Documents\Index\Item.cs" />
     <Compile Include="Models\ViewModels\Services\GetDocument\GetDocument.cs" />
@@ -272,6 +278,8 @@
     <Content Include="Views\Documents\CreateChapterBatch.cshtml" />
     <Content Include="Views\Documents\CreateByUrl.cshtml" />
     <Content Include="Views\Documents\CreateByUrlMicrosoftDocs.cshtml" />
+    <Content Include="Views\Documents\IndexBookmark.cshtml" />
+    <Content Include="Views\Documents\IndexBookmark_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709191249184_DocumentAddField3.resx">
       <DependentUpon>201709191249184_DocumentAddField3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709220319102_DocumentAddField4.resx">
+      <DependentUpon>201709220319102_DocumentAddField4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

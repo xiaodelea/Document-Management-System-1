@@ -147,6 +147,11 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// </summary>
         public virtual int? MinutesToRead { get; set; }
 
+        /// <summary>
+        /// 是否标记书签。
+        /// </summary>
+        public virtual bool IsBookmarked { get; set; }
+
 
 
 
@@ -189,6 +194,28 @@ namespace DocumentManagementSystem.Models.Domains.Entities
             get
             {
                 return this.ChildDocuments.Sum(c => c.TotalMinutesToRead) + ((this.IsChecked && this.MinutesToRead.HasValue) ? this.MinutesToRead.Value : 0);
+            }
+        }
+
+        /// <summary>
+        /// 路径。
+        /// </summary>
+        public string Path
+        {
+            get
+            {
+                var builder = new System.Text.StringBuilder();
+                var node = this.ParentDocument;
+
+                while (node != null)
+                {
+                    builder.Insert(0, "/ " + node.NodeName + " ");
+
+                    node = node.ParentDocument;
+                }
+                builder.Append(" /");
+
+                return builder.ToString();
             }
         }
     }

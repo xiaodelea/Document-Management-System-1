@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Documents.IndexBookmark.Item>
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NodeName)
+            </th>
+            <th class="text-center" width="75%">
+                @Html.DisplayNameFor(model => model.Path)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.NodeName, "Details", new { id = item.DocumentId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Path)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
