@@ -196,5 +196,27 @@ namespace DocumentManagementSystem.Models.Domains.Entities
                 return this.ChildDocuments.Sum(c => c.TotalMinutesToRead) + ((this.IsChecked && this.MinutesToRead.HasValue) ? this.MinutesToRead.Value : 0);
             }
         }
+
+        /// <summary>
+        /// 路径。
+        /// </summary>
+        public string Path
+        {
+            get
+            {
+                var builder = new System.Text.StringBuilder();
+                var node = this.ParentDocument;
+
+                while (node != null)
+                {
+                    builder.Insert(0, "/ " + node.NodeName + " ");
+
+                    node = node.ParentDocument;
+                }
+                builder.Append(" /");
+
+                return builder.ToString();
+            }
+        }
     }
 }
