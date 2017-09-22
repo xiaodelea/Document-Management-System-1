@@ -34,6 +34,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             //this.Remarks = document.Remarks;
             //this.UpdateTime = document.UpdateTime;
             this.TotalMinutesToRead = document.TotalMinutesToRead;
+            this.IsBookmarked = document.IsBookmarked;
         }
 
 
@@ -99,6 +100,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         //public DateTime? DocumentTime { get; set; }
 
         public int? TotalMinutesToRead { get; set; }
+
+        public bool IsBookmarked { get; set; }
 
 
 

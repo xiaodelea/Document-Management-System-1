@@ -16,6 +16,8 @@ function buttonBinding() {
     //$("#SetUnNoted").click(buttonHandlerSetUnNoted);
     $("#SetGetAllChildren").click(buttonHandlerSetGetAllChildren);
     $("#SetUnGetAllChildren").click(buttonHandlerSetUnGetAllChildren);
+    $("#SetBookmarked").click(buttonHandlerSetBookmarked);
+    $("#SetUnBookmarked").click(buttonHandlerSetUnBookmarked);
 }
 
 function buttonHandlerSetChecked(event) {
@@ -78,6 +80,26 @@ function buttonHandlerSetUnGetAllChildren(event) {
     );
 }
 
+function buttonHandlerSetBookmarked(event) {
+    document.getElementById('SetBookmarked').style.display = "none";
+    $.post(urlServicesDocumentSetBookmarked,
+        null,
+        function (data, status) {
+            refreshFlag();
+        }
+    );
+}
+
+function buttonHandlerSetUnBookmarked(event) {
+    document.getElementById('SetUnBookmarked').style.display = "none";
+    $.post(urlServicesDocumentSetUnBookmarked,
+        null,
+        function (data, status) {
+            refreshFlag();
+        }
+    );
+}
+
 
 
 
@@ -88,6 +110,8 @@ function refreshContent() {
     refreshButtonsCheckedboxes(flagIsChecked, 'SetChecked', 'SetUnChecked', 'IsChecked');
     //更新笔记相关
     //refreshButtonsCheckedboxes(flagIsNoted, 'SetNoted', 'SetUnNoted', 'IsNoted');
+    //更新书签相关
+    refreshButtonsCheckedboxes(flagIsBookmarked, 'SetBookmarked', 'SetUnBookmarked', 'IsBookmarked');
     //更新子节点相关
     refreshButtonsCheckedboxes(flagIsGetAllChildren, 'SetGetAllChildren', 'SetUnGetAllChildren', 'IsGetAllChildren');
 
@@ -107,6 +131,7 @@ function refreshFlag() {
             flagIsChecked = data.IsChecked;
             flagIsNoted = data.IsNoted;
             flagIsGetAllChildren = data.IsGetAllChildren;
+            flagIsBookmarked = data.IsBookmarked;
             intTotalMinutesToRead = data.TotalMinutesToRead;
 
             refreshContent();

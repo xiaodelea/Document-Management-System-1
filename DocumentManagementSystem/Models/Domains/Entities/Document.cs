@@ -147,6 +147,11 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// </summary>
         public virtual int? MinutesToRead { get; set; }
 
+        /// <summary>
+        /// 是否标记书签。
+        /// </summary>
+        public virtual bool IsBookmarked { get; set; }
+
 
 
 
