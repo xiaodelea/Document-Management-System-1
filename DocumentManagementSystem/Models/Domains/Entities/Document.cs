@@ -184,11 +184,11 @@ namespace DocumentManagementSystem.Models.Domains.Entities
 
 
 
-        public int? TotalMinutesToRead
+        public int TotalMinutesToRead
         {
             get
             {
-                return this.ChildDocuments.Sum(c => c.TotalMinutesToRead) + (this.IsChecked ? this.MinutesToRead : 0);
+                return this.ChildDocuments.Sum(c => c.TotalMinutesToRead) + ((this.IsChecked && this.MinutesToRead.HasValue) ? this.MinutesToRead.Value : 0);
             }
         }
     }
