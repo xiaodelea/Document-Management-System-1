@@ -22,6 +22,13 @@ namespace DocumentManagementSystem.Controllers
             return View(targetV);
         }
 
+        public ActionResult IndexBookmark()
+        {
+            var targetV = new Models.ViewModels.Documents.IndexBookmark.IndexBookmark();
+
+            return View(targetV);
+        }
+
         /// <summary>
         /// 明细。
         /// </summary>
