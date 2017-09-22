@@ -20,6 +20,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         {
             this.DocumentId = target.DocumentId;
             this.ParentDocumentId = target.ParentDocumentId;
+            this.PreSilbingDocumentId = target.ParentDocument?.ChildDocuments.Where(c => c.Priority < target.Priority).OrderBy(c => c.Priority).LastOrDefault()?.DocumentId;
+            this.PostSilbingDocumentId = target.ParentDocument?.ChildDocuments.OrderBy(c => c.Priority).FirstOrDefault(c => c.Priority > target.Priority)?.DocumentId;
 
             this.Title = target.Title;
             this.NodeName = target.NodeName;
@@ -66,6 +68,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// 父文档文档ID。
         /// </summary>
         public Guid? ParentDocumentId { get; set; }
+
+        public Guid? PreSilbingDocumentId { get; set; }
+
+        public Guid? PostSilbingDocumentId { get; set; }
 
 
 

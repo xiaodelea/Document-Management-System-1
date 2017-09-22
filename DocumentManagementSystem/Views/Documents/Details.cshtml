@@ -155,7 +155,7 @@
 
 <div>
     <p>
-        @if (Model.ParentDocumentId == null)
+        @*@if (Model.ParentDocumentId == null)
         {
             <a href="@Url.Action("Index")" class="btn btn-default">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -168,6 +168,34 @@
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 父节点
             </a>
+        }*@
+        @if (Model.PreSilbingDocumentId.HasValue)
+        {
+            <a href="@Url.Action("Details",new { id=Model.PreSilbingDocumentId})" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                上一篇
+            </a>
+        }
+        else
+        {
+            <button class="btn btn-default" disabled="disabled">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                上一篇
+            </button>
+        }
+        @if (Model.PostSilbingDocumentId.HasValue)
+        {
+            <a href="@Url.Action("Details",new { id=Model.PostSilbingDocumentId})" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                下一篇
+            </a>
+        }
+        else
+        {
+            <button class="btn btn-default" disabled="disabled">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                下一篇
+            </button>
         }
         <a href="@Url.Action("Edit", new { id = Model.DocumentId})" class="btn btn-default">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
