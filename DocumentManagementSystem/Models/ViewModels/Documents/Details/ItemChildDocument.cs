@@ -40,7 +40,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// </summary>
         public Guid DocumentId { get; set; }
 
-
+       
 
 
 
