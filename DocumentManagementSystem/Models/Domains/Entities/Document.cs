@@ -95,6 +95,12 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         public virtual bool IsGetAllChildren { get; set; }
 
         /// <summary>
+        /// 是否已获取全部章节。
+        /// </summary>
+        [Display(Name = "章节")]
+        public virtual bool IsGetAllChapters { get; set; }
+
+        /// <summary>
         /// 文档日期。
         /// </summary>
         /// <remarks>文档本身更新的日期。</remarks>
@@ -216,6 +222,18 @@ namespace DocumentManagementSystem.Models.Domains.Entities
                 builder.Append(" /");
 
                 return builder.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 是否完成。
+        /// </summary>
+        /// <remarks>表示该文档的内容、章节、子目录均完成。（不要求子文档本身为完成）。</remarks>
+        public bool IsFinished
+        {
+            get
+            {
+                return this.IsChecked && this.IsGetAllChildren && this.IsGetAllChapters;
             }
         }
     }

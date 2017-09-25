@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201709220319102_DocumentAddField4.Designer.cs">
       <DependentUpon>201709220319102_DocumentAddField4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709250049045_DocumentAddField5.cs" />
+    <Compile Include="Migrations\201709250049045_DocumentAddField5.Designer.cs">
+      <DependentUpon>201709250049045_DocumentAddField5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
@@ -330,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709220319102_DocumentAddField4.resx">
       <DependentUpon>201709220319102_DocumentAddField4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709250049045_DocumentAddField5.resx">
+      <DependentUpon>201709250049045_DocumentAddField5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

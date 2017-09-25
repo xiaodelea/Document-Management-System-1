@@ -26,6 +26,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             this.IsChecked = document.IsChecked;
             this.IsNoted = document.IsNoted;
             this.IsGetAllChildren = document.IsGetAllChildren;
+            this.IsGetAllChapters = document.IsGetAllChapters;
             //this.Url = document.Url;
             //this.DocumentTime = document.DocumentTime;
             //this.SourceTextMainContain = document.SourceTextMainContain;
@@ -35,6 +36,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             //this.UpdateTime = document.UpdateTime;
             this.TotalMinutesToRead = document.TotalMinutesToRead;
             this.IsBookmarked = document.IsBookmarked;
+            this.IsFinished = document.IsFinished;
         }
 
 
@@ -94,6 +96,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         /// </summary>
         public bool IsGetAllChildren { get; set; }
 
+        public bool IsGetAllChapters { get; set; }
+
         ///// <summary>
         ///// 文档日期。
         ///// </summary>
@@ -102,6 +106,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         public int? TotalMinutesToRead { get; set; }
 
         public bool IsBookmarked { get; set; }
+
+        public bool IsFinished { get; set; }
 
 
 

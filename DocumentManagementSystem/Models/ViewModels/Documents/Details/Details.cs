@@ -23,12 +23,15 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.PreSilbingDocumentId = target.ParentDocument?.ChildDocuments.Where(c => c.Priority < target.Priority).OrderBy(c => c.Priority).LastOrDefault()?.DocumentId;
             this.PostSilbingDocumentId = target.ParentDocument?.ChildDocuments.OrderBy(c => c.Priority).FirstOrDefault(c => c.Priority > target.Priority)?.DocumentId;
 
+            this.IsFinished = target.IsFinished;
+
             this.Title = target.Title;
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;
             this.IsChecked = target.IsChecked;
             //this.IsNoted = target.IsNoted;
             this.IsGetAllChildren = target.IsGetAllChildren;
+            this.IsGetAllChapters = target.IsGetAllChapters;
             this.Url = target.Url;
             this.DocumentTime = target.DocumentTime;
             this.Remarks = target.Remarks;
@@ -77,6 +80,12 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
 
 
 
+        public bool IsFinished { get; set; }
+
+
+
+
+
         /// <summary>
         /// 标题。
         /// </summary>
@@ -114,6 +123,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// </summary>
         [Display(Name = "子节点")]
         public bool IsGetAllChildren { get; set; }
+
+        [Display(Name = "章节")]
+        public bool IsGetAllChapters { get; set; }
 
         /// <summary>
         /// URL。
