@@ -55,6 +55,9 @@ namespace DocumentManagementSystem.Controllers
                 case "IsGetAllChildren":
                     target.IsGetAllChildren = value;
                     break;
+                case "IsGetAllChapters":
+                    target.IsGetAllChapters = value;
+                    break;
                 case "IsBookmarked":
                     target.IsBookmarked = value;
                     break;

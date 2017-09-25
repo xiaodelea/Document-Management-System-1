@@ -95,6 +95,12 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         public virtual bool IsGetAllChildren { get; set; }
 
         /// <summary>
+        /// 是否已获取全部章节。
+        /// </summary>
+        [Display(Name = "章节")]
+        public virtual bool IsGetAllChapters { get; set; }
+
+        /// <summary>
         /// 文档日期。
         /// </summary>
         /// <remarks>文档本身更新的日期。</remarks>

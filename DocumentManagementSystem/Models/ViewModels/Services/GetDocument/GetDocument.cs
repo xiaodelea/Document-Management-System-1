@@ -26,6 +26,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             this.IsChecked = document.IsChecked;
             this.IsNoted = document.IsNoted;
             this.IsGetAllChildren = document.IsGetAllChildren;
+            this.IsGetAllChapters = document.IsGetAllChapters;
             //this.Url = document.Url;
             //this.DocumentTime = document.DocumentTime;
             //this.SourceTextMainContain = document.SourceTextMainContain;
@@ -93,6 +94,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         /// 是否已获取全部子节点。
         /// </summary>
         public bool IsGetAllChildren { get; set; }
+
+        public bool IsGetAllChapters { get; set; }
 
         ///// <summary>
         ///// 文档日期。

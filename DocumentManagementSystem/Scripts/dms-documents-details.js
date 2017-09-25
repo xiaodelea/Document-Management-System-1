@@ -16,6 +16,8 @@ function buttonBinding() {
     //$("#SetUnNoted").click(buttonHandlerSetUnNoted);
     $("#SetGetAllChildren").click(buttonHandlerSetGetAllChildren);
     $("#SetUnGetAllChildren").click(buttonHandlerSetUnGetAllChildren);
+    $("#SetGetAllChapters").click(buttonHandlerSetGetAllChapters);
+    $("#SetUnGetAllChapters").click(buttonHandlerSetUnGetAllChapters);
     $("#SetBookmarked").click(buttonHandlerSetBookmarked);
     $("#SetUnBookmarked").click(buttonHandlerSetUnBookmarked);
 }
@@ -80,6 +82,26 @@ function buttonHandlerSetUnGetAllChildren(event) {
     );
 }
 
+function buttonHandlerSetGetAllChapters(event) {
+    document.getElementById('SetGetAllChapters').style.display = "none";
+    $.post(urlServicesDocumentSetGetAllChapters,
+        null,
+        function (data, status) {
+            refreshFlag();
+        }
+    );
+}
+
+function buttonHandlerSetUnGetAllChapters(event) {
+    document.getElementById('SetUnGetAllChapters').style.display = "none";
+    $.post(urlServicesDocumentSetUnGetAllChapters,
+        null,
+        function (data, status) {
+            refreshFlag();
+        }
+    );
+}
+
 function buttonHandlerSetBookmarked(event) {
     document.getElementById('SetBookmarked').style.display = "none";
     $.post(urlServicesDocumentSetBookmarked,
@@ -114,10 +136,14 @@ function refreshContent() {
     refreshButtonsCheckedboxes(flagIsBookmarked, 'SetBookmarked', 'SetUnBookmarked', 'IsBookmarked');
     //更新子节点相关
     refreshButtonsCheckedboxes(flagIsGetAllChildren, 'SetGetAllChildren', 'SetUnGetAllChildren', 'IsGetAllChildren');
+    //更新章节相关
+    refreshButtonsCheckedboxes(flagIsGetAllChapters, 'SetGetAllChapters', 'SetUnGetAllChapters', 'IsGetAllChapters');
 
     //新增子节点 按钮
-    refreshAddChildButton(flagIsGetAllChildren, 'CreateChild', 'CannotCreateChild');
-    refreshAddChildButton(flagIsGetAllChildren, 'CreateChildByUrl', 'CannotCreateChildByUrl');
+    refreshAddingButtons(flagIsGetAllChildren, 'CreateChild', 'CannotCreateChild');
+    refreshAddingButtons(flagIsGetAllChildren, 'CreateChildByUrl', 'CannotCreateChildByUrl');
+    refreshAddingButtons(flagIsGetAllChapters, 'CreateChapter', 'CannotCreateChapter');
+    refreshAddingButtons(flagIsGetAllChapters, 'CreateChapterBatch', 'CannotCreateChapterBatch');
 
     //更新数据显示
     refreshDataDisplay();
@@ -131,6 +157,7 @@ function refreshFlag() {
             flagIsChecked = data.IsChecked;
             flagIsNoted = data.IsNoted;
             flagIsGetAllChildren = data.IsGetAllChildren;
+            flagIsGetAllChapters = data.IsGetAllChapters;
             flagIsBookmarked = data.IsBookmarked;
             intTotalMinutesToRead = data.TotalMinutesToRead;
 
@@ -153,8 +180,8 @@ function refreshButtonsCheckedboxes(flag, id_Set, id_SetUn, id_Display) {
     }
 }
 
-//更新添加子节点按钮
-function refreshAddChildButton(flag, id_Able, id_Unable) {
+//更新添加用按钮
+function refreshAddingButtons(flag, id_Able, id_Unable) {
     if (flag) {
         document.getElementById(id_Able).style.display = "none";
         document.getElementById(id_Unable).style.display = "";

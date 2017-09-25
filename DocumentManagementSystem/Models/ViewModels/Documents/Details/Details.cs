@@ -27,6 +27,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.IsChecked = target.IsChecked;
             //this.IsNoted = target.IsNoted;
             this.IsGetAllChildren = target.IsGetAllChildren;
+            this.IsGetAllChapters = target.IsGetAllChapters;
             this.Url = target.Url;
             this.DocumentTime = target.DocumentTime;
             this.Remarks = target.Remarks;
@@ -108,6 +109,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// </summary>
         [Display(Name = "子节点")]
         public bool IsGetAllChildren { get; set; }
+
+        [Display(Name = "章节")]
+        public bool IsGetAllChapters { get; set; }
 
         /// <summary>
         /// URL。
