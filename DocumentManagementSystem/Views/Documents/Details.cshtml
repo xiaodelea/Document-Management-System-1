@@ -253,7 +253,7 @@
 
 <script>
     var flagIsChecked =@Model.IsChecked.ToString().ToLower();
-    @*var flagIsNoted =@Model.IsNoted.ToString().ToLower();*@ var flagIsNoted = false;    
+    @*var flagIsNoted =@Model.IsNoted.ToString().ToLower();*@ var flagIsNoted = false;
     var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
     var flagIsGetAllChapters =@Model.IsGetAllChapters.ToString().ToLower();
     var flagIsFinished=@Model.IsFinished.ToString().ToLower();
@@ -267,7 +267,7 @@
     var urlServicesDocumentSetNoted = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=true';
     var urlServicesDocumentSetUnNoted =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=false';
     var urlServicesDocumentSetGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=true';
-    var urlServicesDocumentSetUnGetAllChildren =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=false';
+    var urlServicesDocumentSetUnGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=false';
     var urlServicesDocumentSetGetAllChapters = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChapters&value=true';
     var urlServicesDocumentSetUnGetAllChapters = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChapters&value=false';
     var urlServicesDocumentSetBookmarked = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsBookmarked&value=true';
