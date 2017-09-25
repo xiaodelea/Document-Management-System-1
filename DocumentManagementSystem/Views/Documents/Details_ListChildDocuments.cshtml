@@ -9,17 +9,20 @@
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.NodeName)
             </th>
-            <th class="text-center" width="8%">
+            @*<th class="text-center" width="8%">
                 @Html.DisplayNameFor(model => model.IsChecked)
-            </th>
+            </th>*@
             @*<th class="text-center">
                 @Html.DisplayNameFor(model => model.IsNoted)
             </th>*@
-            <th class="text-center" width="10%">
+            @*<th class="text-center" width="10%">
                 @Html.DisplayNameFor(model => model.IsGetAllChildren)
-            </th>
-            <th class="text-center" width="8%">
+            </th>*@
+            @*<th class="text-center" width="8%">
                 @Html.DisplayNameFor(model => model.IsHasRemarks)
+            </th>*@
+            <th class="text-center" width="8%">
+                @Html.DisplayNameFor(model => model.IsFinished)
             </th>
             <th class="text-center" width="13%">
                 @Html.DisplayNameFor(model => model.TotalMinutesToRead)
@@ -36,17 +39,20 @@
                 <td>
                     @Html.ActionLink(item.NodeName, "Details", new { id = item.DocumentId })
                 </td>
-                <td class="text-center">
+                @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsChecked)
-                </td>
+                </td>*@
                 @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsNoted)
                 </td>*@
-                <td class="text-center">
+                @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsGetAllChildren)
-                </td>
-                <td class="text-center">
+                </td>*@
+                @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsHasRemarks)
+                </td>*@
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsFinished)
                 </td>
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.TotalMinutesToRead)
