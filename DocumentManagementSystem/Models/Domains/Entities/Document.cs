@@ -224,5 +224,17 @@ namespace DocumentManagementSystem.Models.Domains.Entities
                 return builder.ToString();
             }
         }
+
+        /// <summary>
+        /// 是否完成。
+        /// </summary>
+        /// <remarks>表示该文档的内容、章节、子目录均完成。（不要求子文档本身为完成）。</remarks>
+        public bool IsFinished
+        {
+            get
+            {
+                return this.IsChecked && this.IsGetAllChildren && this.IsGetAllChapters;
+            }
+        }
     }
 }

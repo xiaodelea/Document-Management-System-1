@@ -158,6 +158,7 @@ function refreshFlag() {
             flagIsNoted = data.IsNoted;
             flagIsGetAllChildren = data.IsGetAllChildren;
             flagIsGetAllChapters = data.IsGetAllChapters;
+            flagIsFinished = data.IsFinished;
             flagIsBookmarked = data.IsBookmarked;
             intTotalMinutesToRead = data.TotalMinutesToRead;
 
@@ -193,4 +194,10 @@ function refreshAddingButtons(flag, id_Able, id_Unable) {
 
 function refreshDataDisplay() {
     document.getElementById('TotalMinutesToRead').innerHTML = intTotalMinutesToRead;
+
+    if (flagIsFinished) {
+        document.getElementById('IsFinished').style.display = "";
+    } else {
+        document.getElementById('IsFinished').style.display = "none";
+    }
 }

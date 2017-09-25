@@ -11,7 +11,10 @@
 </ul>
 
 <div>
-    <h2>@ViewBag.Title</h2>
+    <h2>
+        @ViewBag.Title
+        <span id="IsFinished" class="glyphicon glyphicon-check" aria-hidden="true" style="display:none"></span>    
+    </h2>
 </div>
 
 <div>
@@ -253,6 +256,7 @@
     @*var flagIsNoted =@Model.IsNoted.ToString().ToLower();*@ var flagIsNoted = false;    
     var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
     var flagIsGetAllChapters =@Model.IsGetAllChapters.ToString().ToLower();
+    var flagIsFinished=@Model.IsFinished.ToString().ToLower();
     var intTotalMinutesToRead=@Model.TotalMinutesToRead;
     var flagIsBookmarked=@Model.IsBookmarked.ToString().ToLower();
 

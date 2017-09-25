@@ -21,6 +21,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.DocumentId = target.DocumentId;
             this.ParentDocumentId = target.ParentDocumentId;
 
+            this.IsFinished = target.IsFinished;
+
             this.Title = target.Title;
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;
@@ -67,6 +69,13 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         /// 父文档文档ID。
         /// </summary>
         public Guid? ParentDocumentId { get; set; }
+
+
+
+
+
+
+        public bool IsFinished { get; set; }
 
 
 
