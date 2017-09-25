@@ -61,6 +61,7 @@ namespace DocumentManagementSystem.Controllers
         /// <param name="targetV">视图对象。</param>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind()] Models.ViewModels.Documents.Create.Create targetV)
         {
             if (ModelState.IsValid)
@@ -179,6 +180,7 @@ namespace DocumentManagementSystem.Controllers
         /// <param name="document">视图对象。</param>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind()]Models.ViewModels.Documents.Edit.Edit targetV)
         {
             if (ModelState.IsValid)
