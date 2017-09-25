@@ -23,10 +23,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
 
             this.NodeName = document.NodeName;
             this.Priority = document.Priority;
-            this.IsChecked = document.IsChecked;
+            //this.IsChecked = document.IsChecked;
             //this.IsNoted = document.IsNoted;
-            this.IsGetAllChildren = document.IsGetAllChildren;
-            this.IsHasRemarks = !string.IsNullOrEmpty(document.Remarks);
+            //this.IsGetAllChildren = document.IsGetAllChildren;
+            //this.IsHasRemarks = !string.IsNullOrEmpty(document.Remarks);
+            this.IsFinished = document.IsFinished;
             this.TotalMinutesToRead = document.TotalMinutesToRead;
         }
 
@@ -56,11 +57,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         [Display(Name = "优先级")]
         public int? Priority { get; set; }
 
-        /// <summary>
-        /// 是否已查阅。
-        /// </summary>
-        [Display(Name = "查阅")]
-        public bool IsChecked { get; set; }
+        ///// <summary>
+        ///// 是否已查阅。
+        ///// </summary>
+        //[Display(Name = "查阅")]
+        //public bool IsChecked { get; set; }
 
         ///// <summary>
         ///// 是否有笔记。
@@ -68,17 +69,20 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
         //[Display(Name = "笔记")]
         //public bool IsNoted { get; set; }
 
-        /// <summary>
-        /// 是否已获取全部子节点。
-        /// </summary>
-        [Display(Name = "子节点")]
-        public bool IsGetAllChildren { get; set; }
+        ///// <summary>
+        ///// 是否已获取全部子节点。
+        ///// </summary>
+        //[Display(Name = "子节点")]
+        //public bool IsGetAllChildren { get; set; }
 
-        /// <summary>
-        /// 备注。
-        /// </summary>
-        [Display(Name = "备注")]
-        public bool IsHasRemarks { get; set; }
+        [Display(Name = "完成")]
+        public bool IsFinished { get; set; }
+
+        ///// <summary>
+        ///// 备注。
+        ///// </summary>
+        //[Display(Name = "备注")]
+        //public bool IsHasRemarks { get; set; }
 
         [Display(Name = "累计时间")]
         public int? TotalMinutesToRead { get; set; }
