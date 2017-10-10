@@ -293,6 +293,7 @@ namespace DocumentManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult CreateChapterBatch([Bind()]Models.ViewModels.Documents.CreateChapterBatch.CreateChapterBatch targetV)
         {
             if (ModelState.IsValid)
