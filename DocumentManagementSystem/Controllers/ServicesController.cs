@@ -88,5 +88,32 @@ namespace DocumentManagementSystem.Controllers
         //        return Json(new { result = false });
         //    }
         //}
+
+        public JsonResult GetChapters(Guid documentId)
+        {
+            var db = new Models.Domains.Entities.DMsDbContext();
+            var target = db.Documents.Find(documentId);
+
+            if (string.IsNullOrEmpty(target.Url))
+                return Json(false);
+
+            var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocsChapters(target.Url, documentId);
+
+            bool result;
+
+            result = targetB.GetPage();
+            if (!result)
+                return Json(false);
+
+            result = targetB.ParsePage();
+            if (!result)
+                return Json(false);
+
+            target.Chapters.AddRange(targetB.GetChapters());
+            target.IsGetAllChapters = true;
+            db.SaveChanges();
+
+            return Json(true);
+        }
     }
 }

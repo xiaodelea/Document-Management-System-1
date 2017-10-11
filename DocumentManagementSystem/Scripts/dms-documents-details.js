@@ -48,6 +48,8 @@ function buttonBinding() {
     $("#setUnBookmarked").click(setFlag);
     $("#setUnBookmarked").data('property', 'IsBookmarked');
     $("#setUnBookmarked").data('propertyValue', false);
+
+    $("#createChapterAuto").click(getChapters);
 }
 
 //[Checked]
@@ -87,6 +89,7 @@ function refreshContent() {
     refreshAddingButtons(model.IsGetAllChildren, 'createChildByUrl', 'cannotCreateChildByUrl');
     refreshAddingButtons(model.IsGetAllChapters, 'createChapter', 'cannotCreateChapter');
     refreshAddingButtons(model.IsGetAllChapters, 'createChapterBatch', 'cannotCreateChapterBatch');
+    refreshAddingButtons(model.IsGetAllChapters, 'createChapterAuto', 'cannotCreateChapterAuto');
 
     //更新数据显示
     refreshDataDisplay();
@@ -157,6 +160,22 @@ function refreshModel() {
                 refreshContent();
             } else {
                 console.log('"refreshModel" failed.');
+            }
+        }
+    );
+}
+
+function getChapters(event) {
+    $.post('/Services/GetChapters',
+        { DocumentId: model.DocumentId },
+        function (data, status) {
+            if (status == 'success') {
+                if (data == true)
+                    location.reload(true);
+                else
+                    alert('失败');
+            } else {
+                alert('失败');
             }
         }
     );

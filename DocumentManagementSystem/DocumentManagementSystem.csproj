@@ -208,6 +208,7 @@
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\Base.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocs.cs" />
+    <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocsChapters.cs" />
     <Compile Include="Models\Domains\Entities\Chapter.cs" />
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
     <Compile Include="Models\Domains\Entities\Document.cs" />
