@@ -54,6 +54,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateChapterBatc
 
             foreach (var itemInput in listInput)
             {
+                if (string.IsNullOrEmpty(itemInput))
+                    continue;
+
                 var itemChapter = new Models.Domains.Entities.Chapter();
 
                 itemChapter.ChapterId = Guid.NewGuid();
