@@ -80,20 +80,20 @@
             @Html.DisplayNameFor(model => model.TotalMinutesToRead)
         </dt>
         <dd>
-            <span id="TotalMinutesToRead">@Html.DisplayFor(model => model.TotalMinutesToRead)</span>
+            <span id="totalMinutesToRead">@Html.DisplayFor(model => model.TotalMinutesToRead)</span>
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.IsChecked)
         </dt>
         <dd>
-            <input id="IsChecked" class="check-box" disabled="disabled" type="checkbox">
+            <input id="isChecked" class="check-box" disabled="disabled" type="checkbox">
 
             <button id="SetChecked" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 设置
             </button>
-            <button id="SetUnChecked" class="label label-default" style="display: none;">
+            <button id="setUnChecked" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 取消
             </button>
@@ -119,13 +119,13 @@
             @Html.DisplayNameFor(model => model.IsGetAllChildren)
         </dt>
         <dd>
-            <input id="IsGetAllChildren" class="check-box" disabled="disabled" type="checkbox">
+            <input id="isGetAllChildren" class="check-box" disabled="disabled" type="checkbox">
 
-            <button id="SetGetAllChildren" class="label label-default" style="display: none;">
+            <button id="setGetAllChildren" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 设置
             </button>
-            <button id="SetUnGetAllChildren" class="label label-default" style="display: none;">
+            <button id="setUnGetAllChildren" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 取消
             </button>
@@ -135,13 +135,13 @@
             @Html.DisplayNameFor(model => model.IsGetAllChapters)
         </dt>
         <dd>
-            <input id="IsGetAllChapters" class="check-box" disabled="disabled" type="checkbox">
+            <input id="isGetAllChapters" class="check-box" disabled="disabled" type="checkbox">
 
-            <button id="SetGetAllChapters" class="label label-default" style="display: none;">
+            <button id="setGetAllChapters" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 设置
             </button>
-            <button id="SetUnGetAllChapters" class="label label-default" style="display: none;">
+            <button id="setUnGetAllChapters" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 取消
             </button>
@@ -151,13 +151,13 @@
             @Html.DisplayNameFor(model => model.IsBookmarked)
         </dt>
         <dd>
-            <input id="IsBookmarked" class="check-box" disabled="disabled" type="checkbox">
+            <input id="isBookmarked" class="check-box" disabled="disabled" type="checkbox">
 
-            <button id="SetBookmarked" class="label label-default" style="display: none;">
+            <button id="setBookmarked" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 设置
             </button>
-            <button id="SetUnBookmarked" class="label label-default" style="display: none;">
+            <button id="setUnBookmarked" class="label label-default" style="display: none;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 取消
             </button>
@@ -231,19 +231,19 @@
     @* 子项目 *@
     <div class="col-md-6">
         <p>
-            <a id="CreateChild" href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+            <a id="createChild" href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点
             </a>
-            <a id="CannotCreateChild" class="btn btn-default disabled" style="display: none;">
+            <a id="cannotCreateChild" class="btn btn-default disabled" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点
             </a>
-            <a id="CreateChildByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+            <a id="createChildByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点用URL
             </a>
-            <a id="CannotCreateChildByUrl" class="btn btn-default disabled" style="display: none;">
+            <a id="cannotCreateChildByUrl" class="btn btn-default disabled" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点用URL
             </a>
@@ -256,19 +256,19 @@
     @* 章节 *@
     <div class="col-md-6">
         <p>
-            <a id="CreateChapter" href="@Url.Action("CreateChapter", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+            <a id="createChapter" href="@Url.Action("CreateChapter", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增章节
             </a>
-            <a id="CannotCreateChapter" class="btn btn-default disabled" style="display: none;">
+            <a id="cannotCreateChapter" class="btn btn-default disabled" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增章节
             </a>
-            <a id="CreateChapterBatch" href="@Url.Action("CreateChapterBatch", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+            <a id="createChapterBatch" href="@Url.Action("CreateChapterBatch", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增章节-批量
             </a>
-            <a id="CannotCreateChapterBatch" class="btn btn-default disabled" style="display: none;">
+            <a id="cannotCreateChapterBatch" class="btn btn-default disabled" style="display: none;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增章节-批量
             </a>
@@ -280,26 +280,7 @@
 </div>
 
 <script>
-    var flagIsChecked =@Model.IsChecked.ToString().ToLower();
-    @*var flagIsNoted =@Model.IsNoted.ToString().ToLower();*@ var flagIsNoted = false;
-    var flagIsGetAllChildren =@Model.IsGetAllChildren.ToString().ToLower();
-    var flagIsGetAllChapters =@Model.IsGetAllChapters.ToString().ToLower();
-    var flagIsFinished=@Model.IsFinished.ToString().ToLower();
-    var intTotalMinutesToRead=@Model.TotalMinutesToRead;
-    var flagIsBookmarked=@Model.IsBookmarked.ToString().ToLower();
-
-    var urlServicesGetDocument = '@Url.Action("GetDocument","services", new { id = Model.DocumentId })';
-
-    var urlServicesDocumentSetChecked = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsChecked&value=true';
-    var urlServicesDocumentSetUnChecked =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsChecked&value=false';
-    var urlServicesDocumentSetNoted = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=true';
-    var urlServicesDocumentSetUnNoted =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsNoted&value=false';
-    var urlServicesDocumentSetGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=true';
-    var urlServicesDocumentSetUnGetAllChildren = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChildren&value=false';
-    var urlServicesDocumentSetGetAllChapters = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChapters&value=true';
-    var urlServicesDocumentSetUnGetAllChapters = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsGetAllChapters&value=false';
-    var urlServicesDocumentSetBookmarked = '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsBookmarked&value=true';
-    var urlServicesDocumentSetUnBookmarked =  '/Services/SetDocumentFlag?id=@Model.DocumentId&property=IsBookmarked&value=false';
+    var model = { DocumentId:'@Model.DocumentId'};
 </script>
 
 @section Scripts {
