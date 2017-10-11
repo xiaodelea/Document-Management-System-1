@@ -23,17 +23,6 @@
 
 <div>
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.DocumentId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DocumentId)
-            <button class="btn btn-default btn-sm" data-clipboard-text="@(Model.DocumentId)">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                复制
-            </button>
-        </dd>*@
-
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -174,20 +163,6 @@
 
 <div>
     <p>
-        @*@if (Model.ParentDocumentId == null)
-        {
-            <a href="@Url.Action("Index")" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                一览
-            </a>
-        }
-        else
-        {
-            <a href="@Url.Action("Details", new { id = Model.ParentDocumentId })" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                父节点
-            </a>
-        }*@
         @if (Model.PreSilbingDocumentId.HasValue)
         {
             <a href="@Url.Action("Details",new { id=Model.PreSilbingDocumentId})" class="btn btn-default">
