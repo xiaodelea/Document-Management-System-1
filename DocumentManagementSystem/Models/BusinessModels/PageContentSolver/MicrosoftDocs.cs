@@ -20,7 +20,7 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
             this.MinutesToRead = targetV.MinutesToRead;
         }
 
-        public MicrosoftDocs(string url,string nodeName,int minitesToRead) : base(url)
+        public MicrosoftDocs(string url, string nodeName, int minitesToRead) : base(url)
         {
             this.NodeName = nodeName;
             this.MinutesToRead = minitesToRead;
