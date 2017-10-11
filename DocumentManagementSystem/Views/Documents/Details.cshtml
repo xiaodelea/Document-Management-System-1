@@ -206,6 +206,10 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新增子节点用URL
             </a>
+            <a id="createSilblingByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.ParentDocumentId })" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增同级节点用URL
+            </a>
         </p>
         <div>
             @Html.Partial("Details_ListChildDocuments", Model.ListChildDocuments)
