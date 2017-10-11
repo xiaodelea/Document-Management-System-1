@@ -208,11 +208,13 @@
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\Base.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocs.cs" />
+    <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocsApi.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocsChapters.cs" />
     <Compile Include="Models\Domains\Entities\Chapter.cs" />
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
     <Compile Include="Models\Domains\Entities\Document.cs" />
     <Compile Include="Models\ViewModels\Documents\BreadField\BreadField.cs" />
+    <Compile Include="Models\ViewModels\Documents\CreateByUrlMicrosoftDocsApi\CreateByUrlMicrosoftDocsApi.cs" />
     <Compile Include="Models\ViewModels\Documents\CreateByUrlMicrosoftDocs\CreateByUrlMicrosoftDocs.cs" />
     <Compile Include="Models\ViewModels\Documents\CreateByUrl\CreateByUrl.cs" />
     <Compile Include="Models\ViewModels\Documents\CreateByUrl\SelectionWorker.cs" />
@@ -285,6 +287,7 @@
     <Content Include="Views\Documents\CreateByUrlMicrosoftDocs.cshtml" />
     <Content Include="Views\Documents\IndexBookmark.cshtml" />
     <Content Include="Views\Documents\IndexBookmark_List.cshtml" />
+    <Content Include="Views\Documents\CreateByUrlMicrosoftDocsApi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

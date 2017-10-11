@@ -98,6 +98,8 @@ namespace DocumentManagementSystem.Controllers
                 {
                     case "MicrosoftDocs":
                         return RedirectToAction("CreateByUrlMicrosoftDocs", targetV);
+                    case "MicrosoftDocsApi":
+                        return RedirectToAction("CreateByUrlMicrosoftDocsApi", targetV);
                     default:
                         return HttpNotFound();
                 }
@@ -151,10 +153,54 @@ namespace DocumentManagementSystem.Controllers
                 db.Documents.Add(target);
                 db.SaveChanges();
 
+                db.Chapters.AddRange(target.Chapters);
+                db.SaveChanges();
+
                 return RedirectToAction("Details", new { id = target.ParentDocumentId });
             }
 
             return View(targetV);
+        }
+
+        public ActionResult CreateByUrlMicrosoftDocsApi(Guid? parentDocumentId, string url)
+        {
+            var targetV = new Models.ViewModels.Documents.CreateByUrlMicrosoftDocsApi.CreateByUrlMicrosoftDocsApi(parentDocumentId, url);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult CreateByUrlMicrosoftDocsApi(Models.ViewModels.Documents.CreateByUrlMicrosoftDocsApi.CreateByUrlMicrosoftDocsApi targetV)
+        {
+            var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocsApi(targetV.Url);
+
+            bool result;
+
+            result = targetB.GetPage();
+            if (!result)
+                return HttpNotFound();
+
+            result = targetB.ParsePage();
+            if (!result)
+                return HttpNotFound();
+
+            var target = targetB.GetReturn();
+
+            var db = new Models.Domains.Entities.DMsDbContext();
+            target.ParentDocumentId = targetV.ParentDocumentId;
+            target.NodeName = targetV.NodeName;
+            {
+                target.Priority = db.Documents.Where(c => c.ParentDocumentId == targetV.ParentDocumentId).Max(c => c.Priority) + 1;
+                if (target.Priority == null)
+                    target.Priority = 1;
+            }
+
+            db.Documents.Add(target);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = target.ParentDocumentId });
         }
 
         /// <summary>

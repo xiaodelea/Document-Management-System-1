@@ -12,7 +12,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateByUrl
             this.CodesOfSolver = new System.Web.Mvc.SelectList(
                new List<System.Web.Mvc.SelectListItem>
                {
-                    new System.Web.Mvc.SelectListItem {Text="MicrosoftDocs",Value="MicrosoftDocs" }
+                    new System.Web.Mvc.SelectListItem {Text="MicrosoftDocs",Value="MicrosoftDocs" },
+                    new System.Web.Mvc.SelectListItem {Text="MicrosoftDocsApi",Value="MicrosoftDocsApi" }
                }, "Value", "Text", targetV.CodeOfSolver);
         }
 
