@@ -1,203 +1,163 @@
-﻿var clipboard = new Clipboard('.btn');
-
+﻿//[Checked]
+//载入。
+//获取model对象，按键绑定。
 $(document).ready(function () {
-    refreshContent();
+    refreshModel();
     buttonBinding();
 });
 
-
-
-
-
+//[Checked]
+//按键绑定。
 function buttonBinding() {
-    $("#SetChecked").click(buttonHandlerSetChecked);
-    $("#SetUnChecked").click(buttonHandlerSetUnChecked);
-    //$("#SetNoted").click(buttonHandlerSetNoted);
-    //$("#SetUnNoted").click(buttonHandlerSetUnNoted);
-    $("#SetGetAllChildren").click(buttonHandlerSetGetAllChildren);
-    $("#SetUnGetAllChildren").click(buttonHandlerSetUnGetAllChildren);
-    $("#SetGetAllChapters").click(buttonHandlerSetGetAllChapters);
-    $("#SetUnGetAllChapters").click(buttonHandlerSetUnGetAllChapters);
-    $("#SetBookmarked").click(buttonHandlerSetBookmarked);
-    $("#SetUnBookmarked").click(buttonHandlerSetUnBookmarked);
+    $("#setChecked").click(setFlag);
+    $("#setChecked").data('property', 'IsChecked');
+    $("#setChecked").data('propertyValue', true);
+
+    $("#setUnChecked").click(setFlag);
+    $("#setUnChecked").data('property', 'IsChecked');
+    $("#setUnChecked").data('propertyValue', false);
+
+    $("#setNoted").click(setFlag);
+    $("#setNoted").data('property', 'IsNoted');
+    $("#setNoted").data('propertyValue', true);
+
+    $("#setUnNoted").click(setFlag);
+    $("#setUnNoted").data('property', 'IsNoted');
+    $("#setUnNoted").data('propertyValue', false);
+
+    $("#setGetAllChildren").click(setFlag);
+    $("#setGetAllChildren").data('property', 'IsGetAllChildren');
+    $("#setGetAllChildren").data('propertyValue', true);
+
+    $("#setUnGetAllChildren").click(setFlag);
+    $("#setUnGetAllChildren").data('property', 'IsGetAllChildren');
+    $("#setUnGetAllChildren").data('propertyValue', false);
+
+    $("#setGetAllChapters").click(setFlag);
+    $("#setGetAllChapters").data('property', 'IsGetAllChapters');
+    $("#setGetAllChapters").data('propertyValue', true);
+
+    $("#setUnGetAllChapters").click(setFlag);
+    $("#setUnGetAllChapters").data('property', 'IsGetAllChapters');
+    $("#setUnGetAllChapters").data('propertyValue', false);
+
+    $("#setBookmarked").click(setFlag);
+    $("#setBookmarked").data('property', 'IsBookmarked');
+    $("#setBookmarked").data('propertyValue', true);
+
+    $("#setUnBookmarked").click(setFlag);
+    $("#setUnBookmarked").data('property', 'IsBookmarked');
+    $("#setUnBookmarked").data('propertyValue', false);
 }
 
-function buttonHandlerSetChecked(event) {
-    document.getElementById('SetChecked').style.display = "none";
-    $.post(urlServicesDocumentSetChecked,
-        null,
+//[Checked]
+//设置Flag。
+//回调刷新控件。
+function setFlag(event) {
+    $(this).hide();
+    $.post('/Services/SetDocumentFlag',
+        { id: model.DocumentId, property: $(this).data('property'), value: $(this).data('propertyValue') },
         function (data, status) {
-            refreshFlag();
+            if (status === 'success') {
+                model = data;
+            } else {
+                console.log('"setFlag" failed.');
+            }
+            refreshContent();
         }
     );
 }
 
-function buttonHandlerSetUnChecked(event) {
-    document.getElementById('SetUnChecked').style.display = "none";
-    $.post(urlServicesDocumentSetUnChecked,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetNoted(event) {
-    document.getElementById('SetNoted').style.display = "none";
-    $.post(urlServicesDocumentSetNoted,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetUnNoted(event) {
-    document.getElementById('SetUnNoted').style.display = "none";
-    $.post(urlServicesDocumentSetUnNoted,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetGetAllChildren(event) {
-    document.getElementById('SetGetAllChildren').style.display = "none";
-    $.post(urlServicesDocumentSetGetAllChildren,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetUnGetAllChildren(event) {
-    document.getElementById('SetUnGetAllChildren').style.display = "none";
-    $.post(urlServicesDocumentSetUnGetAllChildren,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetGetAllChapters(event) {
-    document.getElementById('SetGetAllChapters').style.display = "none";
-    $.post(urlServicesDocumentSetGetAllChapters,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetUnGetAllChapters(event) {
-    document.getElementById('SetUnGetAllChapters').style.display = "none";
-    $.post(urlServicesDocumentSetUnGetAllChapters,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetBookmarked(event) {
-    document.getElementById('SetBookmarked').style.display = "none";
-    $.post(urlServicesDocumentSetBookmarked,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-function buttonHandlerSetUnBookmarked(event) {
-    document.getElementById('SetUnBookmarked').style.display = "none";
-    $.post(urlServicesDocumentSetUnBookmarked,
-        null,
-        function (data, status) {
-            refreshFlag();
-        }
-    );
-}
-
-
-
-
-
-//刷新Flag相关控件
+//[Checked]
+//刷新控件。
 function refreshContent() {
     //更新查阅相关
-    refreshButtonsCheckedboxes(flagIsChecked, 'SetChecked', 'SetUnChecked', 'IsChecked');
+    refreshButtonsCheckedboxes(model.IsChecked, 'setChecked', 'setUnChecked', 'isChecked');
     //更新笔记相关
-    //refreshButtonsCheckedboxes(flagIsNoted, 'SetNoted', 'SetUnNoted', 'IsNoted');
+    refreshButtonsCheckedboxes(model.IsNoted, 'setNoted', 'setUnNoted', 'isNoted');
     //更新书签相关
-    refreshButtonsCheckedboxes(flagIsBookmarked, 'SetBookmarked', 'SetUnBookmarked', 'IsBookmarked');
+    refreshButtonsCheckedboxes(model.IsBookmarked, 'setBookmarked', 'setUnBookmarked', 'isBookmarked');
     //更新子节点相关
-    refreshButtonsCheckedboxes(flagIsGetAllChildren, 'SetGetAllChildren', 'SetUnGetAllChildren', 'IsGetAllChildren');
+    refreshButtonsCheckedboxes(model.IsGetAllChildren, 'setGetAllChildren', 'setUnGetAllChildren', 'isGetAllChildren');
     //更新章节相关
-    refreshButtonsCheckedboxes(flagIsGetAllChapters, 'SetGetAllChapters', 'SetUnGetAllChapters', 'IsGetAllChapters');
+    refreshButtonsCheckedboxes(model.IsGetAllChapters, 'setGetAllChapters', 'setUnGetAllChapters', 'isGetAllChapters');
 
-    //新增子节点 按钮
-    refreshAddingButtons(flagIsGetAllChildren, 'CreateChild', 'CannotCreateChild');
-    refreshAddingButtons(flagIsGetAllChildren, 'CreateChildByUrl', 'CannotCreateChildByUrl');
-    refreshAddingButtons(flagIsGetAllChapters, 'CreateChapter', 'CannotCreateChapter');
-    refreshAddingButtons(flagIsGetAllChapters, 'CreateChapterBatch', 'CannotCreateChapterBatch');
+    //新增相关
+    refreshAddingButtons(model.IsGetAllChildren, 'createChild', 'cannotCreateChild');
+    refreshAddingButtons(model.IsGetAllChildren, 'createChildByUrl', 'cannotCreateChildByUrl');
+    refreshAddingButtons(model.IsGetAllChapters, 'createChapter', 'cannotCreateChapter');
+    refreshAddingButtons(model.IsGetAllChapters, 'createChapterBatch', 'cannotCreateChapterBatch');
 
     //更新数据显示
     refreshDataDisplay();
 }
 
-//重新获取Flag
-function refreshFlag() {
-    $.post(urlServicesGetDocument,
-        null,
-        function (data, status) {
-            flagIsChecked = data.IsChecked;
-            flagIsNoted = data.IsNoted;
-            flagIsGetAllChildren = data.IsGetAllChildren;
-            flagIsGetAllChapters = data.IsGetAllChapters;
-            flagIsFinished = data.IsFinished;
-            flagIsBookmarked = data.IsBookmarked;
-            intTotalMinutesToRead = data.TotalMinutesToRead;
 
-            refreshContent();
-        },
-        'json'
-    );
-}
 
+
+
+//[Checked]
 //更新设置按钮、设置取消按钮、复选框相关
 function refreshButtonsCheckedboxes(flag, id_Set, id_SetUn, id_Display) {
     if (flag) {
-        document.getElementById(id_SetUn).style.display = "";
-        document.getElementById(id_Set).style.display = "none";
-        document.getElementById(id_Display).checked = true;
+        $('#' + id_SetUn).show();
+        $('#' + id_Set).hide();
+        $('#' + id_Display).prop("checked", true);
     } else {
-        document.getElementById(id_SetUn).style.display = "none";
-        document.getElementById(id_Set).style.display = "";
-        document.getElementById(id_Display).checked = false;
+        $('#' + id_SetUn).hide();
+        $('#' + id_Set).show();
+        $('#' + id_Display).prop('checked', false);
     }
 }
 
+//[Checked]
 //更新添加用按钮
 function refreshAddingButtons(flag, id_Able, id_Unable) {
     if (flag) {
-        document.getElementById(id_Able).style.display = "none";
-        document.getElementById(id_Unable).style.display = "";
+        $('#' + id_Able).hide();
+        $('#' + id_Unable).show();
     } else {
-        document.getElementById(id_Able).style.display = "";
-        document.getElementById(id_Unable).style.display = "none";
+        $('#' + id_Able).show();
+        $('#' + id_Unable).hide();
     }
 }
 
+//[Checked]
+//更新数据显示
 function refreshDataDisplay() {
-    document.getElementById('TotalMinutesToRead').innerHTML = intTotalMinutesToRead;
+    //文档阅读时间。
+    $('#totalMinutesToRead').get(0).innerHTML = model.TotalMinutesToRead;
 
-    if (flagIsFinished) {
-        document.getElementById('IsFinished').style.display = "";
+    //完成Logo。
+    if (model.IsFinished) {
+        $('#isFinished').show();
     } else {
-        document.getElementById('IsFinished').style.display = "none";
+        $('#isFinished').hide();
     }
+}
+
+
+
+
+
+//var clipboard = new Clipboard('.btn');
+
+
+
+
+
+//[Checked]
+//重新获取model。
+function refreshModel() {
+    $.post('/Services/GetDocument',
+        { id: model.DocumentId },
+        function (data, status) {
+            if (status === 'success') {
+                model = data;
+                refreshContent();
+            } else {
+                console.log('"refreshModel" failed.');
+            }
+        }
+    );
 }
