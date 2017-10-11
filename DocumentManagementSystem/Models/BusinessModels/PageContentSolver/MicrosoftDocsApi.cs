@@ -63,7 +63,7 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
                 {
                     if (h2.Attributes["class"].Value == "hiddenAnchor")
                         continue;
-
+                    
                     var name = h2.InnerText;
 
                     if (string.IsNullOrEmpty(name))
