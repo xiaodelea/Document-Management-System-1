@@ -66,7 +66,7 @@ namespace DocumentManagementSystem.Controllers
             }
             db.SaveChanges();
 
-            return Json(new { result = true });
+            return GetDocument(id);
         }
 
         //public JsonResult OpenLocalFile(Guid id)
