@@ -156,7 +156,7 @@ namespace DocumentManagementSystem.Controllers
                 db.Chapters.AddRange(target.Chapters);
                 db.SaveChanges();
 
-                return RedirectToAction("Details", new { id = target.ParentDocumentId });
+                return RedirectToAction("Details", new { id = target.DocumentId });
             }
 
             return View(targetV);
@@ -200,7 +200,7 @@ namespace DocumentManagementSystem.Controllers
             db.Documents.Add(target);
             db.SaveChanges();
 
-            return RedirectToAction("Details", new { id = target.ParentDocumentId });
+            return RedirectToAction("Details", new { id = target.DocumentId });
         }
 
         /// <summary>
