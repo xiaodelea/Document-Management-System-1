@@ -165,6 +165,9 @@ namespace DocumentManagementSystem.Controllers
         public ActionResult CreateByUrlMicrosoftDocsApi(Guid? parentDocumentId, string url)
         {
             var targetV = new Models.ViewModels.Documents.CreateByUrlMicrosoftDocsApi.CreateByUrlMicrosoftDocsApi(parentDocumentId, url);
+            var targetW = new Models.ViewModels.Documents.CreateByUrlMicrosoftDocsApi.SelectionWorker(targetV);
+
+            ViewBag.NodeNameParsingMode = targetW.NodeNameParsingMode;
 
             return View(targetV);
         }
@@ -174,7 +177,7 @@ namespace DocumentManagementSystem.Controllers
         [ValidateInput(false)]
         public ActionResult CreateByUrlMicrosoftDocsApi(Models.ViewModels.Documents.CreateByUrlMicrosoftDocsApi.CreateByUrlMicrosoftDocsApi targetV)
         {
-            var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocsApi(targetV.Url);
+            var targetB = new Models.BusinessModels.PageContentSolver.MicrosoftDocsApi(targetV.Url, targetV.NodeNameParsingMode);
 
             bool result;
 
@@ -190,7 +193,10 @@ namespace DocumentManagementSystem.Controllers
 
             var db = new Models.Domains.Entities.DMsDbContext();
             target.ParentDocumentId = targetV.ParentDocumentId;
-            target.NodeName = targetV.NodeName;
+            if (string.IsNullOrEmpty(targetV.NodeNameParsingMode))
+            {
+                target.NodeName = targetV.NodeName;
+            }
             {
                 target.Priority = db.Documents.Where(c => c.ParentDocumentId == targetV.ParentDocumentId).Max(c => c.Priority) + 1;
                 if (target.Priority == null)

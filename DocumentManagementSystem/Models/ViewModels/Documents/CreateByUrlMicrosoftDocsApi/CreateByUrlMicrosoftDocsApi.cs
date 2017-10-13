@@ -9,10 +9,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateByUrlMicros
 {
     public class CreateByUrlMicrosoftDocsApi
     {
-        public CreateByUrlMicrosoftDocsApi(Guid? parentDocumentId, string url)
+        public CreateByUrlMicrosoftDocsApi(Guid? parentDocumentId, string url, string nodeNameParsingMode = null)
         {
             this.ParentDocumentId = parentDocumentId;
             this.Url = url;
+            this.NodeNameParsingMode = nodeNameParsingMode;
         }
 
         public CreateByUrlMicrosoftDocsApi()
@@ -36,5 +37,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.CreateByUrlMicros
 
         [Required]
         public string NodeName { get; set; }
+
+        public string NodeNameParsingMode { get; set; }
     }
 }

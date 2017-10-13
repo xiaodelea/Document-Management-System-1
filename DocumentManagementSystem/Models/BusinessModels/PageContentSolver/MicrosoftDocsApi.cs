@@ -9,10 +9,16 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
 {
     public class MicrosoftDocsApi : Base
     {
-        public MicrosoftDocsApi(string url) : base(url)
+        public MicrosoftDocsApi(string url, string nodeNameParsingMode) : base(url)
         {
-
+            this.NodeNameParsingMode = nodeNameParsingMode;
         }
+
+
+
+
+
+        public string NodeNameParsingMode { get; set; }
 
 
 
@@ -51,6 +57,19 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
                 this.Document.Title = System.Text.RegularExpressions.Regex.Replace(this.Document.Title, @"\s+", " ").Trim();
                 //this.Document.NodeName = meta.Attributes["content"].Value;
                 //this.Document.NodeName = System.Web.HttpUtility.HtmlDecode(this.Document.NodeName);
+                {
+                    switch (this.NodeNameParsingMode)
+                    {
+                        case "MicrosoftDocsApiType":
+                            this.Document.NodeName = this.Document.Title.Split(new string[] { " " }, StringSplitOptions.None)[0];
+                            break;
+                        case "MicrosoftDocsApiMember":
+                            this.Document.NodeName = this.Document.Title.Split(new string[] { " ", "." }, StringSplitOptions.None)[1];
+                            break;
+                        default:
+                            break;
+                    }
+                }
                 //this.Document.Priority
                 this.Document.UpdateTimeForHTTPGet = DateTime.Now;
                 this.Document.Url = this.Url;
