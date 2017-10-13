@@ -76,13 +76,13 @@ namespace DocumentManagementSystem.Models.BusinessModels.PageContentSolver
                 this.Document.UpdateTime = DateTime.Now;
 
                 //处理Chapters
-                var h2s= div_main.Descendants("h2");
+                var h2s = div_main.Descendants("h2");
                 var i = 1;
                 foreach (var h2 in h2s)
                 {
                     if (h2.Attributes["class"].Value == "hiddenAnchor")
                         continue;
-                    
+
                     var name = h2.InnerText;
 
                     if (string.IsNullOrEmpty(name))
