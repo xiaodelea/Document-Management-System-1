@@ -1,0 +1,13 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Documents.Directory.Directory
+
+@{
+    ViewBag.Title = "目录";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Model.Path @Model.NodeName</h3>
+
+<div>
+    @Html.Partial("Directory_List", Model.List)
+</div>

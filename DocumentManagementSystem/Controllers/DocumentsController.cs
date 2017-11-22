@@ -383,5 +383,12 @@ namespace DocumentManagementSystem.Controllers
 
             return RedirectToAction("Details", new { id = target.DocumentId });
         }
+
+        public ActionResult Directory(Guid id)
+        {
+            var targetV = new Models.ViewModels.Documents.Directory.Directory(id);
+
+            return View(targetV);
+        }
     }
 }

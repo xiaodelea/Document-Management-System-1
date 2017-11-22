@@ -225,6 +225,8 @@
     <Compile Include="Models\ViewModels\Documents\Details\Details.cs" />
     <Compile Include="Models\ViewModels\Documents\Details\ItemChapter.cs" />
     <Compile Include="Models\ViewModels\Documents\Details\ItemChildDocument.cs" />
+    <Compile Include="Models\ViewModels\Documents\Directory\Directory.cs" />
+    <Compile Include="Models\ViewModels\Documents\Directory\Item.cs" />
     <Compile Include="Models\ViewModels\Documents\Edit\Edit.cs" />
     <Compile Include="Models\ViewModels\Documents\IndexBookmark\IndexBookmark.cs" />
     <Compile Include="Models\ViewModels\Documents\IndexBookmark\Item.cs" />
@@ -289,6 +291,8 @@
     <Content Include="Views\Documents\IndexBookmark.cshtml" />
     <Content Include="Views\Documents\IndexBookmark_List.cshtml" />
     <Content Include="Views\Documents\CreateByUrlMicrosoftDocsApi.cshtml" />
+    <Content Include="Views\Documents\Directory.cshtml" />
+    <Content Include="Views\Documents\Directory_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
