@@ -394,5 +394,26 @@ namespace DocumentManagementSystem.Controllers
 
             return View(targetV);
         }
+
+        public ActionResult ChangeParent(Guid id)
+        {
+            var targetV = new Models.ViewModels.Documents.ChangeParent.ChangeParent(id);
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeParent([Bind()]Models.ViewModels.Documents.ChangeParent.ChangeParent targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                if (targetV.Do())
+                    return RedirectToAction("Details", new { id = targetV.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View();
+        }
     }
 }

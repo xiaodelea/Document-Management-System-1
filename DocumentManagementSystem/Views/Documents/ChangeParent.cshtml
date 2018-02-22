@@ -1,0 +1,54 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Documents.ChangeParent.ChangeParent
+
+@{
+    ViewBag.Title = "更换父篇";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@Html.ActionLink("文档", "Index", "Documents", null, null)</li>
+    @Html.Action("BreadField", new { Model.DocumentId, activeCurrentNode = true })
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.DocumentId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewParentId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NewParentId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewParentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/dms-normal.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#NewParentId').focus();
+        });
+    </script>
+}
