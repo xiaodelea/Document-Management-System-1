@@ -42,19 +42,6 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.ListChildDocuments = target.ChildDocuments.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId).Select(c => new ItemChildDocument(c)).ToList();
 
             this.ListChapters = target.Chapters.OrderBy(c => c.Priority).ThenBy(c => c.ChapterId).Select(c => new ItemChapter(c)).ToList();
-
-            //this.DocumentLink = new List<Domains.Entities.Document>();
-            //var current = target;
-            //do
-            //{
-            //    current = current.ParentDocument;
-
-            //    if (current != null)
-            //    {
-            //        this.DocumentLink.Add(current);
-            //    }
-            //} while (current != null);
-            //this.DocumentLink.Reverse();
         }
 
 
