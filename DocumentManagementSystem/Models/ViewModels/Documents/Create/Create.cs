@@ -19,6 +19,12 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Create
         public Create(Guid? parentDocumentId)
         {
             this.ParentDocumentId = parentDocumentId;
+
+            var db = new Domains.Entities.DMsDbContext();
+            var targetParent = db.Documents.Find(parentDocumentId);
+            this.Priority = targetParent?.ChildDocuments.Max(c => c.Priority) + 1;
+            if (this.Priority == null)
+                this.Priority = 1;
         }
 
         /// <summary>

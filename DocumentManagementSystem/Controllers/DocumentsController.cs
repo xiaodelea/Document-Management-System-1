@@ -64,6 +64,9 @@ namespace DocumentManagementSystem.Controllers
         [ValidateInput(false)]
         public ActionResult Create([Bind()] Models.ViewModels.Documents.Create.Create targetV)
         {
+            if (string.IsNullOrEmpty(targetV.NodeName))
+                targetV.NodeName = targetV.Title;
+
             if (ModelState.IsValid)
             {
                 var target = targetV.GetReturn();
