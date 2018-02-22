@@ -22,11 +22,13 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
 
             this.DocumentId = target.DocumentId;
             this.ParentDocumentId = target.ParentDocumentId;
-            this.PreSilbingDocumentId = target.ParentDocument?.ChildDocuments.Where(c => c.Priority < target.Priority).OrderBy(c => c.Priority).LastOrDefault()?.DocumentId;
-            if (this.PreSilbingDocumentId == null)
+            if (this.ParentDocumentId != null)
+                this.PreSilbingDocumentId = target.ParentDocument.ChildDocuments.Where(c => c.Priority < target.Priority).OrderBy(c => c.Priority).LastOrDefault()?.DocumentId;
+            else
                 this.PreSilbingDocumentId = db.Documents.Where(c => c.ParentDocumentId == null && c.Priority < target.Priority).OrderBy(c => c.Priority).ToList().LastOrDefault()?.DocumentId;
-            this.PostSilbingDocumentId = target.ParentDocument?.ChildDocuments.OrderBy(c => c.Priority).FirstOrDefault(c => c.Priority > target.Priority)?.DocumentId;
-            if (this.PostSilbingDocumentId == null)
+            if (this.ParentDocumentId != null)
+                this.PostSilbingDocumentId = target.ParentDocument?.ChildDocuments.OrderBy(c => c.Priority).FirstOrDefault(c => c.Priority > target.Priority)?.DocumentId;
+            else
                 this.PostSilbingDocumentId = db.Documents.Where(c => c.ParentDocumentId == null && c.Priority > target.Priority).OrderBy(c => c.Priority).FirstOrDefault()?.DocumentId;
 
             this.IsFinished = target.IsFinished;
