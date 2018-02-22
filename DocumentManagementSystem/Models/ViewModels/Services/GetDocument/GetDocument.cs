@@ -27,6 +27,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             this.IsNoted = document.IsNoted;
             this.IsGetAllChildren = document.IsGetAllChildren;
             this.IsGetAllChapters = document.IsGetAllChapters;
+            this.IsParentGetAllChildren = (document.ParentDocument != null) ? document.ParentDocument.IsGetAllChildren : false;
             //this.Url = document.Url;
             //this.DocumentTime = document.DocumentTime;
             //this.SourceTextMainContain = document.SourceTextMainContain;
@@ -97,6 +98,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         public bool IsGetAllChildren { get; set; }
 
         public bool IsGetAllChapters { get; set; }
+
+        public bool IsParentGetAllChildren { get; set; }
 
         ///// <summary>
         ///// 文档日期。

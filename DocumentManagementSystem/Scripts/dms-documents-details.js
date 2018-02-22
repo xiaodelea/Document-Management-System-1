@@ -86,6 +86,8 @@ function refreshContent() {
 
     //新增相关
     refreshAddingButtons(model.IsGetAllChildren, 'createChild', 'cannotCreateChild');
+    refreshAddingButtons(model.IsParentGetAllChildren, 'createSilbling', 'cannotCreateSilbling');
+    refreshAddingButtons(model.IsParentGetAllChildren, 'createSilblingByUrl', 'cannotCreateSilblingByUrl');
     refreshAddingButtons(model.IsGetAllChildren, 'createChildByUrl', 'cannotCreateChildByUrl');
     refreshAddingButtons(model.IsGetAllChapters, 'createChapter', 'cannotCreateChapter');
     refreshAddingButtons(model.IsGetAllChapters, 'createChapterBatch', 'cannotCreateChapterBatch');

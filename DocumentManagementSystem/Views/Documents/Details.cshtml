@@ -147,42 +147,78 @@
 
 <div>
     <p>
-        @if (Model.PreSilbingDocumentId.HasValue)
-        {
-            <a href="@Url.Action("Details",new { id=Model.PreSilbingDocumentId})" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                上一篇
+        <div class="btn-group">
+            @if (Model.PreSilbingDocumentId.HasValue)
+            {
+                <a href="@Url.Action("Details",new { id=Model.PreSilbingDocumentId})" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    上一篇
+                </a>
+            }
+            else
+            {
+                <button class="btn btn-default" disabled="disabled">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    上一篇
+                </button>
+            }
+            @if (Model.ParentDocumentId.HasValue)
+            {
+                <a href="@Url.Action("Details",new { id=Model.ParentDocumentId})" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    父篇
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Index")" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    父篇
+                </a>
+            }
+            @if (Model.PostSilbingDocumentId.HasValue)
+            {
+                <a href="@Url.Action("Details",new { id=Model.PostSilbingDocumentId})" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    下一篇
+                </a>
+            }
+            else
+            {
+                <button class="btn btn-default" disabled="disabled">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    下一篇
+                </button>
+            }
+            <a href="@Url.Action("Edit", new { id = Model.DocumentId})" class="btn btn-default">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                编辑
             </a>
-        }
-        else
-        {
-            <button class="btn btn-default" disabled="disabled">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                上一篇
-            </button>
-        }
-        @if (Model.PostSilbingDocumentId.HasValue)
-        {
-            <a href="@Url.Action("Details",new { id=Model.PostSilbingDocumentId})" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                下一篇
+            <a href="@Url.Action("Directory", new { id = Model.DocumentId})" class="btn btn-default" target="_blank">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                目录
             </a>
-        }
-        else
-        {
-            <button class="btn btn-default" disabled="disabled">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                下一篇
-            </button>
-        }
-        <a href="@Url.Action("Edit", new { id = Model.DocumentId})" class="btn btn-default">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            编辑
-        </a>
-        <a href="@Url.Action("Directory", new { id = Model.DocumentId})" class="btn btn-default" target="_blank">
-            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-            目录
-        </a>
+            <a id="createSilbling" href="@Url.Action("Create",new { parentDocumentId = Model.ParentDocumentId })" class="btn btn-default" style="display:none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增同级节点
+            </a>
+            <a id="cannotCreateSilbling" class="btn btn-default disabled" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增同级节点
+            </a>
+            <a id="createSilblingByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.ParentDocumentId })" class="btn btn-default" style="display:none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增同级节点用URL
+            </a>
+            <a id="cannotCreateSilblingByUrl" class="btn btn-default disabled" style="display: none;">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增同级节点用URL
+            </a>
+            <a href="@Url.Action("ChangeParent", new { id = Model.DocumentId})" class="btn btn-default">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                换父
+            </a>
+        </div>
     </p>
 </div>
 
@@ -194,26 +230,24 @@
     @* 子项目 *@
     <div class="col-md-6">
         <p>
-            <a id="createChild" href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增子节点
-            </a>
-            <a id="cannotCreateChild" class="btn btn-default disabled" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增子节点
-            </a>
-            <a id="createChildByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增子节点用URL
-            </a>
-            <a id="cannotCreateChildByUrl" class="btn btn-default disabled" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增子节点用URL
-            </a>
-            <a id="createSilblingByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.ParentDocumentId })" class="btn btn-default">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增同级节点用URL
-            </a>
+            <div class="btn-group">
+                <a id="createChild" href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增子节点
+                </a>
+                <a id="cannotCreateChild" class="btn btn-default disabled" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增子节点
+                </a>
+                <a id="createChildByUrl" href="@Url.Action("CreateByUrl", new { parentDocumentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增子节点用URL
+                </a>
+                <a id="cannotCreateChildByUrl" class="btn btn-default disabled" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增子节点用URL
+                </a>
+            </div>
         </p>
         <div>
             @Html.Partial("Details_ListChildDocuments", Model.ListChildDocuments)
@@ -223,30 +257,32 @@
     @* 章节 *@
     <div class="col-md-6">
         <p>
-            <a id="createChapter" href="@Url.Action("CreateChapter", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节
-            </a>
-            <a id="cannotCreateChapter" class="btn btn-default disabled" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节
-            </a>
-            <a id="createChapterBatch" href="@Url.Action("CreateChapterBatch", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节-批量
-            </a>
-            <a id="cannotCreateChapterBatch" class="btn btn-default disabled" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节-批量
-            </a>
-            <a id="createChapterAuto" class="btn btn-default" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节-自动
-            </a>
-            <a id="cannotCreateChapterAuto" class="btn btn-default disabled" style="display: none;">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                新增章节-自动
-            </a>
+            <div class="btn-group">
+                <a id="createChapter" href="@Url.Action("CreateChapter", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节
+                </a>
+                <a id="cannotCreateChapter" class="btn btn-default disabled" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节
+                </a>
+                <a id="createChapterBatch" href="@Url.Action("CreateChapterBatch", new { documentId = Model.DocumentId })" class="btn btn-default" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节-批量
+                </a>
+                <a id="cannotCreateChapterBatch" class="btn btn-default disabled" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节-批量
+                </a>
+                <a id="createChapterAuto" class="btn btn-default" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节-自动
+                </a>
+                <a id="cannotCreateChapterAuto" class="btn btn-default disabled" style="display: none;">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    新增章节-自动
+                </a>
+            </div>
         </p>
         <div>
             @Html.Partial("Details_ListChapters", Model.ListChapters)
