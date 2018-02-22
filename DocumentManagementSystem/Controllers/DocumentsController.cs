@@ -314,6 +314,7 @@ namespace DocumentManagementSystem.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult CreateChapter([Bind]Models.ViewModels.Documents.CreateChapter.CreateChapter targetV)
         {
             if (ModelState.IsValid)
