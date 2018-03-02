@@ -415,5 +415,28 @@ namespace DocumentManagementSystem.Controllers
 
             return View();
         }
+
+        public ActionResult InsertPriority(Guid id)
+        {
+            var targetV = new Models.ViewModels.Documents.InsertPriority.InsertPriority(id);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertPriority([Bind()]Models.ViewModels.Documents.InsertPriority.InsertPriority targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = targetV.Save();
+                if (result)
+                    return RedirectToAction("Details", new { id = targetV.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View(targetV);
+        }
     }
 }
