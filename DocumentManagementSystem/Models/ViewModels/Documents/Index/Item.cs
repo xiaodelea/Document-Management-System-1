@@ -28,6 +28,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Index
             this.IsGetAllChildren = document.IsGetAllChildren;
             this.IsHasRemarks = !string.IsNullOrEmpty(document.Remarks);
             //this.TotalMinutesToRead = document.TotalMinutesToRead;
+            this.CountChildren = document.ChildDocuments.Count();
+            this.CountChildrenUnFinished = document.ChildDocuments.Where(c => !c.IsFinished).Count();
         }
 
 
@@ -87,5 +89,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Index
 
         //[Display(Name = "累计时间")]
         //public int? TotalMinutesToRead { get; set; }
+
+        [Display(Name = "子节点数")]
+        public int CountChildren { get; set; }
+
+        [Display(Name = "未完成子节点数")]
+        public int CountChildrenUnFinished { get; set; }
     }
 }

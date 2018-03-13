@@ -24,6 +24,12 @@
             @*<th class="text-center" width="6%">
                 @Html.DisplayNameFor(model => model.TotalMinutesToRead)
             </th>*@
+            <th class="text-center" width="6%">
+                @Html.DisplayNameFor(model => model.CountChildren)
+            </th>
+            <th class="text-center" width="6%">
+                @Html.DisplayNameFor(model => model.CountChildrenUnFinished)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -51,6 +57,12 @@
                 @*<td class="text-center">
                     @Html.DisplayFor(modelItem => item.TotalMinutesToRead)
                 </td>*@
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CountChildren)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CountChildrenUnFinished)
+                </td>
             </tr>
         }
     </tbody>
