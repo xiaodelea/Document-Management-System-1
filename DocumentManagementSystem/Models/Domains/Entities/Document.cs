@@ -162,6 +162,30 @@ namespace DocumentManagementSystem.Models.Domains.Entities
 
 
 
+        public virtual bool IsBook { get; set; }
+
+        public virtual string ISBN { get; set; }
+
+
+
+
+
+        /// <summary>
+        /// 抽象节点。
+        /// </summary>
+        /// <remarks>表示非具体代表一个文档。</remarks>
+        public virtual bool IsAbstract { get; set; }
+
+        /// <summary>
+        /// 主节点。
+        /// </summary>
+        /// <remarks>表示文档的首节点（根节点）。</remarks>
+        public virtual bool IsMain { get; set; }
+
+
+
+
+
         public virtual DateTime UpdateTime { get; set; }
 
         [Timestamp]

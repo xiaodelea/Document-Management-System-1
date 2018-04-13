@@ -199,6 +199,14 @@
     <Compile Include="Migrations\201709250049045_DocumentAddField5.Designer.cs">
       <DependentUpon>201709250049045_DocumentAddField5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804090224463_DocumentAddField6.cs" />
+    <Compile Include="Migrations\201804090224463_DocumentAddField6.Designer.cs">
+      <DependentUpon>201804090224463_DocumentAddField6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804090306052_DocumentAddField7.cs" />
+    <Compile Include="Migrations\201804090306052_DocumentAddField7.Designer.cs">
+      <DependentUpon>201804090306052_DocumentAddField7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
@@ -350,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709250049045_DocumentAddField5.resx">
       <DependentUpon>201709250049045_DocumentAddField5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804090224463_DocumentAddField6.resx">
+      <DependentUpon>201804090224463_DocumentAddField6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804090306052_DocumentAddField7.resx">
+      <DependentUpon>201804090306052_DocumentAddField7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
