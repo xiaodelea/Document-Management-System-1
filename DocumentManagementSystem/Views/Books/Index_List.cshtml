@@ -15,7 +15,7 @@
         @foreach (var item in Model)
         {
             <tr data-url="@Url.Action("Details",new { id=item.DocumentId})" onclick="gotoDetails(this);">
-                <td class="@(item.IsMain?"info":"")">
+                <td class="@(item.IsBookMain?"info":"")">
                     <span>@(new string('　', item.Level))</span>
 
                     @Html.DisplayFor(modelItem => item.NodeName)

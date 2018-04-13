@@ -260,5 +260,41 @@ namespace DocumentManagementSystem.Models.Domains.Entities
                 return this.IsChecked && this.IsGetAllChildren && this.IsGetAllChapters;
             }
         }
+
+
+
+
+
+        public bool IsBookAbstract
+        {
+            get
+            {
+                return this.IsBook && !this.IsMain && this.IsAbstract;
+            }
+        }
+
+        public bool IsBookNormal
+        {
+            get
+            {
+                return this.IsBook && !this.IsMain && !this.IsAbstract;
+            }
+        }
+
+        public bool IsBookMain
+        {
+            get
+            {
+                return this.IsBook && this.IsMain && !this.IsAbstract;
+            }
+        }
+
+        public bool IsBookError
+        {
+            get
+            {
+                return this.IsBook && this.IsMain && this.IsAbstract;
+            }
+        }
     }
 }

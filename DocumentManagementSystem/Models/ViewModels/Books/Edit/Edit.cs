@@ -29,11 +29,6 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Edit
             this.Priority = target.Priority;
             this.Remarks = target.Remarks;
 
-            this.IsAbstract = target.IsAbstract;
-            this.IsChecked = target.IsChecked;
-            this.IsBookmarked = target.IsBookmarked;
-
-            this.IsMain = target.IsMain;
             this.ISBN = target.ISBN;
             this.Url = target.Url;
 
@@ -64,22 +59,6 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Edit
 
 
 
-        [Display(Name = "抽象")]
-        public bool IsAbstract { get; set; }
-
-        [Display(Name = "查阅")]
-        public bool IsChecked { get; set; }
-
-        [Display(Name = "书签")]
-        public bool IsBookmarked { get; set; }
-
-
-
-
-
-        [Display(Name = "主要")]
-        public bool IsMain { get; set; }
-
         [Display(Name = "ISBN")]
         public string ISBN { get; set; }
 
@@ -97,20 +76,60 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Edit
 
 
 
-        public bool Save()
+        public bool SaveBookNormal()
         {
             var db = new Domains.Entities.DMsDbContext();
             var target = db.Documents.Find(this.DocumentId);
-
+            target.Title = this.NodeName;
             target.NodeName = this.NodeName;
             target.Priority = this.Priority;
             target.Remarks = this.Remarks;
-            target.IsAbstract = this.IsAbstract;
-            target.IsChecked = this.IsChecked;
-            target.IsBookmarked = this.IsBookmarked;
-            target.IsMain = this.IsMain;
-            target.ISBN = this.ISBN;
+            target.TimeStamp = this.TimeStamp;
+            target.UpdateTime = DateTime.Now;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool SaveBookMain()
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = db.Documents.Find(this.DocumentId);
+            target.Title = this.NodeName;
+            target.NodeName = this.NodeName;
+            target.Priority = this.Priority;
+            target.Remarks = this.Remarks;
             target.Url = this.Url;
+            target.ISBN = this.ISBN;
+            target.TimeStamp = this.TimeStamp;
+            target.UpdateTime = DateTime.Now;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool SaveBookAbstract()
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = db.Documents.Find(this.DocumentId);
+            target.Title = this.NodeName;
+            target.NodeName = this.NodeName;
+            target.Priority = this.Priority;
+            target.Remarks = this.Remarks;
             target.TimeStamp = this.TimeStamp;
             target.UpdateTime = DateTime.Now;
 

@@ -12,7 +12,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Directory
             var db = new Domains.Entities.DMsDbContext();
             var target = db.Documents.Find(id);
 
-            while (!target.IsMain)
+            while (!target.IsBookMain)
             {
                 if (target.ParentDocument != null)
                     target = target.ParentDocument;
@@ -42,7 +42,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Directory
 
         private void AddItem(Domains.Entities.Document target, Guid id, int level)
         {
-            if (target.IsBook)
+            if (target.IsBookMain || target.IsBookNormal)
             {
                 this.List.Add(new Item(target, id, level));
 

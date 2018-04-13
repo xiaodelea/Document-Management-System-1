@@ -36,7 +36,11 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(targetV);
         }
 
-        public ActionResult Create(Guid? parentDocumentId)
+
+
+
+
+        public ActionResult CreateBookNormal(Guid? parentDocumentId)
         {
             var targetV = new Models.ViewModels.Books.Create.Create(parentDocumentId);
 
@@ -45,11 +49,11 @@ namespace DocumentManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind()]Models.ViewModels.Books.Create.Create targetV)
+        public ActionResult CreateBookNormal([Bind()]Models.ViewModels.Books.Create.Create targetV)
         {
             if (ModelState.IsValid)
             {
-                var target = targetV.GetTarget();
+                var target = targetV.GetTargetBookNormal();
 
                 var result = targetV.Save(target);
 
@@ -62,7 +66,63 @@ namespace DocumentManagementSystem.Controllers
             return View(targetV);
         }
 
-        public ActionResult Edit(Guid id)
+        public ActionResult CreateBookMain(Guid? parentDocumentId)
+        {
+            var targetV = new Models.ViewModels.Books.Create.Create(parentDocumentId);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookMain([Bind()]Models.ViewModels.Books.Create.Create targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var target = targetV.GetTargetBookMain();
+
+                var result = targetV.Save(target);
+
+                if (result)
+                    return RedirectToAction("Details", new { id = target.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View(targetV);
+        }
+
+        public ActionResult CreateBookAbstract(Guid? parentDocumentId)
+        {
+            var targetV = new Models.ViewModels.Books.Create.Create(parentDocumentId);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookAbstract([Bind()]Models.ViewModels.Books.Create.Create targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var target = targetV.GetTargetBookAbstract();
+
+                var result = targetV.Save(target);
+
+                if (result)
+                    return RedirectToAction("Details", new { id = target.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View(targetV);
+        }
+
+
+
+
+
+        public ActionResult EditBookNormal(Guid id)
         {
             var targetV = new Models.ViewModels.Books.Edit.Edit(id);
 
@@ -71,11 +131,59 @@ namespace DocumentManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind()]Models.ViewModels.Books.Edit.Edit targetV)
+        public ActionResult EditBookNormal([Bind()]Models.ViewModels.Books.Edit.Edit targetV)
         {
             if (ModelState.IsValid)
             {
-                var result = targetV.Save();
+                var result = targetV.SaveBookNormal();
+
+                if (result)
+                    return RedirectToAction("Details", new { id = targetV.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View(targetV);
+        }
+
+        public ActionResult EditBookMain(Guid id)
+        {
+            var targetV = new Models.ViewModels.Books.Edit.Edit(id);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditBookMain([Bind()]Models.ViewModels.Books.Edit.Edit targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = targetV.SaveBookMain();
+
+                if (result)
+                    return RedirectToAction("Details", new { id = targetV.DocumentId });
+                else
+                    return HttpNotFound();
+            }
+
+            return View(targetV);
+        }
+
+        public ActionResult EditBookAbstract(Guid id)
+        {
+            var targetV = new Models.ViewModels.Books.Edit.Edit(id);
+
+            return View(targetV);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditBookAbstract([Bind()]Models.ViewModels.Books.Edit.Edit targetV)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = targetV.SaveBookAbstract();
 
                 if (result)
                     return RedirectToAction("Details", new { id = targetV.DocumentId });

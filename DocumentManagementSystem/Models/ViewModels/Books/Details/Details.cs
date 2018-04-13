@@ -39,21 +39,22 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Details
                 else
                     this.PostSilbingDocumentId = db.Documents.Where(c => c.IsBook && c.ParentDocumentId == null && c.Priority > target.Priority).OrderBy(c => c.Priority).ToList().FirstOrDefault()?.DocumentId;
             }
-            this.IsAbstract = target.IsAbstract;
-            this.IsMain = target.IsMain;
+            this.IsBookAbstract = target.IsBookAbstract;  
+            this.IsBookMain = target.IsBookMain;
+            this.IsBookNormal = target.IsBookNormal;
 
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;
             this.Remarks = target.Remarks;
 
-            if (this.IsMain)
+            if (this.IsBookMain)
             {
                 this.Main = new Main();
                 this.Main.Url = target.Url;
                 this.Main.ISBN = target.ISBN;
             }
 
-            if (!this.IsAbstract)
+            if (!this.IsBookAbstract)
             {
                 this.Concrete = new Concrete();
                 this.Concrete.DocumentId = this.DocumentId;
@@ -79,10 +80,13 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Details
         public Guid? PostSilbingDocumentId { get; set; }
 
         [Display(Name = "抽象")]
-        public bool IsAbstract { get; set; }
+        public bool IsBookAbstract { get; set; }
 
         [Display(Name = "主")]
-        public bool IsMain { get; set; }
+        public bool IsBookMain { get; set; }
+
+        [Display(Name = "普通")]
+        public bool IsBookNormal { get; set; }
 
 
 

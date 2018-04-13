@@ -82,7 +82,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Create
 
 
 
-        public Domains.Entities.Document GetTarget()
+        public Domains.Entities.Document GetTargetBookNormal()
         {
             var target = new Domains.Entities.Document();
             target.DocumentId = Guid.NewGuid();
@@ -90,13 +90,46 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Create
             target.Title = this.NodeName;
             target.NodeName = this.NodeName;
             target.Priority = this.Priority;
-            target.IsChecked = this.IsChecked;
+            target.Remarks = this.Remarks;
+            target.IsBook = true;
+            target.UpdateTime = DateTime.Now;
+
+            target.UpdateTimeForHTTPGet = DateTime.Now;
+
+            return target;
+        }
+
+        public Domains.Entities.Document GetTargetBookMain()
+        {
+            var target = new Domains.Entities.Document();
+            target.DocumentId = Guid.NewGuid();
+            target.ParentDocumentId = this.ParentDocumentId;
+            target.Title = this.NodeName;
+            target.NodeName = this.NodeName;
+            target.Priority = this.Priority;
             target.Url = this.Url;
             target.Remarks = this.Remarks;
             target.IsBook = true;
             target.ISBN = this.ISBN;
-            target.IsAbstract = this.IsAbstract;
-            target.IsMain = this.IsMain;
+            target.IsMain = true;
+            target.UpdateTime = DateTime.Now;
+
+            target.UpdateTimeForHTTPGet = DateTime.Now;
+
+            return target;
+        }
+
+        public Domains.Entities.Document GetTargetBookAbstract()
+        {
+            var target = new Domains.Entities.Document();
+            target.DocumentId = Guid.NewGuid();
+            target.ParentDocumentId = this.ParentDocumentId;
+            target.Title = this.NodeName;
+            target.NodeName = this.NodeName;
+            target.Priority = this.Priority;
+            target.Remarks = this.Remarks;
+            target.IsBook = true;
+            target.IsAbstract = true;
             target.UpdateTime = DateTime.Now;
 
             target.UpdateTimeForHTTPGet = DateTime.Now;

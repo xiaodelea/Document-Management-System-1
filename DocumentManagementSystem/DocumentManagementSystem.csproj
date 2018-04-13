@@ -342,8 +342,12 @@
     <Content Include="Views\Books\Children_List.cshtml" />
     <Content Include="Views\Books\Details_Abstract.cshtml" />
     <Content Include="Views\Books\Details_Main.cshtml" />
-    <Content Include="Views\Books\Create.cshtml" />
-    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\CreateBookNormal.cshtml" />
+    <Content Include="Views\Books\CreateBookMain.cshtml" />
+    <Content Include="Views\Books\CreateBookAbstract.cshtml" />
+    <Content Include="Views\Books\EditBookNormal.cshtml" />
+    <Content Include="Views\Books\EditBookMain.cshtml" />
+    <Content Include="Views\Books\EditBookAbstract.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

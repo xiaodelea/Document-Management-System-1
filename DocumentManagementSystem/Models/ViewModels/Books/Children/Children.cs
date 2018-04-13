@@ -14,7 +14,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Children
 
             this.DocumentId = id;
             this.ParentDocumentId = target.ParentDocumentId;
-            this.List = target.ChildDocuments.Where(c => c.IsBook).OrderBy(c => c.Priority).ToList().Select(c => new Item(c)).ToList();
+            this.List = target.ChildDocuments.Where(c => c.IsBookMain || c.IsBookNormal || c.IsBookAbstract).OrderBy(c => c.Priority).ToList().Select(c => new Item(c)).ToList();
         }
 
 

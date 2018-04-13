@@ -11,13 +11,16 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
         {
             var db = new Domains.Entities.DMsDbContext();
 
-            var query = db.Documents.Where(c => c.ParentDocumentId == null && ((c.IsBook && c.IsAbstract) || (c.IsBook && c.IsMain)));
+            var query = db.Documents.Where(c => c.ParentDocumentId == null);
 
             var queryOrdered = query.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId);
 
+            var list = queryOrdered.ToList();
+            list = list.Where(c => c.IsBookAbstract || c.IsBookMain).ToList();
+
             this.List = new List<Item>();
 
-            this.CreateItems(queryOrdered.ToList(), 0);
+            this.CreateItems(list, 0);
         }
 
         public void CreateItems(List<Domains.Entities.Document> list, int level)
@@ -26,7 +29,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
             {
                 this.List.Add(new Item(item, level));
 
-                this.CreateItems(item.ChildDocuments.Where(c => c.IsBook && c.IsAbstract || c.IsBook && c.IsMain).OrderBy(c => c.Priority).ToList(), level + 1);
+                this.CreateItems(item.ChildDocuments.Where(c => c.IsBookAbstract || c.IsBookMain).OrderBy(c => c.Priority).ToList(), level + 1);
             }
         }
 
