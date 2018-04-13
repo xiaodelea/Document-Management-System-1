@@ -37,6 +37,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
             //this.UpdateTime = document.UpdateTime;
             this.TotalMinutesToRead = document.TotalMinutesToRead;
             this.IsBookmarked = document.IsBookmarked;
+            this.IsBook = document.IsBook;
+            this.IsAbstract = document.IsAbstract;
+            this.IsMain = document.IsMain;
             this.IsFinished = document.IsFinished;
         }
 
@@ -109,6 +112,12 @@ namespace DocumentManagementSystem.Models.ViewModels.Services.GetDocument
         public int? TotalMinutesToRead { get; set; }
 
         public bool IsBookmarked { get; set; }
+
+        public bool IsBook { get; set; }
+
+        public bool IsAbstract { get; set; }
+
+        public bool IsMain { get; set; }
 
         public bool IsFinished { get; set; }
 

@@ -1,0 +1,31 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books.Index.Index
+
+@{
+    ViewBag.Title = "一览";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div>
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            新增
+        </a>
+    </p>
+</div>
+
+<div>
+    @Html.Partial("Index_List", Model.List)
+</div>
+
+@section scripts{
+    <script src="~/Scripts/dms-books-index.js"></script>
+}

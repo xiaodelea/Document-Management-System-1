@@ -1,0 +1,156 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books.Details.Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<hr />
+
+<div class="row">
+    @* 左 *@
+    <div class="col-md-6">
+        <div>
+            <div class="btn-group">
+                @if (Model.PreSilbingDocumentId.HasValue)
+                {
+                    <a id="pre-node" href="@Url.Action("Details",new { id=Model.PreSilbingDocumentId})" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        上一篇
+                    </a>
+                }
+                else
+                {
+                    <button class="btn btn-default" disabled="disabled">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        上一篇
+                    </button>
+                }
+                @if (Model.ParentDocumentId.HasValue)
+                {
+                    <a id="parent-node" href="@Url.Action("Details",new { id=Model.ParentDocumentId})" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        父篇
+                    </a>
+                }
+                else
+                {
+                    <a id="parent-node" href="@Url.Action("Index")" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        父篇
+                    </a>
+                }
+                @if (Model.PostSilbingDocumentId.HasValue)
+                {
+                    <a id="post-node" href="@Url.Action("Details",new { id=Model.PostSilbingDocumentId})" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        下一篇
+                    </a>
+                }
+                else
+                {
+                    <button class="btn btn-default" disabled="disabled">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        下一篇
+                    </button>
+                }
+            </div>
+
+            <div class="btn-group">
+                <a href="@Url.Action("Create",new { parentDocumentId=Model.ParentDocumentId })" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    同级
+                </a>
+                <a href="@Url.Action("Create", new { parentDocumentId = Model.DocumentId })" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    子级
+                </a>
+                <a href="@Url.Action("Edit",new { id=Model.DocumentId })" class="btn btn-default">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    编辑
+                </a>
+            </div>
+
+            <hr />
+        </div>
+
+        @* 上：明细 *@
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NodeName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NodeName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Priority)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Priority)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Remarks)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsAbstract)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IsAbstract)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsMain)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IsMain)
+                </dd>
+            </dl>
+        </div>
+
+        @if (Model.IsMain)
+        {
+            <hr />
+
+            <div>
+                @Html.Partial("Details_Main", Model.Main)
+            </div>
+        }
+
+        <hr />
+
+        @if (!Model.IsAbstract)
+        {
+            <div>
+                @Html.Partial("Details_Concrete", Model.Concrete)
+            </div>
+        }
+        else
+        {
+            <div>
+                @Html.Partial("Details_Abstract", Model.Abstract)
+            </div>
+        }
+        
+        <hr />
+
+        @* 下：子节点 *@
+        <div>
+            @Html.Action("Children", new { id = Model.DocumentId })
+        </div>
+    </div>
+
+    @* 右：目录 *@
+    <div class="col-md-6">
+        @Html.Action("Directory", new { id = Model.DocumentId })
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/dms-books-details.js"></script>
+}

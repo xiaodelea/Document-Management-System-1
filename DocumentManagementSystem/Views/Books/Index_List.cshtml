@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books.Index.Item>
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NodeName)
+            </th>
+            <th class="text-center" width="5%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr data-url="@Url.Action("Details",new { id=item.DocumentId})" onclick="gotoDetails(this);">
+                <td class="@(item.IsMain?"info":"")">
+                    <span>@(new string('　', item.Level))</span>
+
+                    @Html.DisplayFor(modelItem => item.NodeName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

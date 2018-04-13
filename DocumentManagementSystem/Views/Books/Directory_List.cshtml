@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books.Directory.Item>
+
+<table class="table table-condensed table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NodeName)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3">
+                    <span>[无]</span>
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr data-url="@Url.Action("Details",new { id=item.DocumentId})" onclick="gotoDetails(this);">
+                    <td class="@(item.IsCurrent?"info":"")">
+                        <span>@(new string('　', item.Level))</span>
+
+                        @Html.DisplayFor(modelItem => item.NodeName)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Priority)
+                    </td>
+                    <td class="text-center @(!item.IsChecked?"warning":"")">
+                        @Html.DisplayFor(modelItem => item.IsChecked)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

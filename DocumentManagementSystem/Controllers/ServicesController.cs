@@ -61,6 +61,15 @@ namespace DocumentManagementSystem.Controllers
                 case "IsBookmarked":
                     target.IsBookmarked = value;
                     break;
+                case "IsBook":
+                    target.IsBook = value;
+                    break;
+                case "IsAbstract":
+                    target.IsAbstract = value;
+                    break;
+                case "IsMain":
+                    target.IsMain = value;
+                    break;
                 default:
                     return Json(new { result = false });
             }

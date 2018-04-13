@@ -149,6 +149,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -217,6 +218,18 @@
     <Compile Include="Models\Domains\Entities\Chapter.cs" />
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
     <Compile Include="Models\Domains\Entities\Document.cs" />
+    <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
+    <Compile Include="Models\ViewModels\Books\Children\Item.cs" />
+    <Compile Include="Models\ViewModels\Books\Create\Create.cs" />
+    <Compile Include="Models\ViewModels\Books\Details\Abstract.cs" />
+    <Compile Include="Models\ViewModels\Books\Details\Concrete.cs" />
+    <Compile Include="Models\ViewModels\Books\Details\Details.cs" />
+    <Compile Include="Models\ViewModels\Books\Details\Main.cs" />
+    <Compile Include="Models\ViewModels\Books\Directory\Directory.cs" />
+    <Compile Include="Models\ViewModels\Books\Directory\Item.cs" />
+    <Compile Include="Models\ViewModels\Books\Edit\Edit.cs" />
+    <Compile Include="Models\ViewModels\Books\Index\Index.cs" />
+    <Compile Include="Models\ViewModels\Books\Index\Item.cs" />
     <Compile Include="Models\ViewModels\Documents\BreadField\BreadField.cs" />
     <Compile Include="Models\ViewModels\Documents\ChangeParent\ChangeParent.cs" />
     <Compile Include="Models\ViewModels\Documents\CreateByUrlMicrosoftDocsApi\CreateByUrlMicrosoftDocsApi.cs" />
@@ -265,6 +278,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\clipboard.min.js" />
+    <Content Include="Scripts\dms-books-details.js" />
+    <Content Include="Scripts\dms-books-index.js" />
     <Content Include="Scripts\dms-documents-details.js" />
     <Content Include="Scripts\dms-normal.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -317,6 +332,18 @@
     <Content Include="Views\Documents\Directory_List.cshtml" />
     <Content Include="Views\Documents\ChangeParent.cshtml" />
     <Content Include="Views\Documents\InsertPriority.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Books\Index_List.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Details_Concrete.cshtml" />
+    <Content Include="Views\Books\Directory.cshtml" />
+    <Content Include="Views\Books\Directory_List.cshtml" />
+    <Content Include="Views\Books\Children.cshtml" />
+    <Content Include="Views\Books\Children_List.cshtml" />
+    <Content Include="Views\Books\Details_Abstract.cshtml" />
+    <Content Include="Views\Books\Details_Main.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

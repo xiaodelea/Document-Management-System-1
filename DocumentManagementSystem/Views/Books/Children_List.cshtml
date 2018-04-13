@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books.Children.Item>
+
+<table class="table table-condensed table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NodeName)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr data-url="@Url.Action("Details",new { id=item.DocumentId})" onclick="gotoDetails(this);">
+                <td>
+                    @Html.DisplayFor(modelItem => item.NodeName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsChecked)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

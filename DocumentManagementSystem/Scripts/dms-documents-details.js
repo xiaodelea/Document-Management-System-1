@@ -49,6 +49,30 @@ function buttonBinding() {
     $("#setUnBookmarked").data('property', 'IsBookmarked');
     $("#setUnBookmarked").data('propertyValue', false);
 
+    $("#setBook").click(setFlag);
+    $("#setBook").data('property', 'IsBook');
+    $("#setBook").data('propertyValue', true);
+
+    $("#setUnBook").click(setFlag);
+    $("#setUnBook").data('property', 'IsBook');
+    $("#setUnBook").data('propertyValue', false);
+
+    $("#setAbstract").click(setFlag);
+    $("#setAbstract").data('property', 'IsAbstract');
+    $("#setAbstract").data('propertyValue', true);
+
+    $("#setUnAbstract").click(setFlag);
+    $("#setUnAbstract").data('property', 'IsAbstract');
+    $("#setUnAbstract").data('propertyValue', false);
+
+    $("#setMain").click(setFlag);
+    $("#setMain").data('property', 'IsMain');
+    $("#setMain").data('propertyValue', true);
+
+    $("#setUnMain").click(setFlag);
+    $("#setUnMain").data('property', 'IsMain');
+    $("#setUnMain").data('propertyValue', false);
+
     $("#createChapterAuto").click(getChapters);
 }
 
@@ -79,6 +103,12 @@ function refreshContent() {
     refreshButtonsCheckedboxes(model.IsNoted, 'setNoted', 'setUnNoted', 'isNoted');
     //更新书签相关
     refreshButtonsCheckedboxes(model.IsBookmarked, 'setBookmarked', 'setUnBookmarked', 'isBookmarked');
+    //更新书籍相关
+    refreshButtonsCheckedboxes(model.IsBook, 'setBook', 'setUnBook', 'isBook');
+    //更新抽象相关
+    refreshButtonsCheckedboxes(model.IsAbstract, 'setAbstract', 'setUnAbstract', 'isAbstract');
+    //更新主相关
+    refreshButtonsCheckedboxes(model.IsMain, 'setMain', 'setUnMain', 'isMain');
     //更新子节点相关
     refreshButtonsCheckedboxes(model.IsGetAllChildren, 'setGetAllChildren', 'setUnGetAllChildren', 'isGetAllChildren');
     //更新章节相关

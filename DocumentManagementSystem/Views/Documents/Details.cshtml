@@ -137,6 +137,54 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.IsBook)
+        </dt>
+        <dd>
+            <input id="isBook" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="setBook" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="setUnBook" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAbstract)
+        </dt>
+        <dd>
+            <input id="isAbstract" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="setAbstract" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="setUnAbstract" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMain)
+        </dt>
+        <dd>
+            <input id="isMain" class="check-box" disabled="disabled" type="checkbox">
+
+            <button id="setMain" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                设置
+            </button>
+            <button id="setUnMain" class="label label-default" style="display: none;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                取消
+            </button>
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Remarks)
         </dt>
         <dd>

@@ -46,6 +46,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
             this.MinutesToRead = target.MinutesToRead;
             this.TotalMinutesToRead = target.TotalMinutesToRead;
             this.IsBookmarked = target.IsBookmarked;
+            this.IsBook = target.IsBook;
+            this.IsAbstract = target.IsAbstract;
+            this.IsMain = target.IsMain;
 
             this.ListChildDocuments = target.ChildDocuments.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId).Select(c => new ItemChildDocument(c)).ToList();
 
@@ -149,6 +152,15 @@ namespace DocumentManagementSystem.Models.ViewModels.Documents.Details
 
         [Display(Name = "书签")]
         public bool IsBookmarked { get; set; }
+
+        [Display(Name = "书籍")]
+        public bool IsBook { get; set; }
+
+        [Display(Name = "抽象")]
+        public bool IsAbstract { get; set; }
+
+        [Display(Name = "主")]
+        public bool IsMain { get; set; }
 
 
 
