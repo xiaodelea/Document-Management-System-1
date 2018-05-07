@@ -38,7 +38,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
 
 
 
-        [Display(Name = "节点名称")]
+        [Display(Name = "书架-书籍")]
         public string NodeName { get; set; }
 
         [Display(Name = "优先级")]
