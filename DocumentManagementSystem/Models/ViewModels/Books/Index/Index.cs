@@ -23,7 +23,17 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
             this.CreateItems(list, 0);
         }
 
-        public void CreateItems(List<Domains.Entities.Document> list, int level)
+
+
+
+
+        public List<Item> List { get; set; }
+
+
+
+
+
+        private void CreateItems(List<Domains.Entities.Document> list, int level)
         {
             foreach (var item in list)
             {
@@ -33,10 +43,5 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
             }
         }
 
-
-
-
-
-        public List<Item> List { get; set; }
     }
 }
