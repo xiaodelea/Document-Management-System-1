@@ -124,5 +124,21 @@ namespace DocumentManagementSystem.Controllers
 
             return Json(true);
         }
+
+        //public string SetToBook(Guid id)
+        //{
+        //    var db = new Models.Domains.Entities.DMsDbContext();
+        //    var target = db.Documents.Find(id);
+        //    this.Set(target);
+        //    db.SaveChanges();
+        //    return "success";
+        //}
+
+        //public void Set(Models.Domains.Entities.Document target)
+        //{
+        //    target.IsBook = true;
+        //    foreach (var child in target.ChildDocuments)
+        //        this.Set(child);
+        //}
     }
 }
