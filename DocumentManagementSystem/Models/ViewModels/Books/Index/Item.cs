@@ -9,6 +9,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
 {
     public class Item
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="level">层级。从0开始。</param>
         public Item(Domains.Entities.Document target, int level)
         {
             this.Initial(target, level);
