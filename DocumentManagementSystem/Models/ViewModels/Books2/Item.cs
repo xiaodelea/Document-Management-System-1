@@ -9,6 +9,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
 {
     public class Item
     {
+        public Item()
+        {
+
+        }
+
         public Item(Domains.Entities.Document target)
         {
             this.DocumentId = target.DocumentId;
@@ -21,9 +26,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
             this.Remarks = target.Remarks;
             this.ISBN = target.ISBN;
 
-            this.IsBookAbstract = target.IsBookAbstract;
-            this.IsBookMain = target.IsBookMain;
-            this.IsBookNormal = target.IsBookNormal;
+            this.IsBookAbstract = target.IsBookBookShelf;
+            this.IsBookMain = target.IsBookBook;
+            this.IsBookNormal = target.IsBookChapter;
             this.IsBookError = target.IsBookError;
         }
 

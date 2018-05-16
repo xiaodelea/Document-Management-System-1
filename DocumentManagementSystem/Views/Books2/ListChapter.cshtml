@@ -9,6 +9,9 @@
             <th class="text-center" width="6%">
                 @Html.DisplayNameFor(model => model.Priority)
             </th>
+            <th class="text-center" width="6%">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.Remarks)
             </th>
@@ -23,6 +26,9 @@
                 </td>
                 <td class="text-right">
                     @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsChecked)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Remarks)

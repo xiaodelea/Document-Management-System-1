@@ -1,16 +1,11 @@
 ﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books2.Item>
 
 @{
-    var tabCount = 1;
+    var tabCount = 0;
 }
 
 <table class="table table-hover table-condensed table-bordered">
     <tbody>
-        <tr>
-            <td>
-                @Html.ActionLink("根", "IndexBookshelf")
-            </td>
-        </tr>
         @foreach (var item in Model)
         {
             <tr>

@@ -355,6 +355,13 @@
     <Content Include="Views\Books2\ListBookShelf.cshtml" />
     <Content Include="Views\Books2\ListBook.cshtml" />
     <Content Include="Views\Books2\DirectoryBookshelf.cshtml" />
+    <Content Include="Views\Books2\SingleBook.cshtml" />
+    <Content Include="Views\Books2\IndexBook.cshtml" />
+    <Content Include="Views\Books2\DirectoryBook.cshtml" />
+    <Content Include="Views\Books2\SingleChapter.cshtml" />
+    <Content Include="Views\Books2\ListChapter.cshtml" />
+    <Content Include="Views\Books2\IndexChapter.cshtml" />
+    <Content Include="Views\Books2\DirectoryChapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
