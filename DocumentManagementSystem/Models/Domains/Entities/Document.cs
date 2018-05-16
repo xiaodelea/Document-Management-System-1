@@ -265,7 +265,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
 
 
 
-        public bool IsBookAbstract
+        public bool IsBookBookShelf
         {
             get
             {
@@ -273,7 +273,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
             }
         }
 
-        public bool IsBookNormal
+        public bool IsBookChapter
         {
             get
             {
@@ -281,7 +281,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
             }
         }
 
-        public bool IsBookMain
+        public bool IsBookBook
         {
             get
             {

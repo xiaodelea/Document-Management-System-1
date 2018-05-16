@@ -16,7 +16,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
             var queryOrdered = query.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId);
 
             var list = queryOrdered.ToList();
-            list = list.Where(c => c.IsBookAbstract || c.IsBookMain).ToList();
+            list = list.Where(c => c.IsBookBookShelf || c.IsBookBook).ToList();
 
             this.List = new List<Item>();
 
@@ -39,7 +39,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
             {
                 this.List.Add(new Item(item, level));
 
-                this.CreateItems(item.ChildDocuments.Where(c => c.IsBookAbstract || c.IsBookMain).OrderBy(c => c.Priority).ToList(), level + 1);
+                this.CreateItems(item.ChildDocuments.Where(c => c.IsBookBookShelf || c.IsBookBook).OrderBy(c => c.Priority).ToList(), level + 1);
             }
         }
 

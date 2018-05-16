@@ -23,7 +23,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Index
         {
             this.DocumentId = target.DocumentId;
             this.Level = level;
-            this.IsBookMain = target.IsBookMain;
+            this.IsBookMain = target.IsBookBook;
 
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;

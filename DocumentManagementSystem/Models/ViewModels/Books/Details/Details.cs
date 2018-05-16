@@ -39,9 +39,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Books.Details
                 else
                     this.PostSilbingDocumentId = db.Documents.Where(c => c.IsBook && c.ParentDocumentId == null && c.Priority > target.Priority).OrderBy(c => c.Priority).ToList().FirstOrDefault()?.DocumentId;
             }
-            this.IsBookAbstract = target.IsBookAbstract;  
-            this.IsBookMain = target.IsBookMain;
-            this.IsBookNormal = target.IsBookNormal;
+            this.IsBookAbstract = target.IsBookBookShelf;  
+            this.IsBookMain = target.IsBookBook;
+            this.IsBookNormal = target.IsBookChapter;
 
             this.NodeName = target.NodeName;
             this.Priority = target.Priority;
