@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books2.Item>
+
+<table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <tr>
+            <th class="text-center" width="25%">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="text-center" width="6%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Title, "IndexBookshelf", new { id = item.DocumentId })
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

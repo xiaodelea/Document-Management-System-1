@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books2.Item>
+
+@{
+    var tabCount = 1;
+}
+
+<table class="table table-hover table-condensed table-bordered">
+    <tbody>
+        <tr>
+            <td>
+                @Html.ActionLink("根", "IndexBookshelf")
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span>@(new string('　', tabCount++))</span>
+                    @if (tabCount <= Model.Count())
+                    {
+                        @Html.ActionLink(item.Title, "IndexBookshelf", new { id = item.DocumentId })
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Title)
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

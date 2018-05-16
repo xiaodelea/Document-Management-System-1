@@ -350,6 +350,11 @@
     <Content Include="Views\Books\EditBookNormal.cshtml" />
     <Content Include="Views\Books\EditBookMain.cshtml" />
     <Content Include="Views\Books\EditBookAbstract.cshtml" />
+    <Content Include="Views\Books2\SingleBookshelf.cshtml" />
+    <Content Include="Views\Books2\IndexBookshelf.cshtml" />
+    <Content Include="Views\Books2\ListBookShelf.cshtml" />
+    <Content Include="Views\Books2\ListBook.cshtml" />
+    <Content Include="Views\Books2\DirectoryBookshelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
