@@ -362,6 +362,9 @@
     <Content Include="Views\Books2\ListChapter.cshtml" />
     <Content Include="Views\Books2\IndexChapter.cshtml" />
     <Content Include="Views\Books2\DirectoryChapter.cshtml" />
+    <Content Include="Views\Books2\CreateBookshelf.cshtml" />
+    <Content Include="Views\Books2\CreateBook.cshtml" />
+    <Content Include="Views\Books2\CreateChapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

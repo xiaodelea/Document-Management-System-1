@@ -144,6 +144,8 @@ namespace DocumentManagementSystem.Controllers
 
             var list = @enum.ToList().Select(c => new Models.ViewModels.Books2.Item(c)).ToList();
 
+            ViewBag.Id = id;
+
             return PartialView(list);
         }
 
@@ -160,6 +162,8 @@ namespace DocumentManagementSystem.Controllers
 
             var list = @enum.ToList().Select(c => new Models.ViewModels.Books2.Item(c)).ToList();
 
+            ViewBag.Id = id;
+
             return PartialView(list);
         }
 
@@ -175,6 +179,8 @@ namespace DocumentManagementSystem.Controllers
             var @enum = queryOrdered.AsEnumerable().Where(c => c.IsBookChapter);
 
             var list = @enum.ToList().Select(c => new Models.ViewModels.Books2.Item(c)).ToList();
+
+            ViewBag.Id = id;
 
             return PartialView(list);
         }
@@ -361,6 +367,82 @@ namespace DocumentManagementSystem.Controllers
             var targetV = new Models.ViewModels.Books2.Item(target);
 
             return Json(targetV);
+        }
+
+
+
+
+
+        public ActionResult CreateBookshelf(Guid? parentId)
+        {
+            var item = new Models.ViewModels.Books2.Item();
+            item.DocumentId = Guid.NewGuid();
+            item.ParentDocumentId = parentId;
+            item.Priority=Models.ViewModels.Books2.Item.GetPriority(parentId);
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBookshelf([Bind()]Models.ViewModels.Books2.Item item)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = item.CreateBookshelf();
+                if (result.Item1)
+                    return RedirectToAction("Index", new { id = item.DocumentId });
+                else
+                    return HttpNotFound(result.Item2);
+            }
+            return View(item);
+        }
+
+        public ActionResult CreateBook(Guid? parentId)
+        {
+            var item = new Models.ViewModels.Books2.Item();
+            item.DocumentId = Guid.NewGuid();
+            item.ParentDocumentId = parentId;
+            item.Priority = Models.ViewModels.Books2.Item.GetPriority(parentId);
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBook([Bind()]Models.ViewModels.Books2.Item item)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = item.CreateBook();
+                if (result.Item1)
+                    return RedirectToAction("Index", new { id = item.DocumentId });
+                else
+                    return HttpNotFound(result.Item2);
+            }
+            return View(item);
+        }
+
+        public ActionResult CreateChapter(Guid parentId)
+        {
+            var item = new Models.ViewModels.Books2.Item();
+            item.DocumentId = Guid.NewGuid();
+            item.ParentDocumentId = parentId;
+            item.Priority = Models.ViewModels.Books2.Item.GetPriority(parentId);
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateChapter([Bind()]Models.ViewModels.Books2.Item item)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = item.CreateChapter();
+                if (result.Item1)
+                    return RedirectToAction("Index", new { id = item.DocumentId });
+                else
+                    return HttpNotFound(result.Item2);
+            }
+            return View(item);
         }
     }
 }

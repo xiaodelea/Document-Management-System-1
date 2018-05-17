@@ -16,6 +16,18 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
 
         public Item(Domains.Entities.Document target)
         {
+            this.Initial(target);
+        }
+
+        public Item(Guid id)
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = db.Documents.Find(id);
+            this.Initial(target);
+        }
+
+        private void Initial(Domains.Entities.Document target)
+        {
             this.DocumentId = target.DocumentId;
             this.ParentDocumentId = target.ParentDocumentId;
 
@@ -32,6 +44,29 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
             this.IsBookError = target.IsBookError;
         }
 
+        public static int GetPriority(Guid? parentId)
+        {
+            int? priority;
+
+            var db = new Domains.Entities.DMsDbContext();
+            var parent = db.Documents.Find(parentId);
+
+            if (parent == null)
+            {
+                priority = db.Documents.Where(c => c.ParentDocumentId == null).Max(c => c.Priority);
+            }
+            else
+            {
+                priority = parent.ChildDocuments.Max(c => c.Priority);
+            }
+
+            if (priority == null)
+                priority = 1;
+            else
+                priority = priority + 1;
+            return priority.Value;
+        }
+
 
 
 
@@ -44,6 +79,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
 
 
 
+        [Required]
         [Display(Name = "标题")]
         public string Title { get; set; }
 
@@ -74,5 +110,78 @@ namespace DocumentManagementSystem.Models.ViewModels.Books2
         public bool IsBookMain { get; set; }
 
         public bool IsBookError { get; set; }
+
+
+
+
+
+        public Tuple<bool, string> CreateBookshelf()
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = new Domains.Entities.Document();
+            target.DocumentId = this.DocumentId;
+            target.ParentDocumentId = this.ParentDocumentId;
+            target.Title = this.Title;
+            target.NodeName = this.Title;
+            target.Priority = this.Priority;
+            target.IsChecked = false;
+            target.Url = null;
+            target.Remarks = null;
+            target.IsBook = true;
+            target.ISBN = null;
+            target.IsAbstract = true;
+            target.IsMain = false;
+            target.UpdateTime = DateTime.Now;
+            target.UpdateTimeForHTTPGet = DateTime.Now;
+            db.Documents.Add(target);
+            db.SaveChanges();
+            return new Tuple<bool, string>(true, null);
+        }
+
+        public Tuple<bool, string> CreateBook()
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = new Domains.Entities.Document();
+            target.DocumentId = this.DocumentId;
+            target.ParentDocumentId = this.ParentDocumentId;
+            target.Title = this.Title;
+            target.NodeName = this.Title;
+            target.Priority = this.Priority;
+            target.IsChecked = false;
+            target.Url = this.Url;
+            target.Remarks = null;
+            target.IsBook = true;
+            target.ISBN = this.ISBN;
+            target.IsAbstract = false;
+            target.IsMain = true;
+            target.UpdateTime = DateTime.Now;
+            target.UpdateTimeForHTTPGet = DateTime.Now;
+            db.Documents.Add(target);
+            db.SaveChanges();
+            return new Tuple<bool, string>(true, null);
+        }
+
+        public Tuple<bool, string> CreateChapter()
+        {
+            var db = new Domains.Entities.DMsDbContext();
+            var target = new Domains.Entities.Document();
+            target.DocumentId = this.DocumentId;
+            target.ParentDocumentId = this.ParentDocumentId;
+            target.Title = this.Title;
+            target.NodeName = this.Title;
+            target.Priority = this.Priority;
+            target.IsChecked = false;
+            target.Url = null;
+            target.Remarks = null;
+            target.IsBook = true;
+            target.ISBN = null;
+            target.IsAbstract = false;
+            target.IsMain = false;
+            target.UpdateTime = DateTime.Now;
+            target.UpdateTimeForHTTPGet = DateTime.Now;
+            db.Documents.Add(target);
+            db.SaveChanges();
+            return new Tuple<bool, string>(true, null);
+        }
     }
 }
