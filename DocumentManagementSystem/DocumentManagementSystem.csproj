@@ -212,6 +212,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Atom.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\Base.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocs.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocsApi.cs" />
