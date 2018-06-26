@@ -213,6 +213,14 @@
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPTryOutTimesException.cs" />
     <Compile Include="Models\BusinessModels\Entities\Atom.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Base.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Create.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Delete.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Details.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Edit.cs" />
+    <Compile Include="Models\BusinessModels\Entities\Document\Index.cs" />
+    <Compile Include="Models\BusinessModels\Entities\ValidateError.cs" />
+    <Compile Include="Models\BusinessModels\Entities\ValidateResult.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\Base.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocs.cs" />
     <Compile Include="Models\BusinessModels\PageContentSolver\MicrosoftDocsApi.cs" />
