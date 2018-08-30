@@ -274,6 +274,7 @@
     <Compile Include="Models\Worker\Books\Book\Delete.cs" />
     <Compile Include="Models\Worker\Books\Book\Details.cs" />
     <Compile Include="Models\Worker\Books\Book\Edit.cs" />
+    <Compile Include="Models\Worker\Books\Book\Index.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
     <Compile Include="Models\Worker\ValidateError.cs" />
     <Compile Include="Models\Worker\ValidateResult.cs" />
