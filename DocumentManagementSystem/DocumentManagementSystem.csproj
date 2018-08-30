@@ -237,6 +237,8 @@
     <Compile Include="Models\ViewModels\Books3\Index\Route.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsShelf\DetailsShelf.cs" />
+    <Compile Include="Models\ViewModels\Books4\IndexBookForShelf\IndexBookForShelf.cs" />
+    <Compile Include="Models\ViewModels\Books4\IndexBookForShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBook\IndexBook.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBook\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBook\Route.cs" />
