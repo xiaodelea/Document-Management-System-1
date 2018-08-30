@@ -272,6 +272,7 @@
     <Compile Include="Models\Worker\Atom.cs" />
     <Compile Include="Models\Worker\Books\Book\Create.cs" />
     <Compile Include="Models\Worker\Books\Book\Details.cs" />
+    <Compile Include="Models\Worker\Books\Book\Edit.cs" />
     <Compile Include="Models\Worker\ValidateError.cs" />
     <Compile Include="Models\Worker\ValidateResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
