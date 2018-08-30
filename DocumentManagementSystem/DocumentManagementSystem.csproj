@@ -398,6 +398,10 @@
     <Content Include="Views\Books3\Index.cshtml" />
     <Content Include="Views\Books3\Index_List.cshtml" />
     <Content Include="Views\Books3\Index_Filter.cshtml" />
+    <Content Include="Views\Books4\IndexBook_List.cshtml" />
+    <Content Include="Views\Books4\IndexBook_Filter.cshtml" />
+    <Content Include="Views\Books4\IndexBook_Navigator.cshtml" />
+    <Content Include="Views\Books4\IndexBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

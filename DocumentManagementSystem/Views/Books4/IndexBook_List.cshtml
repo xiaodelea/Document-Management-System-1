@@ -1,0 +1,67 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books4.IndexBook.Item>
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="text-center" width="30%">
+                @Html.DisplayNameFor(model => model.BookShelfName)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+            <th class="text-center" width="15%">
+                @Html.DisplayNameFor(model => model.UpdateTime)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="5" class="text-center">
+                    <span>无项目。</span>
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                if (!item._isExist)
+                {
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <span>项目出错。</span>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookShelfName)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.IsChecked)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.UpdateTime)
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>

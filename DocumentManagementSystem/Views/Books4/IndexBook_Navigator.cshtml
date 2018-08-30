@@ -1,0 +1,49 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books4.IndexBook.Route
+
+@{
+    var navClassNormal = new { @class = "btn btn-info" };
+    var navClassDisabled = new { @class = "btn btn-info", disabled = "disabled" };
+
+    int navButtonNumber = 4;
+}
+
+<p class="btn-group">
+    @{
+        if (Model.Page > 1)
+        {
+            @Html.ActionLink("首页", "IndexBook", Model.GetRoute(1), navClassNormal)
+        }
+        else
+        {
+            <span class="btn btn-info" disabled="disabled">首页</span>
+        }
+
+        for (int prePage = Model.Page - navButtonNumber; prePage < Model.Page; prePage++)
+        {
+            if (prePage >= 1)
+            {
+                @Html.ActionLink(prePage.ToString(), "IndexBook", Model.GetRoute(prePage), navClassNormal)
+            }
+        }
+    }
+
+    <button class="btn btn-default" disabled="disabled">第@(Model.Page)页/共@(Model.MaxPage)页 (共@(Model.Count)项)</button>
+
+    @{
+        for (int nextPage = Model.Page + 1; nextPage <= Model.MaxPage && nextPage <= Model.Page + navButtonNumber; nextPage++)
+        {
+            @Html.ActionLink(nextPage.ToString(), "IndexBook", Model.GetRoute(nextPage), navClassNormal)
+        }
+
+        if (Model.Page < Model.MaxPage)
+        {
+            @Html.ActionLink("末页", "IndexBook", Model.GetRoute(Model.MaxPage), navClassNormal)
+        }
+        else
+        {
+            <span class="btn btn-info" disabled="disabled">末页</span>
+        }
+    }
+
+    @Html.ActionLink("新增", "Create", null, new { @class = "btn btn-info" })
+</p>

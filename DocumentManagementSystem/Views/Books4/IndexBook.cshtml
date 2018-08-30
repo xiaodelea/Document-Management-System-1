@@ -1,0 +1,34 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books4.IndexBook.IndexBook
+
+@{
+    ViewBag.Title = "书籍一览";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<hr />
+
+<div>
+    <div>
+        @Html.Partial("IndexBook_Filter", Model.Route)
+    </div>
+
+    <div>
+        <hr />
+    </div>
+</div>
+
+<div>
+    @Html.Partial("IndexBook_Navigator", Model.Route)
+</div>
+
+<div>
+    @Html.Partial("IndexBook_List", Model.List)
+</div>
