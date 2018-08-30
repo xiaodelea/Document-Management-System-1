@@ -43,5 +43,15 @@ namespace DocumentManagementSystem.Controllers
 
             return View(v);
         }
+
+        public ActionResult DetailsShelf(Guid id)
+        {
+            var v = new Models.ViewModels.Books4.DetailsShelf.DetailsShelf(id);
+
+            if (!v._isExist)
+                return HttpNotFound();
+
+            return View(v);
+        }
     }
 }
