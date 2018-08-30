@@ -238,6 +238,8 @@
     <Compile Include="Models\ViewModels\Books4\IndexBook\IndexBook.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBook\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBook\Route.cs" />
+    <Compile Include="Models\ViewModels\Books4\IndexShelf\IndexShelf.cs" />
+    <Compile Include="Models\ViewModels\Books4\IndexShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Item.cs" />
     <Compile Include="Models\ViewModels\Books\Create\Create.cs" />
