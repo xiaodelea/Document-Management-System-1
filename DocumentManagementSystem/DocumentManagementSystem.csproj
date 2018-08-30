@@ -420,6 +420,7 @@
     <Content Include="Views\Books4\DetailsBook.cshtml" />
     <Content Include="Views\Books4\IndexChapterForBook.cshtml" />
     <Content Include="Views\Books4\IndexChapterForBook_List.cshtml" />
+    <Content Include="Views\Books4\DetailsShelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
