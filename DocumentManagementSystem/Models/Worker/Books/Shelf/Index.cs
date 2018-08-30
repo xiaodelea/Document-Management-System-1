@@ -7,7 +7,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 {
     public class Index
     {
-        public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null, string titlePart = null)
+        public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null, string titlePart = null, bool? isRoot = null)
         {
             var db = new Models.Domains.Entities.DMsDbContext();
             var query = db.Documents.AsQueryable();
@@ -21,6 +21,8 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
                 titlePart = titlePart.Trim();
                 query = query.Where(c => c.Title.Contains(titlePart));
             }
+            if (isRoot.HasValue)
+                query = query.Where(c => c.ParentDocumentId == null);
 
             this.Count = query.Count();
 
