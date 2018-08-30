@@ -7,7 +7,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3>书籍</h3>
             <hr />
             <div class="table-bordered">
                 <dl class="dl-horizontal">
@@ -33,11 +32,11 @@
                     </dd>
                 </dl>
             </div>
+            <hr />
+            @Html.Action("IndexChapterForBook", new { ParentDocumentId = Model.DocumentId })
         </div>
         <div class="col-md-6">
             <h3>目录</h3>
         </div>
     </div>
-    <hr />
-    <h3>子章节</h3>
 </div>
