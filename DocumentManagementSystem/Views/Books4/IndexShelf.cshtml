@@ -1,0 +1,20 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books4.IndexShelf.IndexShelf
+
+@{
+    ViewBag.Title = "书架";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<hr />
+
+<div>
+    @Html.Partial("IndexShelf_List", Model.List)
+</div>

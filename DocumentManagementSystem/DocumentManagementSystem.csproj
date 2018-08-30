@@ -408,6 +408,8 @@
     <Content Include="Views\Books4\IndexBook_Filter.cshtml" />
     <Content Include="Views\Books4\IndexBook_Navigator.cshtml" />
     <Content Include="Views\Books4\IndexBook.cshtml" />
+    <Content Include="Views\Books4\IndexShelf.cshtml" />
+    <Content Include="Views\Books4\IndexShelf_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
