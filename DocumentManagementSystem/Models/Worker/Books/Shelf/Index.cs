@@ -26,7 +26,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 
             this.Count = query.Count();
 
-            var queryOrdered = query.OrderByDescending(c => c.UpdateTime).ThenBy(c => c.DocumentId);
+            var queryOrdered = query.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId);
             var queryCurrentPage = queryOrdered.Skip((page - 1) * perpage).Take(perpage);
 
             this.List = queryCurrentPage.ToList().Select(c => new Details(c)).ToList();
