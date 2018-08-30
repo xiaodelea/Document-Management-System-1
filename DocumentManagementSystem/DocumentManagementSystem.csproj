@@ -269,6 +269,9 @@
     <Compile Include="Models\ViewModels\Documents\InsertPriority\InsertPriority.cs" />
     <Compile Include="Models\ViewModels\RouteBase.cs" />
     <Compile Include="Models\ViewModels\Services\GetDocument\GetDocument.cs" />
+    <Compile Include="Models\Worker\Atom.cs" />
+    <Compile Include="Models\Worker\ValidateError.cs" />
+    <Compile Include="Models\Worker\ValidateResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
