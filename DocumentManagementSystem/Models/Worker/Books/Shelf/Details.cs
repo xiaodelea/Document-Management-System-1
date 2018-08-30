@@ -31,7 +31,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 
             var target = (Domains.Entities.Document)origin;
 
-            if (!target.IsBook || !target.IsBookBookShelf)
+            if (!target.IsBook || !target.IsAbstract)
             {
                 this._isExist = false;
                 return;
