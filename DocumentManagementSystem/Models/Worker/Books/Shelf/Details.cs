@@ -31,14 +31,14 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 
             var target = (Domains.Entities.Document)origin;
 
-            if (!target.IsBookBookShelf)
+            if (!target.IsBook || !target.IsBookBookShelf)
             {
                 this._isExist = false;
                 return;
             }
 
             this.DocumentId = target.DocumentId;
-            this.ParentDocumentId = target.ParentDocumentId.Value;
+            this.ParentDocumentId = target.ParentDocumentId;
 
             this.Title = target.Title;
             this.Priority = target.Priority;
@@ -59,7 +59,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 
         public Guid DocumentId { get; set; }
 
-        public Guid ParentDocumentId { get; set; }
+        public Guid? ParentDocumentId { get; set; }
 
 
 

@@ -12,7 +12,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             var db = new Models.Domains.Entities.DMsDbContext();
             var query = db.Documents.AsQueryable();
 
-            query = query.Where(c => c.IsBook);
+            query = query.Where(c => c.IsBook && c.IsMain);
 
             if (parentDocumentId.HasValue)
                 query = query.Where(c => c.ParentDocumentId == parentDocumentId);
