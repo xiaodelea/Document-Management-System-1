@@ -11,15 +11,15 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsShelf
     {
         public DetailsShelf(Guid id)
         {
-            var book = new Worker.Books.Book.Details(id);
-            if (!book._isExist)
+            var shelf = new Worker.Books.Shelf.Details(id);
+            if (!shelf._isExist)
                 return;
 
-            this.DocumentId = book.DocumentId;
+            this.DocumentId = shelf.DocumentId;
 
-            this.Title = book.Title;
-            this.Priority = book.Priority;
-            this.UpdateTime = book.UpdateTime;
+            this.Title = shelf.Title;
+            this.Priority = shelf.Priority;
+            this.UpdateTime = shelf.UpdateTime;
 
             this._isExist = true;
         }
