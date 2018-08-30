@@ -11,13 +11,28 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBook
     {
         public Item(Worker.Books.Book.Details d)
         {
+            if (!d._isExist)
+                return;
+
+            var shelf = new Worker.Books.Shelf.Details(d.ParentDocumentId);
+            if (!shelf._isExist)
+                return;
+
             this.DocumentId = d.DocumentId;
 
             this.Title = d.Title;
             this.Priority = d.Priority;
             this.IsChecked = d.IsChecked;
             this.UpdateTime = d.UpdateTime;
+
+            this.BookShelfName = shelf.Title;
         }
+
+
+
+
+
+        public bool _isExist { get; set; }
 
 
 
