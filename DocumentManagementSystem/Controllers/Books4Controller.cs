@@ -14,5 +14,12 @@ namespace DocumentManagementSystem.Controllers
 
             return View(i);
         }
+
+        public ActionResult IndexShelf()
+        {
+            var i = new Models.ViewModels.Books4.IndexShelf.IndexShelf();
+
+            return View(i);
+        }
     }
 }
