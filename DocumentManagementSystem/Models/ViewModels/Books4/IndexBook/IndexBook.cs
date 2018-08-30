@@ -5,9 +5,9 @@ using System.Web;
 
 namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBook
 {
-    public class Index
+    public class IndexBook
     {
-        public Index(Route route)
+        public IndexBook(Route route)
         {
             var b = new Worker.Books.Book.Index(page: route.Page, perpage: route.PerPage, titlePart: route.TitlePart, isChecked: route.IsChecked);
 
