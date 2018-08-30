@@ -26,6 +26,17 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBook
             this.UpdateTime = d.UpdateTime;
 
             this.BookShelfName = shelf.Title;
+            while (shelf.ParentDocumentId.HasValue)
+            {
+                shelf = new Worker.Books.Shelf.Details(shelf.ParentDocumentId.Value);
+
+                if (!shelf._isExist)
+                    return;
+
+                this.BookShelfName = shelf.Title + ">>" + this.BookShelfName;
+            }
+
+            this._isExist = true;
         }
 
 
