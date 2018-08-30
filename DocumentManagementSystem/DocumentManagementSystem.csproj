@@ -271,6 +271,7 @@
     <Compile Include="Models\ViewModels\Services\GetDocument\GetDocument.cs" />
     <Compile Include="Models\Worker\Atom.cs" />
     <Compile Include="Models\Worker\Books\Book\Create.cs" />
+    <Compile Include="Models\Worker\Books\Book\Delete.cs" />
     <Compile Include="Models\Worker\Books\Book\Details.cs" />
     <Compile Include="Models\Worker\Books\Book\Edit.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
