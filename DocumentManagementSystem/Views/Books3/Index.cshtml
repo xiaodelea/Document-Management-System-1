@@ -1,0 +1,60 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books3.Index.Index
+
+@{
+    ViewBag.Title = "一览";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("主界面", "Index", "Home", null, null)</li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div>
+    <div>
+        @Html.Partial("Index_Filter", Model.Route)
+    </div>
+
+    <div>
+        <hr />
+    </div>
+</div>
+
+@*<div>
+        <p>
+            <a href="@Url.Action("CreateBookAbstract")" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新增
+            </a>
+        </p>
+    </div>*@
+
+<div>
+    @Html.Partial("Index_List", Model.List)
+</div>
+
+@*@section scripts{
+        <script>
+            let trs = $('#main')[0].children[1].children;
+            for (let tr of trs) {
+                if ($(tr).data('hasget') === false) {
+                    $.post(
+                        '@Url.Action("IndexSub")',
+                        {
+                            parentDocumentId: $(tr).data('id'),
+                            indent: 0
+                        },
+                        function (data) {
+                            $(tr).data('hasget', true);
+                            //tr.after('<tr data-parnetDocumentId="' + $(tr).data('id') + '"><td></td></tr>');
+                            tr.after(data);
+                        },
+                        'html'
+                    );
+                }
+            }
+        </script>
+    }*@

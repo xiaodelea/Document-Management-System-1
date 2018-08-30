@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Books2Controller.cs" />
+    <Compile Include="Controllers\Books3Controller.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -229,6 +231,9 @@
     <Compile Include="Models\Domains\Entities\DMsDbContext.cs" />
     <Compile Include="Models\Domains\Entities\Document.cs" />
     <Compile Include="Models\ViewModels\Books2\Item.cs" />
+    <Compile Include="Models\ViewModels\Books3\Index\Index.cs" />
+    <Compile Include="Models\ViewModels\Books3\Index\Item.cs" />
+    <Compile Include="Models\ViewModels\Books3\Index\Route.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Item.cs" />
     <Compile Include="Models\ViewModels\Books\Create\Create.cs" />
@@ -375,6 +380,10 @@
     <Content Include="Views\Books2\CreateBookshelf.cshtml" />
     <Content Include="Views\Books2\CreateBook.cshtml" />
     <Content Include="Views\Books2\CreateChapter.cshtml" />
+    <Content Include="Views\Books3\IndexSub.cshtml" />
+    <Content Include="Views\Books3\Index.cshtml" />
+    <Content Include="Views\Books3\Index_List.cshtml" />
+    <Content Include="Views\Books3\Index_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books3.Index.Item>
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th class="text-center" width="10%">
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="@(item.IsBookshelf==true?"info":"")">
+                <td style="padding-left:@(25*item.Indent)px">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td style="padding-left:@(15*item.Indent)px">
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.IsChecked)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

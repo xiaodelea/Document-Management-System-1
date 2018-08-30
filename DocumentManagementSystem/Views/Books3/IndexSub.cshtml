@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books3.Index.Item>
+
+@foreach (var item in Model)
+{
+    if (item._isExist)
+    {
+        <tr id="@item.DocumentId" data-id="@item.DocumentId" data-hasget="false">
+            <td>
+                <span>@(new string('　', (int)ViewBag.Indent))</span>
+                @Html.ActionLink(item.Title, "Details", new { documentId = item.DocumentId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsChecked)
+            </td>
+            <td>@item.IsBookshelf | @item.IsBookRoot</td>
+        </tr>
+        //if (item.IsBookshelf)
+        //{
+        //    Html.Action("IndexSub", new { parentDocumentId = item.DocumentId, indent = (int)ViewBag.Indent + 1 });
+        //}
+    }
+    else
+    {
+        <tr>
+            <td>
+                <span>项目不存在！</span>
+            </td>
+        </tr>
+    }
+}
