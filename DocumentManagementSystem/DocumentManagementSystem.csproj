@@ -423,6 +423,8 @@
     <Content Include="Views\Books4\IndexChapterForBook.cshtml" />
     <Content Include="Views\Books4\IndexChapterForBook_List.cshtml" />
     <Content Include="Views\Books4\DetailsShelf.cshtml" />
+    <Content Include="Views\Books4\IndexShelfForShelf.cshtml" />
+    <Content Include="Views\Books4\IndexShelfForShelf_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

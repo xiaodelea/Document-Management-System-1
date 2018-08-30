@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books4.IndexShelfForShelf.Item>
+
+<table class="table table-hover table-condensed table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="text-center" width="15%">
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td class="text-center" colspan="2">无项目</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    @if (!item._isExist)
+                    {
+                        <td class="text-center" colspan="2">项目错误</td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
