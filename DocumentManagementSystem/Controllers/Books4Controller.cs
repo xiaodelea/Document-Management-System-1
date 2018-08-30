@@ -26,5 +26,15 @@ namespace DocumentManagementSystem.Controllers
 
             return View(i);
         }
+
+        public ActionResult DetailsBook(Guid id)
+        {
+            var v = new Models.ViewModels.Books4.DetailsBook.DetailsBook(id);
+
+            if (!v._isExist)
+                return HttpNotFound();
+
+            return View(v);
+        }
     }
 }
