@@ -283,6 +283,7 @@
     <Compile Include="Models\Worker\Books\Book\Edit.cs" />
     <Compile Include="Models\Worker\Books\Book\Index.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
+    <Compile Include="Models\Worker\Books\Chapter\Details.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Create.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Delete.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Details.cs" />
