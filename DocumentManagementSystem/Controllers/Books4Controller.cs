@@ -8,6 +8,11 @@ namespace DocumentManagementSystem.Controllers
 {
     public class Books4Controller : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult IndexBook([Bind()]Models.ViewModels.Books4.IndexBook.Route route)
         {
             var i = new Models.ViewModels.Books4.IndexBook.IndexBook(route);

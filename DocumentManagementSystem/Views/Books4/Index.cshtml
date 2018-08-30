@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "书管理";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p>@Html.ActionLink("书架", "IndexShelf", null, new { @class = "btn btn-default" })</p>
+    <p>@Html.ActionLink("书籍", "IndexBook", null, new { @class = "btn btn-default" })</p>
+</div>
