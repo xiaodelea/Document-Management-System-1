@@ -251,6 +251,7 @@
     <Compile Include="Models\ViewModels\Books4\DirectoryBook\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\DirectoryChapter\DirectoryChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\DirectoryChapter\Item.cs" />
+    <Compile Include="Models\ViewModels\Books4\EditBook\EditBook.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexAddition\IndexAddition.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexAddition\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexBookForShelf\IndexBookForShelf.cs" />
