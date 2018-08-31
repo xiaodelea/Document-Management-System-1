@@ -7,7 +7,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 {
     public class Create
     {
-        public Guid ParentDocumentId { get; set; }
+        public Guid? ParentDocumentId { get; set; }
 
         public string Title { get; set; }
 
