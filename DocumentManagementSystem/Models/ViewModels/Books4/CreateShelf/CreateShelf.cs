@@ -14,7 +14,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateShelf
 
         }
 
-        public CreateShelf(Guid parentDocumentId)
+        public CreateShelf(Guid? parentDocumentId)
         {
             this.ParentDocumentId = parentDocumentId;
         }
@@ -23,7 +23,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateShelf
 
 
 
-        public Guid ParentDocumentId { get; set; }
+        public Guid? ParentDocumentId { get; set; }
 
         [Display(Name = "名称")]
         public string Title { get; set; }
