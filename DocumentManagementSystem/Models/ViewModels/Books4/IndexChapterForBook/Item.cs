@@ -39,7 +39,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexChapterForBook
 
 
 
-        [Display(Name = "章节")]
+        [Display(Name = "子章节")]
         public string Title { get; set; }
 
         [Display(Name = "优先级")]
