@@ -244,6 +244,7 @@
     <Compile Include="Models\ViewModels\Books4\CreateAddition\CreateAddition.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateAddition\SelectionWorker.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateBook\CreateBook.cs" />
+    <Compile Include="Models\ViewModels\Books4\CreateShelf\CreateShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsChapter\DetailsChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsShelf\DetailsShelf.cs" />
@@ -469,6 +470,7 @@
     <Content Include="Views\Books4\DirectoryChapter_List.cshtml" />
     <Content Include="Views\Books4\CreateBook.cshtml" />
     <Content Include="Views\Books4\EditBook.cshtml" />
+    <Content Include="Views\Books4\CreateShelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
