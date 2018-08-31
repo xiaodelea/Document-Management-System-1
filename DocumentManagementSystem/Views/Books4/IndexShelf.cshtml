@@ -11,6 +11,10 @@
 
 <hr />
 
+<p class="btn-group">
+    @Html.ActionLink("添加书架", "CreateShelf", null, new { @class = "btn btn-default" })
+</p>
+
 <div>
     @Html.Partial("IndexShelf_List", Model.List)
 </div>
