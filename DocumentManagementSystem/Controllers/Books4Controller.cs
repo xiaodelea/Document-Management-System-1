@@ -243,5 +243,32 @@ namespace DocumentManagementSystem.Controllers
 
             return View(v);
         }
+
+        public ActionResult EditShelf(Guid documentId)
+        {
+            var v = new Models.ViewModels.Books4.EditShelf.EditShelf(documentId);
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditShelf([Bind()]Models.ViewModels.Books4.EditShelf.EditShelf v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("DetailsShelf", new { id = v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            return View(v);
+        }
     }
 }
