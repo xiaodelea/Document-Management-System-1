@@ -17,6 +17,9 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         [ForeignKey("AdditionCategory")]
         public virtual Guid AdditionCategoryId { get; set; }
 
+        [ForeignKey("Document")]
+        public virtual Guid DocumentId { get; set; }
+
 
 
 
@@ -37,5 +40,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
 
 
         public virtual AdditionCategory AdditionCategory { get; set; }
+
+        public virtual Document Document { get; set; }
     }
 }

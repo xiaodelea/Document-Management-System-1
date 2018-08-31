@@ -21,6 +21,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         {
             this.ChildDocuments = new List<Document>();
             this.Chapters = new List<Chapter>();
+            this.Additions = new List<Addition>();
         }
 
 
@@ -214,6 +215,8 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         /// 章节集合。
         /// </summary>
         public virtual List<Chapter> Chapters { get; set; }
+
+        public virtual List<Addition> Additions { get; set; }
 
 
 

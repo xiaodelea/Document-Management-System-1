@@ -212,9 +212,9 @@
     <Compile Include="Migrations\201804090306052_DocumentAddField7.Designer.cs">
       <DependentUpon>201804090306052_DocumentAddField7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808310241488_AddAddition.cs" />
-    <Compile Include="Migrations\201808310241488_AddAddition.Designer.cs">
-      <DependentUpon>201808310241488_AddAddition.cs</DependentUpon>
+    <Compile Include="Migrations\201808310256362_AddAddition.cs" />
+    <Compile Include="Migrations\201808310256362_AddAddition.Designer.cs">
+      <DependentUpon>201808310256362_AddAddition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessModels\Communication\HTTPCommunicator.cs" />
@@ -491,8 +491,8 @@
     <EmbeddedResource Include="Migrations\201804090306052_DocumentAddField7.resx">
       <DependentUpon>201804090306052_DocumentAddField7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808310241488_AddAddition.resx">
-      <DependentUpon>201808310241488_AddAddition.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808310256362_AddAddition.resx">
+      <DependentUpon>201808310256362_AddAddition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
