@@ -3,9 +3,9 @@
 @foreach (var shelf in Model)
 {
     <span>
-        @Html.ActionLink(shelf.Title, "DetailsShelf", new { id = shelf.DocumentId })
+        >>
     </span>
     <span>
-        >>
+        @Html.ActionLink(shelf.Title, "DetailsShelf", new { id = shelf.DocumentId })
     </span>
 }
