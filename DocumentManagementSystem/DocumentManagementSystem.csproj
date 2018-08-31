@@ -454,7 +454,7 @@
     <Content Include="Views\Books4\ListShelfForBook_List.cshtml" />
     <Content Include="Views\Books4\IndexAddition.cshtml" />
     <Content Include="Views\Books4\IndexAddition_List.cshtml" />
-    <Content Include="Views\Books4\CreateAdditiond.cshtml" />
+    <Content Include="Views\Books4\CreateAddition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
