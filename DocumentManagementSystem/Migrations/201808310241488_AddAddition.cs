@@ -23,13 +23,13 @@ namespace DocumentManagementSystem.Migrations
                 "dbo.Additions",
                 c => new
                     {
-                        AdditionTypeId = c.Guid(nullable: false),
+                        AdditionId = c.Guid(nullable: false),
                         AdditionCategoryId = c.Guid(nullable: false),
                         Description = c.String(),
                         UpdateTime = c.DateTime(nullable: false),
                         TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.AdditionTypeId)
+                .PrimaryKey(t => t.AdditionId)
                 .ForeignKey("dbo.AdditionCategories", t => t.AdditionCategoryId, cascadeDelete: true)
                 .Index(t => t.AdditionCategoryId);
             

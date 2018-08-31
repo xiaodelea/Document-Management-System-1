@@ -13,7 +13,7 @@ namespace DocumentManagementSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808310233427_AddAddition"; }
+            get { return "201808310241488_AddAddition"; }
         }
         
         string IMigrationMetadata.Source

@@ -12,7 +12,7 @@ namespace DocumentManagementSystem.Models.Domains.Entities
     public class Addition
     {
         [Key]
-        public virtual Guid AdditionTypeId { get; set; }
+        public virtual Guid AdditionId { get; set; }
 
         [ForeignKey("AdditionCategory")]
         public virtual Guid AdditionCategoryId { get; set; }
