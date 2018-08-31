@@ -296,6 +296,7 @@
     <Compile Include="Models\ViewModels\RouteBase.cs" />
     <Compile Include="Models\ViewModels\Services\GetDocument\GetDocument.cs" />
     <Compile Include="Models\Worker\Atom.cs" />
+    <Compile Include="Models\Worker\Books\AdditionCategory\Details.cs" />
     <Compile Include="Models\Worker\Books\Addition\Create.cs" />
     <Compile Include="Models\Worker\Books\Addition\Details.cs" />
     <Compile Include="Models\Worker\Books\Addition\Index.cs" />
