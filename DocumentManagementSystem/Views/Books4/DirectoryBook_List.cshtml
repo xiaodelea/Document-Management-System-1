@@ -33,7 +33,7 @@
                     else
                     {
                         <td style="padding-left:@(25*item.Level)px">
-                            @Html.DisplayFor(modelItem => item.Title)
+                            @Html.ActionLink(item.Title, "DetailsChapter", new { id = item.DocumentId })
                         </td>
                         <td class="text-center">
                             @Html.DisplayFor(modelItem => item.Priority)
