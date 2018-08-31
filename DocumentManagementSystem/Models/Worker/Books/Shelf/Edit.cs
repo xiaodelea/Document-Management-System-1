@@ -32,7 +32,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
             {
                 //验证书架。
                 var shelf = db.Documents.Find(this.DocumentId);
-                if (!shelf.IsBook || !shelf.IsAbstract)
+                if (!shelf.IsBook || !shelf.IsAbstract || shelf.IsMain)
                     return new ValidateResult(false, "DocumentId", "不是书架！");
                 if (this.TimeStamp != System.BitConverter.ToInt64(shelf.TimeStamp, 0))
                     return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
