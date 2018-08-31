@@ -9,6 +9,20 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateAddition
 {
     public class CreateAddition
     {
+        public CreateAddition()
+        {
+
+        }
+
+        public CreateAddition(Guid documentId)
+        {
+            this.DocumentId = documentId;
+        }
+
+
+
+
+
         public Guid DocumentId { get; set; }
 
         [Required]
