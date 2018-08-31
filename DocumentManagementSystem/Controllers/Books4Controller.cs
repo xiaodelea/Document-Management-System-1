@@ -116,6 +116,13 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(i);
         }
 
+        public ActionResult DirectoryChapter(Guid documentId)
+        {
+            var i = new Models.ViewModels.Books4.DirectoryChapter.DirectoryChapter(documentId);
+
+            return PartialView(i);
+        }
+
         public ActionResult IndexAddition(Guid documentId)
         {
             var i = new Models.ViewModels.Books4.IndexAddition.IndexAddition(documentId);
