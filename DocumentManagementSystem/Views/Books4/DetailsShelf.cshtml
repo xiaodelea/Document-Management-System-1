@@ -8,6 +8,10 @@
     <div class="row">
         <div class="col-md-6">
             <hr />
+            <div class="btn-group">
+                @Html.ActionLink("添加书籍", "CreateBook", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+            </div>
+            <hr />
             <div class="table-bordered">
                 <dl class="dl-horizontal">
                     <dt>
