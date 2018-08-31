@@ -470,6 +470,7 @@
     <Content Include="Views\Books4\DirectoryChapter_List.cshtml" />
     <Content Include="Views\Books4\CreateBook.cshtml" />
     <Content Include="Views\Books4\EditBook.cshtml" />
+    <Content Include="Views\Books4\CreateShelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
