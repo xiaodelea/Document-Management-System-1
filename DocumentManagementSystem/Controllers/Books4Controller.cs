@@ -157,7 +157,7 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
-        public ActionResult CreateShelf(Guid parentDocumentId)
+        public ActionResult CreateShelf(Guid? parentDocumentId)
         {
             var v = new Models.ViewModels.Books4.CreateShelf.CreateShelf(parentDocumentId);
 
