@@ -459,6 +459,8 @@
     <Content Include="Views\Books4\IndexAddition_List.cshtml" />
     <Content Include="Views\Books4\CreateAddition.cshtml" />
     <Content Include="Views\Books4\DetailsChapter.cshtml" />
+    <Content Include="Views\Books4\IndexChapterForChapter.cshtml" />
+    <Content Include="Views\Books4\IndexChapterForChapter_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
