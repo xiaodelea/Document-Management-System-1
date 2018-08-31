@@ -30,7 +30,7 @@
                     else
                     {
                         <td>
-                            @Html.DisplayFor(modelItem => item.Title)
+                            @Html.ActionLink(item.Title, "DetailsShelf", new { id = item.DocumentId })
                         </td>
                         <td class="text-center">
                             @Html.DisplayFor(modelItem => item.Priority)
