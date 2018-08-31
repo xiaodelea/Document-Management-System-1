@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBookForShelf
     {
         public IndexBookForShelf(Guid parentDocumentId)
         {
-            var b = new Worker.Books.Book.Index(parentDocumentId: parentDocumentId);
+            var b = new Worker.Books.Book.Index(parentDocumentId: parentDocumentId, order: 1);
 
             this.List = b.List.Select(c => new Item(c)).ToList();
         }

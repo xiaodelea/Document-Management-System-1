@@ -7,7 +7,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 {
     public class Index
     {
-        public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null, string titlePart = null, bool? isChecked = null)
+        public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null, string titlePart = null, bool? isChecked = null, int? order = 0)
         {
             var db = new Models.Domains.Entities.DMsDbContext();
             var query = db.Documents.AsQueryable();
@@ -26,7 +26,11 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 
             this.Count = query.Count();
 
-            var queryOrdered = query.OrderByDescending(c => c.UpdateTime).ThenBy(c => c.DocumentId);
+            IOrderedQueryable<Domains.Entities.Document> queryOrdered;
+            if (order == 1)
+                queryOrdered = query.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId);
+            else
+                queryOrdered = query.OrderByDescending(c => c.UpdateTime).ThenBy(c => c.DocumentId);
             var queryCurrentPage = queryOrdered.Skip((page - 1) * perpage).Take(perpage);
 
             this.List = queryCurrentPage.ToList().Select(c => new Details(c)).ToList();
