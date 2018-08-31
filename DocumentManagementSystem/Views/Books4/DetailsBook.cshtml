@@ -27,13 +27,6 @@
                     </dd>
 
                     <dt>
-                        <span>书架</span>
-                    </dt>
-                    <dd>
-                        @Html.Action("ListShelfForBook", new { DocumentId = Model.DocumentId })
-                    </dd>
-
-                    <dt>
                         @Html.DisplayNameFor(model => model.Priority)
                     </dt>
                     <dd>
@@ -45,6 +38,13 @@
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.IsChecked)
+                    </dd>
+
+                    <dt>
+                        <span>书架</span>
+                    </dt>
+                    <dd>
+                        @Html.Action("ListShelfForBook", new { DocumentId = Model.DocumentId })
                     </dd>
 
                     @Html.Action("IndexAddition", new { DocumentId = Model.DocumentId })

@@ -3,7 +3,7 @@
 @foreach (var shelf in Model)
 {
     <span>
-        >>
+        /
     </span>
     <span>
         @Html.ActionLink(shelf.Title, "DetailsShelf", new { id = shelf.DocumentId })
