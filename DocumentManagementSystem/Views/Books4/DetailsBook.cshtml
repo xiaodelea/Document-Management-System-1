@@ -15,17 +15,17 @@
             <div class="table-bordered">
                 <dl class="dl-horizontal">
                     <dt>
-                        <span>书架</span>
-                    </dt>
-                    <dd>
-                        @Html.Action("ListShelfForBook", new { DocumentId = Model.DocumentId })
-                    </dd>
-
-                    <dt>
                         @Html.DisplayNameFor(model => model.Title)
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Title)
+                    </dd>
+
+                    <dt>
+                        <span>书架</span>
+                    </dt>
+                    <dd>
+                        @Html.Action("ListShelfForBook", new { DocumentId = Model.DocumentId })
                     </dd>
 
                     <dt>
