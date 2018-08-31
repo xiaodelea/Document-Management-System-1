@@ -130,6 +130,33 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(i);
         }
 
+        public ActionResult CreateBook(Guid parentDocumentId)
+        {
+            var v = new Models.ViewModels.Books4.CreateBook.CreateBook(parentDocumentId);
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBook([Bind()]Models.ViewModels.Books4.CreateBook.CreateBook v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("Details", new { id = v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            return View(v);
+        }
+
         public ActionResult CreateAddition(Guid documentId)
         {
             var v = new Models.ViewModels.Books4.CreateAddition.CreateAddition(documentId);
