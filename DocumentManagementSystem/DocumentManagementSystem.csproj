@@ -244,6 +244,7 @@
     <Compile Include="Models\ViewModels\Books4\CreateAddition\CreateAddition.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateAddition\SelectionWorker.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
+    <Compile Include="Models\ViewModels\Books4\DetailsChapter\DetailsChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsShelf\DetailsShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DirectoryBook\DirectoryBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DirectoryBook\Item.cs" />
