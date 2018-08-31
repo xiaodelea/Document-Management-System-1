@@ -26,5 +26,13 @@ namespace DocumentManagementSystem.Models.Domains.Entities
         public virtual DbSet<Document> Documents { get; set; }
 
         public virtual DbSet<Chapter> Chapters { get; set; }
+
+
+
+
+
+        public virtual DbSet<Addition> Additions { get; set; }
+
+        public virtual DbSet<AdditionCategory> AdditionCategories { get; set; }
     }
 }
