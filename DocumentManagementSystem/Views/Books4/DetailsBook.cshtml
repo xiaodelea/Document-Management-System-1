@@ -4,13 +4,17 @@
     ViewBag.Title = Model.Title;
 }
 
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("返回书籍一览", "IndexBook", "Books4", null, null)</li>
+</ul>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <hr />
             <div class="btn-group">
-                @Html.ActionLink("信息", "CreateAddition", new { Model.DocumentId }, new { @class = "btn btn-default" })
-                @Html.ActionLink("编辑", "EditBook", new { Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("添加信息", "CreateAddition", new { Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("编辑书籍", "EditBook", new { Model.DocumentId }, new { @class = "btn btn-default" })
             </div>
             <hr />
             <div class="table-bordered">
