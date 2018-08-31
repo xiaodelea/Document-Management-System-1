@@ -55,6 +55,13 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(i);
         }
 
+        public ActionResult IndexChapterForChapter(Guid parentDocumentId)
+        {
+            var i = new Models.ViewModels.Books4.IndexChapterForChapter.IndexChapterForChapter(parentDocumentId);
+
+            return PartialView(i);
+        }
+
         public ActionResult Details(Guid id)
         {
             var book = new Models.Worker.Books.Book.Details(id);
