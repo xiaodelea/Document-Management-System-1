@@ -40,7 +40,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsShelf
 
 
 
-        [Display(Name = "书名")]
+        [Display(Name = "书架名")]
         public string Title { get; set; }
 
         [Display(Name = "优先级")]
