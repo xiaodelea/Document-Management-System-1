@@ -41,7 +41,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsChapter
 
 
 
-        [Display(Name = "书名")]
+        [Display(Name = "章节名")]
         public string Title { get; set; }
 
         [Display(Name = "优先级")]
