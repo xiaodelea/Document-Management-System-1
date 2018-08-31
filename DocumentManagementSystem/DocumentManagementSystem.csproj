@@ -241,6 +241,8 @@
     <Compile Include="Models\ViewModels\Books3\Index\Index.cs" />
     <Compile Include="Models\ViewModels\Books3\Index\Item.cs" />
     <Compile Include="Models\ViewModels\Books3\Index\Route.cs" />
+    <Compile Include="Models\ViewModels\Books4\CreateAddition\CreateAddition.cs" />
+    <Compile Include="Models\ViewModels\Books4\CreateAddition\SelectionWorker.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsShelf\DetailsShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DirectoryBook\DirectoryBook.cs" />
