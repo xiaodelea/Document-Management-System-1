@@ -7,15 +7,15 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DirectoryBook
 {
     public class DirectoryBook
     {
-        public DirectoryBook(Guid parentDocumentId)
+        public DirectoryBook(Guid documentId)
         {
             this.List = new List<Item>();
 
-            var book = new Worker.Books.Book.Details(parentDocumentId);
+            var book = new Worker.Books.Book.Details(documentId);
             if (!book._isExist)
                 return;
 
-            var chapters = new Worker.Books.Chapter.Index(parentDocumentId: parentDocumentId);
+            var chapters = new Worker.Books.Chapter.Index(parentDocumentId: documentId);
 
             this.AddChapter(chapters, 0);
         }

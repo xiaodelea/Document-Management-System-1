@@ -109,9 +109,9 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
-        public ActionResult DirectoryBook(Guid parentDocumentId)
+        public ActionResult DirectoryBook(Guid documentId)
         {
-            var i = new Models.ViewModels.Books4.DirectoryBook.DirectoryBook(parentDocumentId);
+            var i = new Models.ViewModels.Books4.DirectoryBook.DirectoryBook(documentId);
 
             return PartialView(i);
         }
