@@ -67,5 +67,12 @@ namespace DocumentManagementSystem.Controllers
 
             return View(v);
         }
+
+        public ActionResult DirectoryBook(Guid parentDocumentId)
+        {
+            var i = new Models.ViewModels.Books4.DirectoryBook.DirectoryBook(parentDocumentId);
+
+            return PartialView(i);
+        }
     }
 }
