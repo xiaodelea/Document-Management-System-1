@@ -48,6 +48,13 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(i);
         }
 
+        public ActionResult ListShelfForShelf(Guid documentId)
+        {
+            var i = new Models.ViewModels.Books4.ListShelfForShelf.ListShelfForShelf(documentId);
+
+            return PartialView(i);
+        }
+
         public ActionResult IndexChapterForBook(Guid parentDocumentId)
         {
             var i = new Models.ViewModels.Books4.IndexChapterForBook.IndexChapterForBook(parentDocumentId);

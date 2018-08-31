@@ -271,6 +271,8 @@
     <Compile Include="Models\ViewModels\Books4\IndexShelfForShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexShelf\IndexShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\IndexShelf\Item.cs" />
+    <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\Item.cs" />
+    <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\ListShelfForShelf.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Item.cs" />
     <Compile Include="Models\ViewModels\Books\Create\Create.cs" />
@@ -473,6 +475,8 @@
     <Content Include="Views\Books4\EditBook.cshtml" />
     <Content Include="Views\Books4\CreateShelf.cshtml" />
     <Content Include="Views\Books4\EditShelf.cshtml" />
+    <Content Include="Views\Books4\ListShelfForShelf.cshtml" />
+    <Content Include="Views\Books4\ListShelfForShelf_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

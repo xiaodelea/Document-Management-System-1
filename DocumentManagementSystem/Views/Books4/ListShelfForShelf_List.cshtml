@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DocumentManagementSystem.Models.ViewModels.Books4.ListShelfForShelf.Item>
+
+@foreach (var shelf in Model)
+{
+    <span>
+        >>
+    </span>
+    <span>
+        @Html.ActionLink(shelf.Title, "DetailsShelf", new { id = shelf.DocumentId })
+    </span>
+}

@@ -28,6 +28,13 @@
                     </dd>
 
                     <dt>
+                        <span>书架</span>
+                    </dt>
+                    <dd>
+                        @Html.Action("ListShelfForShelf", new { DocumentId = Model.DocumentId })
+                    </dd>
+
+                    <dt>
                         @Html.DisplayNameFor(model => model.Priority)
                     </dt>
                     <dd>
