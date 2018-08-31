@@ -36,6 +36,8 @@
             @Html.Action("IndexChapterForChapter", new { ParentDocumentId = Model.DocumentId })
         </div>
         <div class="col-md-6">
+            <hr />
+            @Html.Action("DirectoryChapter", new { Model.DocumentId })
         </div>
     </div>
 </div>

@@ -463,6 +463,8 @@
     <Content Include="Views\Books4\DetailsChapter.cshtml" />
     <Content Include="Views\Books4\IndexChapterForChapter.cshtml" />
     <Content Include="Views\Books4\IndexChapterForChapter_List.cshtml" />
+    <Content Include="Views\Books4\DirectoryChapter.cshtml" />
+    <Content Include="Views\Books4\DirectoryChapter_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
