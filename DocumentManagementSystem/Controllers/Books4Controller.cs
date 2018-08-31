@@ -55,6 +55,23 @@ namespace DocumentManagementSystem.Controllers
             return PartialView(i);
         }
 
+        public ActionResult Details(Guid id)
+        {
+            var book = new Models.Worker.Books.Book.Details(id);
+            if (book._isExist)
+                return RedirectToAction("DetailsBook", new { id });
+
+            var shelf = new Models.Worker.Books.Shelf.Details(id);
+            if (shelf._isExist)
+                return RedirectToAction("DetailsShelf", new { id });
+
+            var chapter = new Models.Worker.Books.Chapter.Details(id);
+            if (chapter._isExist)
+                return RedirectToAction("DetailsChapter", new { id });
+
+            return HttpNotFound();
+        }
+
         public ActionResult DetailsBook(Guid id)
         {
             var v = new Models.ViewModels.Books4.DetailsBook.DetailsBook(id);
@@ -108,7 +125,7 @@ namespace DocumentManagementSystem.Controllers
                 var result = v.Save();
 
                 if (result.Result)
-                    return RedirectToAction("Details", new { v.DocumentId });
+                    return RedirectToAction("Details", new { id = v.DocumentId });
                 else if (result.ValidateErrors.Count() == 0)
                     return HttpNotFound();
                 else
