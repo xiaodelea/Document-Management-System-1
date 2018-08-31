@@ -92,6 +92,16 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
+        public ActionResult DetailsChapter(Guid id)
+        {
+            var v = new Models.ViewModels.Books4.DetailsChapter.DetailsChapter(id);
+
+            if (!v._isExist)
+                return HttpNotFound();
+
+            return View(v);
+        }
+
         public ActionResult DirectoryBook(Guid parentDocumentId)
         {
             var i = new Models.ViewModels.Books4.DirectoryBook.DirectoryBook(parentDocumentId);
