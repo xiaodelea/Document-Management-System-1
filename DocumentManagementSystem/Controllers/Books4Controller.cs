@@ -88,5 +88,38 @@ namespace DocumentManagementSystem.Controllers
 
             return PartialView(i);
         }
+
+        public ActionResult CreateAddition(Guid documentId)
+        {
+            var v = new Models.ViewModels.Books4.CreateAddition.CreateAddition(documentId);
+
+            var w = new Models.ViewModels.Books4.CreateAddition.SelectionWorker(v);
+            ViewBag.AdditionCategoryId = w.AdditionCategories;
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateAddition([Bind()]Models.ViewModels.Books4.CreateAddition.CreateAddition v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("Details", new { v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            var w = new Models.ViewModels.Books4.CreateAddition.SelectionWorker(v);
+            ViewBag.AdditionCategoryId = w.AdditionCategories;
+
+            return View(v);
+        }
     }
 }
