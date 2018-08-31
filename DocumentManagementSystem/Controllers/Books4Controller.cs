@@ -81,5 +81,12 @@ namespace DocumentManagementSystem.Controllers
 
             return PartialView(i);
         }
+
+        public ActionResult IndexAddition(Guid documentId)
+        {
+            var i = new Models.ViewModels.Books4.IndexAddition.IndexAddition(documentId);
+
+            return PartialView(i);
+        }
     }
 }
