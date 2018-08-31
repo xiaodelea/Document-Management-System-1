@@ -191,6 +191,33 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
+        public ActionResult CreateChapter(Guid parentDocumentId)
+        {
+            var v = new Models.ViewModels.Books4.CreateChapter.CreateChapter(parentDocumentId);
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateChapter([Bind()]Models.ViewModels.Books4.CreateChapter.CreateChapter v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("DetailsChapter", new { id = v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            return View(v);
+        }
+
         public ActionResult CreateAddition(Guid documentId)
         {
             var v = new Models.ViewModels.Books4.CreateAddition.CreateAddition(documentId);

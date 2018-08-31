@@ -244,6 +244,7 @@
     <Compile Include="Models\ViewModels\Books4\CreateAddition\CreateAddition.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateAddition\SelectionWorker.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateBook\CreateBook.cs" />
+    <Compile Include="Models\ViewModels\Books4\CreateChapter\CreateChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateShelf\CreateShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsChapter\DetailsChapter.cs" />
@@ -320,6 +321,7 @@
     <Compile Include="Models\Worker\Books\Book\Edit.cs" />
     <Compile Include="Models\Worker\Books\Book\Index.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
+    <Compile Include="Models\Worker\Books\Chapter\Create.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Details.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Index.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Create.cs" />
@@ -477,6 +479,7 @@
     <Content Include="Views\Books4\EditShelf.cshtml" />
     <Content Include="Views\Books4\ListShelfForShelf.cshtml" />
     <Content Include="Views\Books4\ListShelfForShelf_List.cshtml" />
+    <Content Include="Views\Books4\CreateChapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
