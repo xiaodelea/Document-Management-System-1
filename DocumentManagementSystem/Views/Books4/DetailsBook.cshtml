@@ -37,6 +37,8 @@
                     <dd>
                         @Html.DisplayFor(model => model.IsChecked)
                     </dd>
+
+                    @Html.Action("IndexAddition", new { DocumentId = Model.DocumentId })
                 </dl>
             </div>
             <hr />
