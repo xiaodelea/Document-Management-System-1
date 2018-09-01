@@ -17,6 +17,14 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateChapter
         public CreateChapter(Guid parentDocumentId)
         {
             this.ParentDocumentId = parentDocumentId;
+
+            var i = new Worker.Books.Chapter.Index(parentDocumentId: parentDocumentId);
+            if (i.List.Count > 0)
+            {
+                var max = i.List.Max(c => c.Priority);
+                if (max.HasValue)
+                    this.Priority = max.Value + 1;
+            }
         }
 
 

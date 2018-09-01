@@ -17,6 +17,27 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateShelf
         public CreateShelf(Guid? parentDocumentId)
         {
             this.ParentDocumentId = parentDocumentId;
+
+            if (parentDocumentId == null)
+            {
+                var i = new Worker.Books.Shelf.Index(isRoot: true);
+                if (i.List.Count > 0)
+                {
+                    var max = i.List.Max(c => c.Priority);
+                    if (max.HasValue)
+                        this.Priority = max.Value + 1;
+                }
+            }
+            else
+            {
+                var i = new Worker.Books.Shelf.Index(parentDocumentId: parentDocumentId);
+                if (i.List.Count > 0)
+                {
+                    var max = i.List.Max(c => c.Priority);
+                    if (max.HasValue)
+                        this.Priority = max.Value + 1;
+                }
+            }
         }
 
 
