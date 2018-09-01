@@ -44,3 +44,12 @@
         </div>
     </div>
 }
+
+@section scripts{
+    <script>
+        $('#AdditionCategoryId').bind("change", function () {
+            $('#Description').select();
+            $('#Description').focus();
+        })
+    </script>
+}
