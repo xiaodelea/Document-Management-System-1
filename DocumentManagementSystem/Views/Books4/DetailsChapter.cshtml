@@ -12,6 +12,10 @@
                 @Html.ActionLink("添加子级章节", "CreateChapter", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("添加同级章节", "CreateChapter", new { ParentDocumentId = Model.ParentDocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("编辑", "EditChapter", new { Model.DocumentId }, new { @class = "btn btn-default" })
+                @if (!Model.IsChecked)
+                {
+                    @Html.ActionLink("查阅", "SetCheckedChapter", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default" })
+                }
             </div>
             <hr />
             <div class="table-bordered">

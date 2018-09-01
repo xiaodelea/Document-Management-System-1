@@ -17,6 +17,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsChapter
 
             this.DocumentId = chapter.DocumentId;
             this.ParentDocumentId = chapter.ParentDocumentId;
+            this.TimeStamp = chapter.TimeStamp;
 
             this.Title = chapter.Title;
             this.Priority = chapter.Priority;
@@ -39,6 +40,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsChapter
         public Guid DocumentId { get; set; }
 
         public Guid ParentDocumentId { get; set; }
+
+        public long TimeStamp { get; set; }
 
 
 

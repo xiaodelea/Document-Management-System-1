@@ -275,6 +275,8 @@
     <Compile Include="Models\ViewModels\Books4\IndexShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\ListShelfForShelf.cs" />
+    <Compile Include="Models\ViewModels\Books4\SetCheckedBook\SetCheckedBook.cs" />
+    <Compile Include="Models\ViewModels\Books4\SetCheckedChapter\SetCheckedChapter.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Item.cs" />
     <Compile Include="Models\ViewModels\Books\Create\Create.cs" />
@@ -326,6 +328,7 @@
     <Compile Include="Models\Worker\Books\Chapter\Details.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Edit.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Index.cs" />
+    <Compile Include="Models\Worker\Books\Chapter\SetChecked.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Create.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Delete.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Details.cs" />

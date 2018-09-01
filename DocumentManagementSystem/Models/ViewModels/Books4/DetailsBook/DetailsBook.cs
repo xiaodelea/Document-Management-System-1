@@ -16,6 +16,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsBook
                 return;
 
             this.DocumentId = book.DocumentId;
+            this.TimeStamp = book.TimeStamp;
 
             this.Title = book.Title;
             this.Priority = book.Priority;
@@ -36,6 +37,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsBook
 
 
         public Guid DocumentId { get; set; }
+
+        public long TimeStamp { get; set; }
 
 
 
