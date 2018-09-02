@@ -15,6 +15,12 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DeleteAddition
 
 
 
+        public Guid? DocumentId { get; set; }
+
+
+
+
+
         public Worker.ValidateResult Save()
         {
             var b = new Worker.Books.Addition.Delete
@@ -24,6 +30,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DeleteAddition
             };
 
             var result = b.Save();
+
+            if (result.Result)
+                this.DocumentId = b.DocumentId.Value;
 
             return result;
         }

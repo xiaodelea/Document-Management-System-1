@@ -15,6 +15,12 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
 
 
 
+        public Guid? DocumentId { get; set; }
+
+
+
+
+
         public ValidateResult Save()
         {
             var db = new Domains.Entities.DMsDbContext();
@@ -37,6 +43,9 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
                 document.UpdateTime = DateTime.Now;
 
                 db.SaveChanges();
+
+                //回传参数。
+                this.DocumentId = document.DocumentId;
             }
 
             return new ValidateResult(true);
