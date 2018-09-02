@@ -336,6 +336,9 @@ namespace DocumentManagementSystem.Controllers
         {
             var v = new Models.ViewModels.Books4.EditAddition.EditAddition(additionId);
 
+            if (!v._isExist)
+                return HttpNotFound();
+
             return View(v);
         }
 
