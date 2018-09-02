@@ -32,6 +32,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
             var target = (Domains.Entities.Addition)origin;
 
             this.AdditionId = target.AdditionId;
+            this.DocumentId = target.DocumentId;
 
             this.Name = target.AdditionCategory.Name;
             this.Description = target.Description;
@@ -51,6 +52,8 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
 
 
         public Guid AdditionId { get; set; }
+
+        public Guid DocumentId { get; set; }
 
 
 

@@ -490,6 +490,7 @@
     <Content Include="Views\Books4\ListShelfForShelf_List.cshtml" />
     <Content Include="Views\Books4\CreateChapter.cshtml" />
     <Content Include="Views\Books4\EditChapter.cshtml" />
+    <Content Include="Views\Books4\EditAddition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,6 +26,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditAddition
             this.TimeStamp = b.TimeStamp;
 
             this.Description = b.Description;
+
+            this.DocumentId = b.DocumentId;
         }
 
 
