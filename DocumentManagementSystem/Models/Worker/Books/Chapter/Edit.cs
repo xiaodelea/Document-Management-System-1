@@ -46,6 +46,17 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
                 chapter.IsChecked = this.IsChecked;
                 chapter.UpdateTime = DateTime.Now;
 
+                //更新书籍。
+                var parent = db.Documents.Find(chapter.ParentDocumentId);
+                do
+                {
+                    if (parent.IsBook && parent.IsMain)
+                        break;
+
+                    parent = db.Documents.Find(parent.ParentDocumentId);
+                } while (true);
+                parent.UpdateTime = DateTime.Now;
+
                 db.SaveChanges();
             }
 

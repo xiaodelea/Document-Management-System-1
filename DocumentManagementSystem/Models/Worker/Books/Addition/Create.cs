@@ -36,8 +36,16 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
             var db = new Domains.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
+                //检测节点。
+                var document = db.Documents.Find(this.DocumentId);
+                if (document == null)
+                    return new ValidateResult(false, "DocumentId", "节点不存在！");
+
                 //添加信息。
                 db.Additions.Add(addition);
+
+                //修改节点。
+                document.UpdateTime = DateTime.Now;
 
                 db.SaveChanges();
             }

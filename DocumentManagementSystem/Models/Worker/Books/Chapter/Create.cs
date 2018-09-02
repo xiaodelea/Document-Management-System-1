@@ -50,6 +50,17 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
                 //添加章节。
                 db.Documents.Add(chapter);
 
+                //更新书籍。
+                var parent = db.Documents.Find(this.ParentDocumentId);
+                do
+                {
+                    if (parent.IsBook && parent.IsMain)
+                        break;
+
+                    parent = db.Documents.Find(parent.ParentDocumentId);
+                } while (true);
+                parent.UpdateTime = DateTime.Now;
+
                 db.SaveChanges();
 
                 //回传参数。
