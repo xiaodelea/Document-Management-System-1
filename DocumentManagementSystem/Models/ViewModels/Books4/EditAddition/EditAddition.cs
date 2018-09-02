@@ -53,6 +53,12 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditAddition
 
 
 
+        public Guid? DocumentId { get; set; }
+
+
+
+
+
         public Worker.ValidateResult Save()
         {
             var b = new Worker.Books.Addition.Edit
@@ -63,6 +69,9 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditAddition
             };
 
             var result = b.Save();
+
+            if (result.Result)
+                this.DocumentId = b.DocumentId.Value;
 
             return result;
         }

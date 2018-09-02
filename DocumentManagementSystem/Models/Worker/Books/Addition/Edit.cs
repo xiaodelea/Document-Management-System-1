@@ -17,6 +17,12 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
 
 
 
+        public Guid? DocumentId { get; set; }
+
+
+
+
+
         public ValidateResult Save()
         {
             //验证参数。
@@ -44,6 +50,8 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
                 document.UpdateTime = DateTime.Now;
 
                 db.SaveChanges();
+
+                this.DocumentId = document.DocumentId;
             }
 
             return new ValidateResult(true);
