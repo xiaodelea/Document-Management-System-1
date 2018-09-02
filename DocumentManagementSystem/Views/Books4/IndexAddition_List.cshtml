@@ -21,7 +21,7 @@
                 <span>@item.Name</span>
             </dt>
             <dd>
-                <span>@item.Description</span>
+                <span>@Html.ActionLink(item.Description, "EditAddition", new { item.AdditionId })</span>
             </dd>
         }
     }
