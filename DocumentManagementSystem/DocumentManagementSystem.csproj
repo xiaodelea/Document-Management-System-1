@@ -316,7 +316,9 @@
     <Compile Include="Models\Worker\Books\AdditionCategory\Details.cs" />
     <Compile Include="Models\Worker\Books\AdditionCategory\Index.cs" />
     <Compile Include="Models\Worker\Books\Addition\Create.cs" />
+    <Compile Include="Models\Worker\Books\Addition\Delete.cs" />
     <Compile Include="Models\Worker\Books\Addition\Details.cs" />
+    <Compile Include="Models\Worker\Books\Addition\Edit.cs" />
     <Compile Include="Models\Worker\Books\Addition\Index.cs" />
     <Compile Include="Models\Worker\Books\Book\Create.cs" />
     <Compile Include="Models\Worker\Books\Book\Delete.cs" />
