@@ -27,6 +27,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateShelf
                     if (max.HasValue)
                         this.Priority = max.Value + 1;
                 }
+                else
+                {
+                    this.Priority = 1;
+                }
             }
             else
             {
@@ -36,6 +40,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateShelf
                     var max = i.List.Max(c => c.Priority);
                     if (max.HasValue)
                         this.Priority = max.Value + 1;
+                }
+                else
+                {
+                    this.Priority = 1;
                 }
             }
         }

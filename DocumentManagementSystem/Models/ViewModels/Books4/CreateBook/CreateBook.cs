@@ -25,6 +25,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateBook
                 if (max.HasValue)
                     this.Priority = max.Value + 1;
             }
+            else
+            {
+                this.Priority = 1;
+            }
         }
 
 
