@@ -41,6 +41,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 
                 //修改书籍。
                 book.Title = this.Title;
+                book.NodeName = this.Title;
                 book.Priority = this.Priority;
                 book.IsChecked = this.IsChecked;
                 book.UpdateTime = DateTime.Now;

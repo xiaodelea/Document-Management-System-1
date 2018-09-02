@@ -41,6 +41,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
 
                 //修改章节。
                 chapter.Title = this.Title;
+                chapter.NodeName = this.Title;
                 chapter.Priority = this.Priority;
                 chapter.IsChecked = this.IsChecked;
                 chapter.UpdateTime = DateTime.Now;

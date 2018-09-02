@@ -39,6 +39,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
 
                 //修改书架。
                 shelf.Title = this.Title;
+                shelf.NodeName = this.Title;
                 shelf.Priority = this.Priority;
                 shelf.UpdateTime = DateTime.Now;
 
