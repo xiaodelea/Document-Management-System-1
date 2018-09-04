@@ -191,16 +191,43 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
-        public ActionResult CreateChapter(Guid parentDocumentId)
+        public ActionResult CreateChapterSameLevel(Guid currentDocumentId)
         {
-            var v = new Models.ViewModels.Books4.CreateChapter.CreateChapter(parentDocumentId);
+            var v = new Models.ViewModels.Books4.CreateChapterSameLevel.CreateChapterSameLevel(currentDocumentId);
 
             return View(v);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateChapter([Bind()]Models.ViewModels.Books4.CreateChapter.CreateChapter v)
+        public ActionResult CreateChapterSameLevel([Bind()]Models.ViewModels.Books4.CreateChapterSameLevel.CreateChapterSameLevel v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("DetailsChapter", new { id = v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            return View(v);
+        }
+
+        public ActionResult CreateChapterSubLevel(Guid parentDocumentId)
+        {
+            var v = new Models.ViewModels.Books4.CreateChapterSubLevel.CreateChapterSubLevel(parentDocumentId);
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateChapterSubLevel([Bind()]Models.ViewModels.Books4.CreateChapterSubLevel.CreateChapterSubLevel v)
         {
             if (ModelState.IsValid)
             {

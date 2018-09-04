@@ -5,16 +5,16 @@ using System.Web;
 
 using System.ComponentModel.DataAnnotations;
 
-namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateChapter
+namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateChapterSubLevel
 {
-    public class CreateChapter
+    public class CreateChapterSubLevel
     {
-        public CreateChapter()
+        public CreateChapterSubLevel()
         {
 
         }
 
-        public CreateChapter(Guid parentDocumentId)
+        public CreateChapterSubLevel(Guid parentDocumentId)
         {
             this.ParentDocumentId = parentDocumentId;
 
