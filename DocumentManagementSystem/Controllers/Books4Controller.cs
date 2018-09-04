@@ -469,5 +469,32 @@ namespace DocumentManagementSystem.Controllers
 
             return View(v);
         }
+
+        public ActionResult MoveBook(Guid documentId)
+        {
+            var v = new Models.ViewModels.Books4.MoveBook.MoveBook(documentId);
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MoveBook([Bind()]Models.ViewModels.Books4.MoveBook.MoveBook v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("DetailsBook", new { id = v.DocumentId });
+                else if (result.ValidateErrors.Count() == 0)
+                    return HttpNotFound();
+                else
+                    foreach (var error in result.ValidateErrors)
+                        ModelState.AddModelError(error.ParaName, error.Description);
+            }
+
+            return View(v);
+        }
     }
 }
