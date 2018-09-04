@@ -278,6 +278,7 @@
     <Compile Include="Models\ViewModels\Books4\IndexShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\Item.cs" />
     <Compile Include="Models\ViewModels\Books4\ListShelfForShelf\ListShelfForShelf.cs" />
+    <Compile Include="Models\ViewModels\Books4\MoveShelf\MoveShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\SetCheckedBook\SetCheckedBook.cs" />
     <Compile Include="Models\ViewModels\Books4\SetCheckedChapter\SetCheckedChapter.cs" />
     <Compile Include="Models\ViewModels\Books\Children\Children.cs" />
@@ -339,6 +340,7 @@
     <Compile Include="Models\Worker\Books\Shelf\Details.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Edit.cs" />
     <Compile Include="Models\Worker\Books\Shelf\Index.cs" />
+    <Compile Include="Models\Worker\Books\Shelf\Move.cs" />
     <Compile Include="Models\Worker\ValidateError.cs" />
     <Compile Include="Models\Worker\ValidateResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -493,6 +495,7 @@
     <Content Include="Views\Books4\EditChapter.cshtml" />
     <Content Include="Views\Books4\EditAddition.cshtml" />
     <Content Include="Views\Books4\CreateChapterSubLevel.cshtml" />
+    <Content Include="Views\Books4\MoveShelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

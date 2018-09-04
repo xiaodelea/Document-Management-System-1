@@ -1,0 +1,54 @@
+﻿@model DocumentManagementSystem.Models.ViewModels.Books4.MoveShelf.MoveShelf
+
+@{
+    ViewBag.Title = "移动书架";
+}
+
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("返回", "Details", new { id = Model.DocumentId })</li>
+</ul>
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.DocumentId)
+        @Html.HiddenFor(model => model.TimeStamp)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewParentDocumentId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NewParentDocumentId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewParentDocumentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsRoot, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsRoot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsRoot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $('#NewParentDocumentId').select();
+        $('#NewParentDocumentId').focus();
+    </script>
+}
