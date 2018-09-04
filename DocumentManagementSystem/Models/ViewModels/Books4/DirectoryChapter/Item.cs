@@ -63,7 +63,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DirectoryChapter
 
 
 
-        [Display(Name = "子章节")]
+        [Display(Name = "章节链")]
         public string Title { get; set; }
 
         [Display(Name = "优先级")]

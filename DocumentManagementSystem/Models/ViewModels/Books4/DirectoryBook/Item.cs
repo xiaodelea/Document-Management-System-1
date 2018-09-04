@@ -42,7 +42,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DirectoryBook
 
 
 
-        [Display(Name = "子章节")]
+        [Display(Name = "目录")]
         public string Title { get; set; }
 
         [Display(Name = "优先级")]
