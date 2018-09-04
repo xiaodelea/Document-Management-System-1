@@ -9,8 +9,6 @@
         <div class="col-md-6">
             <hr />
             <div class="btn-group">
-                @Html.ActionLink("添加同级章节", "CreateChapterSameLevel", new { CurrentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
-                @Html.ActionLink("添加子级章节", "CreateChapterSubLevel", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("编辑", "EditChapter", new { Model.DocumentId }, new { @class = "btn btn-default" })
                 @if (!Model.IsChecked)
                 {
@@ -42,12 +40,17 @@
                     </dd>
                 </dl>
             </div>
-            <hr />
-            @Html.Action("IndexChapterForChapter", new { ParentDocumentId = Model.DocumentId })
         </div>
         <div class="col-md-6">
             <hr />
             @Html.Action("DirectoryChapter", new { Model.DocumentId })
+            <hr />
+            <div class="btn-group">
+                @Html.ActionLink("添加同级章节", "CreateChapterSameLevel", new { CurrentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("添加子级章节", "CreateChapterSubLevel", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+            </div>
+            <hr />
+            @Html.Action("IndexChapterForChapter", new { ParentDocumentId = Model.DocumentId })
         </div>
     </div>
 </div>
