@@ -29,6 +29,14 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
                 if (this.TimeStamp != System.BitConverter.ToInt64(shelf.TimeStamp, 0))
                     return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
 
+                //验证目标父书架。
+                if (this.NewParentDocumentId.HasValue)
+                {
+                    var newParentShelf = db.Documents.Find(this.NewParentDocumentId.Value);
+                    if (!newParentShelf.IsBook || !newParentShelf.IsAbstract || newParentShelf.IsMain)
+                        return new ValidateResult(false, "NewParentDocumentId", "不是书架！");
+                }
+
                 //修改书架。
                 shelf.ParentDocumentId = NewParentDocumentId;
                 shelf.UpdateTime = DateTime.Now;
