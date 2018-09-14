@@ -9,6 +9,7 @@
         <div class="col-md-6">
             <hr />
             <div class="btn-group">
+                @Html.ActionLink("添加信息", "CreateAddition", new { Model.DocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("编辑", "EditChapter", new { Model.DocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("移动章节", "MoveChapter", new { DocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
                 @if (!Model.IsChecked)
@@ -39,6 +40,8 @@
                     <dd>
                         @Html.DisplayFor(model => model.IsChecked)
                     </dd>
+
+                    @Html.Action("IndexAddition", new { DocumentId = Model.DocumentId })
                 </dl>
             </div>
         </div>
