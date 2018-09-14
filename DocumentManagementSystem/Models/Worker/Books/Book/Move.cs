@@ -19,6 +19,10 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 
         public ValidateResult Save()
         {
+            //验证参数。
+            if (this.DocumentId == this.NewParentDocumentId)
+                return new ValidateResult(false, "NewParentDocumentId", "目标节点不能为自身节点！");
+
             var db = new Domains.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
