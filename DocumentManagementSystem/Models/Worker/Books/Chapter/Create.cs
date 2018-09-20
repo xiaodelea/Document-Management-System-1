@@ -13,6 +13,8 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
 
         public int Priority { get; set; }
 
+        public Guid? CurrentDocumentIdToSetFinished { get; set; }
+
 
 
 
@@ -60,6 +62,19 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
                     parent = db.Documents.Find(parent.ParentDocumentId);
                 } while (true);
                 parent.UpdateTime = DateTime.Now;
+
+                //设置章节完成。
+                if (this.CurrentDocumentIdToSetFinished.HasValue)
+                {
+                    var currentDocumentToSetFinished = db.Documents.Find(this.CurrentDocumentIdToSetFinished);
+
+                    if (currentDocumentToSetFinished == null)
+                        return new ValidateResult(false, "CurrentDocumentIdToSetFinished", "当前设置完成的节点不存在！");
+                    if (!currentDocumentToSetFinished.IsBook || currentDocumentToSetFinished.IsAbstract || currentDocumentToSetFinished.IsMain)
+                        return new ValidateResult(false, "CurrentDocumentIdToSetFinished", "当前设置完成的节点类型错误！");
+
+                    currentDocumentToSetFinished.IsChecked = true;
+                }
 
                 db.SaveChanges();
 

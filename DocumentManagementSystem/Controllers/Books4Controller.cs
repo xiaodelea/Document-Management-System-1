@@ -191,9 +191,10 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
-        public ActionResult CreateChapterSameLevel(Guid currentDocumentId)
+        public ActionResult CreateChapterSameLevel(Guid currentDocumentId, Guid? currentDocumentIdToSetFinished)
         {
             var v = new Models.ViewModels.Books4.CreateChapterSameLevel.CreateChapterSameLevel(currentDocumentId);
+            v.CurrentDocumentIdToSetFinished = currentDocumentIdToSetFinished;
 
             return View(v);
         }

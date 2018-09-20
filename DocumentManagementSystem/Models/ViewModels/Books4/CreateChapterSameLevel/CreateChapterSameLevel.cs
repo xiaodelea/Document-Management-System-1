@@ -45,6 +45,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateChapterSameLev
         [Display(Name = "优先级")]
         public int Priority { get; set; }
 
+        public Guid? CurrentDocumentIdToSetFinished { get; set; }
+
 
 
 
@@ -63,7 +65,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.CreateChapterSameLev
             {
                 ParentDocumentId = currentDocument.ParentDocumentId,
                 Title = this.Title,
-                Priority = this.Priority
+                Priority = this.Priority,
+                CurrentDocumentIdToSetFinished = this.CurrentDocumentIdToSetFinished,
             };
 
             var result = b.Save();
