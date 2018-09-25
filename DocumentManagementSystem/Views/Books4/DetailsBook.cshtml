@@ -10,19 +10,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <hr />
             <div class="btn-group">
                 @Html.ActionLink("添加信息", "CreateAddition", new { Model.DocumentId }, new { @class = "btn btn-default" })
-                @Html.ActionLink("编辑书籍", "EditBook", new { Model.DocumentId }, new { @class = "btn btn-default" })
-                @Html.ActionLink("移动书籍", "MoveBook", new { DocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("编辑", "EditBook", new { Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("移动", "MoveBook", new { DocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
                 @if (!Model.IsChecked)
                 {
-                    @Html.ActionLink("查阅", "SetCheckedBook", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("查阅", "SetCheckedBook", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default btn-danger" })
+                }
+                else
+                {
+                    <button class="btn btn-success" disabled>已查阅</button>
                 }
             </div>
-            <hr />
-            <div class="table-bordered">
+            <div class="table-bordered alert-info">
                 <dl class="dl-horizontal">
                     <dt>
                         @Html.DisplayNameFor(model => model.Title)
@@ -39,13 +42,6 @@
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.IsChecked)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.IsChecked)
-                    </dd>
-
-                    <dt>
                         <span>书架</span>
                     </dt>
                     <dd>
@@ -57,12 +53,11 @@
             </div>
             <hr />
             <div class="btn-group">
-                @Html.ActionLink("添加章节", "CreateChapterSubLevel", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("添加子级章节", "CreateChapterSubLevel", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
             </div>
-            <hr />
             @Html.Action("IndexChapterForBook", new { ParentDocumentId = Model.DocumentId })
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <hr />
             @Html.Action("DirectoryBook", new { Model.DocumentId })
         </div>
