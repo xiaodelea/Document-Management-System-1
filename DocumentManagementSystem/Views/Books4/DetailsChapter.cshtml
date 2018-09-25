@@ -14,7 +14,7 @@
                 @Html.ActionLink("移动", "MoveChapter", new { DocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
                 @if (!Model.IsChecked)
                 {
-                    @Html.ActionLink("查阅", "SetCheckedBook", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default btn-danger" })
+                    @Html.ActionLink("查阅", "SetCheckedChapter", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default btn-danger" })
                 }
                 else
                 {
