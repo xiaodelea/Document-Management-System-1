@@ -24,6 +24,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBook
             this.Priority = d.Priority;
             this.IsChecked = d.IsChecked;
             this.UpdateTime = d.UpdateTime;
+            this.SourceName = d.SourceName;
 
             this.BookShelfName = shelf.Title;
             while (shelf.ParentDocumentId.HasValue)
@@ -69,5 +70,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.IndexBook
 
         [Display(Name = "更新时间")]
         public DateTime UpdateTime { get; set; }
+
+        [Display(Name = "书籍来源")]
+        public string SourceName { get; set; }
     }
 }

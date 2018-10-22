@@ -48,6 +48,13 @@
                         @Html.Action("ListShelfForBook", new { DocumentId = Model.DocumentId })
                     </dd>
 
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SourceName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SourceName)
+                    </dd>
+
                     @Html.Action("IndexAddition", new { DocumentId = Model.DocumentId })
                 </dl>
             </div>

@@ -22,6 +22,7 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsBook
             this.Priority = book.Priority;
             this.IsChecked = book.IsChecked;
             this.UpdateTime = book.UpdateTime;
+            this.SourceName = book.SourceName;
 
             this._isExist = true;
         }
@@ -55,5 +56,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsBook
 
         [Display(Name = "更新时间")]
         public DateTime UpdateTime { get; set; }
+
+        [Display(Name = "书籍来源")]
+        public string SourceName { get; set; }
     }
 }
