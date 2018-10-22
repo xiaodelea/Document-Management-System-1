@@ -25,7 +25,7 @@
         {
             foreach (var item in Model)
             {
-                <tr>
+                <tr @(item.IsChecked ? "" : "class=warning")>
                     @if (!item._isExist)
                     {
                         <td class="text-center" colspan="3">项目错误</td>
