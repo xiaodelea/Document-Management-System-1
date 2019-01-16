@@ -6,6 +6,10 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-4">
+            <hr />
+            @Html.Action("DirectoryChapter", new { Model.DocumentId })
+        </div>
         <div class="col-md-8">
             <hr />
             <div class="btn-group">
@@ -47,10 +51,6 @@
                 @Html.ActionLink("添加子级章节", "CreateChapterSubLevel", new { ParentDocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
             </div>
             @Html.Action("IndexChapterForChapter", new { ParentDocumentId = Model.DocumentId })
-        </div>
-        <div class="col-md-4">
-            <hr />
-            @Html.Action("DirectoryChapter", new { Model.DocumentId })
         </div>
     </div>
 </div>
