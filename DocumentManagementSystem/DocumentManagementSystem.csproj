@@ -248,6 +248,9 @@
     <Compile Include="Models\ViewModels\Books4\CreateChapterSubLevel\CreateChapterSubLevel.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateShelf\CreateShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DeleteAddition\DeleteAddition.cs" />
+    <Compile Include="Models\ViewModels\Books4\DeleteBook\DeleteBook.cs" />
+    <Compile Include="Models\ViewModels\Books4\DeleteChapter\DeleteChapter.cs" />
+    <Compile Include="Models\ViewModels\Books4\DeleteShelf\DeleteShelf.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsBook\DetailsBook.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsChapter\DetailsChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\DetailsShelf\DetailsShelf.cs" />
@@ -334,6 +337,7 @@
     <Compile Include="Models\Worker\Books\Book\Move.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Create.cs" />
+    <Compile Include="Models\Worker\Books\Chapter\Delete.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Details.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Edit.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Index.cs" />

@@ -27,6 +27,11 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditShelf
 
             this.Title = b.Title;
             this.Priority = b.Priority;
+
+            var iBook = new Worker.Books.Book.Index(parentDocumentId: documentId);
+            var iShelf = new Worker.Books.Shelf.Index(parentDocumentId: documentId);
+            if (iBook.List.Count() == 0 && iShelf.List.Count() == 0)
+                this.IsNoChild = true;
         }
 
 
@@ -42,6 +47,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditShelf
         public Guid DocumentId { get; set; }
 
         public long TimeStamp { get; set; }
+
+        public bool IsNoChild { get; set; }
 
 
 

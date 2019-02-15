@@ -16,10 +16,16 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsShelf
                 return;
 
             this.DocumentId = shelf.DocumentId;
+            this.TimeStamp = shelf.TimeStamp;
 
             this.Title = shelf.Title;
             this.Priority = shelf.Priority;
             this.UpdateTime = shelf.UpdateTime;
+
+            var iBook = new Worker.Books.Book.Index(parentDocumentId: id);
+            var iShelf = new Worker.Books.Shelf.Index(parentDocumentId: id);
+            if (iBook.List.Count() == 0 && iShelf.List.Count() == 0)
+                this.IsNoChild = true;
 
             this._isExist = true;
         }
@@ -35,6 +41,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsShelf
 
 
         public Guid DocumentId { get; set; }
+
+        public long TimeStamp { get; set; }
+
+        public bool IsNoChild { get; set; }
 
 
 

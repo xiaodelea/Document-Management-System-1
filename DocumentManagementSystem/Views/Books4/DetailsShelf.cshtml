@@ -22,6 +22,10 @@
             <div class="btn-group">
                 @Html.ActionLink("编辑", "EditShelf", new { Model.DocumentId }, new { @class = "btn btn-default" })
                 @Html.ActionLink("移动", "MoveShelf", new { DocumentId = Model.DocumentId }, new { @class = "btn btn-default" })
+                @if (Model.IsNoChild)
+                {
+                    @Html.ActionLink("删除", "DeleteShelf", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default" })
+                }
             </div>
             <div class="table-bordered alert-success">
                 <dl class="dl-horizontal">

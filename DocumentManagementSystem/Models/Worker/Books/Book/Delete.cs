@@ -15,6 +15,12 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 
 
 
+        public Guid? ReturnDocumentIdId { get; set; }
+
+
+
+
+
         public ValidateResult Save()
         {
             var db = new Domains.Entities.DMsDbContext();
@@ -26,6 +32,11 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
                     return new ValidateResult(false, "DocumentId", "不是书籍！");
                 if (this.TimeStamp != System.BitConverter.ToInt64(book.TimeStamp, 0))
                     return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
+                if (book.ChildDocuments.Count() > 0)
+                    return new ValidateResult(false, "DocumentId", "有子项目时不允许删除！");
+
+                //设置返回数据。
+                this.ReturnDocumentIdId = book.ParentDocumentId;
 
                 //删除书籍。
                 db.Documents.Remove(book);

@@ -28,6 +28,10 @@
                 {
                     <button class="btn btn-success" disabled>已查阅</button>
                 }
+                @if (Model.IsNoChild)
+                {
+                    @Html.ActionLink("删除", "DeleteBook", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default" })
+                }
             </div>
             <div class="table-bordered alert-info">
                 <dl class="dl-horizontal">

@@ -28,6 +28,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditBook
             this.Title = b.Title;
             this.Priority = b.Priority;
             this.IsChecked = b.IsChecked;
+
+            var i = new Worker.Books.Chapter.Index(parentDocumentId: documentId);
+            if (i.List.Count() == 0)
+                this.IsNoChild = true;
         }
 
 
@@ -43,6 +47,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.EditBook
         public Guid DocumentId { get; set; }
 
         public long TimeStamp { get; set; }
+
+        public bool IsNoChild { get; set; }
 
 
 

@@ -24,6 +24,10 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsChapter
             this.IsChecked = chapter.IsChecked;
             this.UpdateTime = chapter.UpdateTime;
 
+            var i = new Worker.Books.Chapter.Index(parentDocumentId: id);
+            if (i.List.Count() == 0)
+                this.IsNoChild = true;
+
             this._isExist = true;
         }
 
@@ -42,6 +46,8 @@ namespace DocumentManagementSystem.Models.ViewModels.Books4.DetailsChapter
         public Guid ParentDocumentId { get; set; }
 
         public long TimeStamp { get; set; }
+
+        public bool IsNoChild { get; set; }
 
 
 

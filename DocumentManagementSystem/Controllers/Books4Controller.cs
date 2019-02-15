@@ -390,6 +390,54 @@ namespace DocumentManagementSystem.Controllers
             return View(v);
         }
 
+        public ActionResult DeleteChapter([Bind()]Models.ViewModels.Books4.DeleteChapter.DeleteChapter v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("Details", new { id = v.ReturnDocumentIdId.Value });
+                else
+                    return HttpNotFound(result.ToString());
+            }
+
+            return RedirectToAction("EditChapter", new { documentId = v.DocumentId });
+        }
+
+        public ActionResult DeleteBook([Bind()]Models.ViewModels.Books4.DeleteBook.DeleteBook v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("Details", new { id = v.ReturnDocumentIdId.Value });
+                else
+                    return HttpNotFound(result.ToString());
+            }
+
+            return RedirectToAction("EditBook", new { documentId = v.DocumentId });
+        }
+
+        public ActionResult DeleteShelf([Bind()]Models.ViewModels.Books4.DeleteShelf.DeleteShelf v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    if (v.ReturnDocumentIdId.HasValue)
+                        return RedirectToAction("Details", new { id = v.ReturnDocumentIdId });
+                    else
+                        return RedirectToAction("IndexShelf");
+                else
+                    return HttpNotFound(result.ToString());
+            }
+
+            return RedirectToAction("EditShelf", new { documentId = v.DocumentId });
+        }
+
         public ActionResult DeleteAddition([Bind()]Models.ViewModels.Books4.DeleteAddition.DeleteAddition v)
         {
             if (ModelState.IsValid)
