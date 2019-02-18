@@ -241,6 +241,7 @@
     <Compile Include="Models\ViewModels\Books3\Index\Index.cs" />
     <Compile Include="Models\ViewModels\Books3\Index\Item.cs" />
     <Compile Include="Models\ViewModels\Books3\Index\Route.cs" />
+    <Compile Include="Models\ViewModels\Books4\CopyChapter\CopyChapter.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateAddition\CreateAddition.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateAddition\SelectionWorker.cs" />
     <Compile Include="Models\ViewModels\Books4\CreateBook\CreateBook.cs" />
@@ -336,6 +337,7 @@
     <Compile Include="Models\Worker\Books\Book\Index.cs" />
     <Compile Include="Models\Worker\Books\Book\Move.cs" />
     <Compile Include="Models\Worker\Books\Book\SetChecked.cs" />
+    <Compile Include="Models\Worker\Books\Chapter\Clone.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Create.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Delete.cs" />
     <Compile Include="Models\Worker\Books\Chapter\Details.cs" />
@@ -506,6 +508,7 @@
     <Content Include="Views\Books4\MoveShelf.cshtml" />
     <Content Include="Views\Books4\MoveBook.cshtml" />
     <Content Include="Views\Books4\MoveChapter.cshtml" />
+    <Content Include="Views\Books4\CopyChapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,6 +32,7 @@
                 {
                     @Html.ActionLink("删除", "DeleteBook", new { Model.DocumentId, Model.TimeStamp }, new { @class = "btn btn-default" })
                 }
+                @Html.ActionLink("克隆", "CopyChapter", new { Id = Model.DocumentId }, new { @class = "btn btn-default" })
             </div>
             <div class="table-bordered alert-info">
                 <dl class="dl-horizontal">

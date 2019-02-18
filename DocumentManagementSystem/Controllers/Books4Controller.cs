@@ -572,5 +572,30 @@ namespace DocumentManagementSystem.Controllers
 
             return View(v);
         }
+
+        public ActionResult CopyChapter(Guid id)
+        {
+            var v = new Models.ViewModels.Books4.CopyChapter.CopyChapter();
+            v.PasteDocumentId = id;
+
+            return View(v);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CopyChapter([Bind()]Models.ViewModels.Books4.CopyChapter.CopyChapter v)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = v.Save();
+
+                if (result.Result)
+                    return RedirectToAction("Details", new { id = v.PasteDocumentId });
+                else
+                    return HttpNotFound(result.ToString());
+            }
+
+            return HttpNotFound();
+        }
     }
 }
