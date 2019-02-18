@@ -11,7 +11,7 @@ namespace DocumentManagementSystem.Controllers
         public ActionResult Index()
         {
             //return View();
-            return RedirectToAction("Index", "Documents");
+            return RedirectToAction("IndexBook", "Books4");
         }
 
         public ActionResult About()
