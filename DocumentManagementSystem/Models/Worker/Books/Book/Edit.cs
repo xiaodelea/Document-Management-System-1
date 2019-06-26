@@ -29,15 +29,15 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             if (this.Priority < 0)
                 return new ValidateResult(false, "Priority", "序号不可小于0！");
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //验证书籍。
                 var book = db.Documents.Find(this.DocumentId);
                 if (!book.IsBook || !book.IsMain || book.IsAbstract)
                     return new ValidateResult(false, "DocumentId", "不是书籍！");
-                if (this.TimeStamp != System.BitConverter.ToInt64(book.TimeStamp, 0))
-                    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
+                //if (this.TimeStamp != System.BitConverter.ToInt64(book.TimeStamp, 0))
+                //    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
 
                 //修改书籍。
                 book.Title = this.Title;

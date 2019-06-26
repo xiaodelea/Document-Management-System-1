@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
     {
         public Details(Guid id)
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             var target = db.Additions.Find(id);
             this.Initial(target);
         }
@@ -29,7 +29,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
             else
                 this._isExist = true;
 
-            var target = (Domains.Entities.Addition)origin;
+            var target = (Domains.MySQL.Entities.Addition)origin;
 
             this.AdditionId = target.AdditionId;
             this.DocumentId = target.DocumentId;
@@ -38,7 +38,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
             this.Description = target.Description;
 
             this.UpdateTime = target.UpdateTime;
-            this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
+            //this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
         }
 
 

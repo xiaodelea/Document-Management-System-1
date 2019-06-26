@@ -32,7 +32,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
                 return new ValidateResult(false, "Priority", "序号不可小于0！");
 
             //构建书籍。
-            var book = new Domains.Entities.Document
+            var book = new Domains.MySQL.Entities.Document
             {
                 DocumentId = Guid.NewGuid(),
                 ParentDocumentId = this.ParentDocumentId,
@@ -45,7 +45,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
                 UpdateTime = DateTime.Now,
             };
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //添加书籍。

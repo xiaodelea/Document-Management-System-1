@@ -23,15 +23,15 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
 
         public ValidateResult Save()
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //验证章节。
                 var chapter = db.Documents.Find(this.DocumentId);
                 if (!chapter.IsBook || chapter.IsMain || chapter.IsAbstract)
                     return new ValidateResult(false, "DocumentId", "Not Chapter！");
-                if (this.TimeStamp != System.BitConverter.ToInt64(chapter.TimeStamp, 0))
-                    return new ValidateResult(false, "TimeStamp", "TimeStamp Not Match！");
+                //if (this.TimeStamp != System.BitConverter.ToInt64(chapter.TimeStamp, 0))
+                //    return new ValidateResult(false, "TimeStamp", "TimeStamp Not Match！");
                 if (chapter.ChildDocuments.Count() > 0)
                     return new ValidateResult(false, "DocumentId", "Children Not Empty！");
 

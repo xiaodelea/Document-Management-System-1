@@ -23,7 +23,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
 
         public ValidateResult Save()
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 var paste = db.Documents.Find(this.PasteDocumentId);
@@ -49,11 +49,11 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
             return new ValidateResult(true);
         }
 
-        private void CopyChildren(Domains.Entities.Document target, Domains.Entities.Document origin, Domains.Entities.DMsDbContext db)
+        private void CopyChildren(Domains.MySQL.Entities.Document target, Domains.MySQL.Entities.Document origin, Domains.MySQL.Entities.DMsDbContext db)
         {
             foreach (var item in origin.ChildDocuments)
             {
-                var newItem = new Domains.Entities.Document
+                var newItem = new Domains.MySQL.Entities.Document
                 {
                     DocumentId = Guid.NewGuid(),
                     ParentDocumentId = target.DocumentId,

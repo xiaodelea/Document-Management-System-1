@@ -29,7 +29,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
             else
                 this._isExist = true;
 
-            var target = (Domains.Entities.Document)origin;
+            var target = (Domains.MySQL.Entities.Document)origin;
 
             if (!target.IsBook || !target.IsAbstract || target.IsMain)
             {
@@ -44,7 +44,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
             this.Priority = target.Priority;
 
             this.UpdateTime = target.UpdateTime;
-            this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
+            //this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
         }
 
 

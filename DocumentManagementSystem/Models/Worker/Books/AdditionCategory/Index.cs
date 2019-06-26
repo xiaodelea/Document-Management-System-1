@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.AdditionCategory
     {
         public Index(int page = 1, int perpage = int.MaxValue)
         {
-            var db = new Models.Domains.Entities.DMsDbContext();
+            var db = new Models.Domains.MySQL.Entities.DMsDbContext();
             var query = db.AdditionCategories.AsQueryable();
 
             var queryOrdered = query.OrderBy(c => c.Name);

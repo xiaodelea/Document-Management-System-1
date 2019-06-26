@@ -23,13 +23,13 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
 
         public ValidateResult Save()
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //验证信息。
                 var addition = db.Additions.Find(this.AdditionId);
-                if (this.TimeStamp != System.BitConverter.ToInt64(addition.TimeStamp, 0))
-                    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
+                //if (this.TimeStamp != System.BitConverter.ToInt64(addition.TimeStamp, 0))
+                //    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
 
                 //检测节点。
                 var document = db.Documents.Find(addition.DocumentId);

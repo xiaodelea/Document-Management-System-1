@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
     {
         public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null, string titlePart = null, bool? isChecked = null, int? order = 0)
         {
-            var db = new Models.Domains.Entities.DMsDbContext();
+            var db = new Models.Domains.MySQL.Entities.DMsDbContext();
             var query = db.Documents.AsQueryable();
 
             query = query.Where(c => c.IsBook && c.IsMain && !c.IsAbstract);
@@ -26,7 +26,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
 
             this.Count = query.Count();
 
-            IOrderedQueryable<Domains.Entities.Document> queryOrdered;
+            IOrderedQueryable<Domains.MySQL.Entities.Document> queryOrdered;
             if (order == 1)
                 queryOrdered = query.OrderBy(c => c.Priority).ThenBy(c => c.DocumentId);
             else

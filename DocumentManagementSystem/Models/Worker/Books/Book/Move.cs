@@ -23,15 +23,15 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             if (this.DocumentId == this.NewParentDocumentId)
                 return new ValidateResult(false, "NewParentDocumentId", "目标节点不能为自身节点！");
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //验证书籍。
                 var book = db.Documents.Find(this.DocumentId);
                 if (!book.IsBook || book.IsAbstract || !book.IsMain)
                     return new ValidateResult(false, "DocumentId", "不是书籍！");
-                if (this.TimeStamp != System.BitConverter.ToInt64(book.TimeStamp, 0))
-                    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
+                //if (this.TimeStamp != System.BitConverter.ToInt64(book.TimeStamp, 0))
+                //    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
 
                 //验证目标书架。
                 var newShelf = db.Documents.Find(this.NewParentDocumentId);

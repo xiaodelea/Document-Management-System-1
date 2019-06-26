@@ -32,7 +32,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
                 return new ValidateResult(false, "Priority", "序号不可小于0！");
 
             //构建书架。
-            var shelf = new Domains.Entities.Document
+            var shelf = new Domains.MySQL.Entities.Document
             {
                 DocumentId = Guid.NewGuid(),
                 ParentDocumentId = this.ParentDocumentId,
@@ -45,7 +45,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
                 UpdateTime = DateTime.Now,
             };
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //添加书架。

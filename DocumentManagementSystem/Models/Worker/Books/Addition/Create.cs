@@ -24,7 +24,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
                 return new ValidateResult(false, "Description", "不可为空！");
 
             //构建信息。
-            var addition = new Domains.Entities.Addition
+            var addition = new Domains.MySQL.Entities.Addition
             {
                 AdditionId = Guid.NewGuid(),
                 AdditionCategoryId = this.AdditionCategoryId,
@@ -33,7 +33,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
                 UpdateTime = DateTime.Now,
             };
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //检测节点。

@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
     {
         public Index(int page = 1, int perpage = int.MaxValue, Guid? parentDocumentId = null)
         {
-            var db = new Models.Domains.Entities.DMsDbContext();
+            var db = new Models.Domains.MySQL.Entities.DMsDbContext();
             var query = db.Documents.AsQueryable();
 
             query = query.Where(c => c.IsBook && !c.IsMain && !c.IsAbstract);

@@ -34,7 +34,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
                 return new ValidateResult(false, "Priority", "序号不可小于0！");
 
             //构建章节。
-            var chapter = new Domains.Entities.Document
+            var chapter = new Domains.MySQL.Entities.Document
             {
                 DocumentId = Guid.NewGuid(),
                 ParentDocumentId = this.ParentDocumentId,
@@ -46,7 +46,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Chapter
                 UpdateTime = DateTime.Now,
             };
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //添加章节。

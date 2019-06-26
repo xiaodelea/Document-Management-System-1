@@ -27,15 +27,15 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
             if (this.Priority < 0)
                 return new ValidateResult(false, "Priority", "序号不可小于0！");
 
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             lock (Atom.GetInstance())
             {
                 //验证书架。
                 var shelf = db.Documents.Find(this.DocumentId);
                 if (!shelf.IsBook || !shelf.IsAbstract || shelf.IsMain)
                     return new ValidateResult(false, "DocumentId", "不是书架！");
-                if (this.TimeStamp != System.BitConverter.ToInt64(shelf.TimeStamp, 0))
-                    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
+                //if (this.TimeStamp != System.BitConverter.ToInt64(shelf.TimeStamp, 0))
+                //    return new ValidateResult(false, "TimeStamp", "时间戳不吻合！");
 
                 //修改书架。
                 shelf.Title = this.Title;

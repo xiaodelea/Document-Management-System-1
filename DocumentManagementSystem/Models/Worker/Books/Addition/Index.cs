@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Addition
     {
         public Index(int page = 1, int perpage = int.MaxValue, Guid? documentId = null)
         {
-            var db = new Models.Domains.Entities.DMsDbContext();
+            var db = new Models.Domains.MySQL.Entities.DMsDbContext();
             var query = db.Additions.AsQueryable();
 
             if (documentId.HasValue)

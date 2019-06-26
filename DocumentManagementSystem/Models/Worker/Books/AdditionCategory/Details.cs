@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.AdditionCategory
     {
         public Details(Guid id)
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             var target = db.AdditionCategories.Find(id);
             this.Initial(target);
         }
@@ -29,7 +29,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.AdditionCategory
             else
                 this._isExist = true;
 
-            var target = (Domains.Entities.AdditionCategory)origin;
+            var target = (Domains.MySQL.Entities.AdditionCategory)origin;
 
             this.AdditionCategoryId = target.AdditionCategoryId;
 
@@ -38,7 +38,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.AdditionCategory
             this.IsUseForBook = target.IsUseForBook;
 
             this.UpdateTime = target.UpdateTime;
-            this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
+            //this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
         }
 
 
