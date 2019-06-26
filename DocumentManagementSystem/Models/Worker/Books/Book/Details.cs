@@ -9,7 +9,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
     {
         public Details(Guid id)
         {
-            var db = new Domains.Entities.DMsDbContext();
+            var db = new Domains.MySQL.Entities.DMsDbContext();
             var target = db.Documents.Find(id);
             this.Initial(target);
         }
@@ -29,7 +29,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             else
                 this._isExist = true;
 
-            var target = (Domains.Entities.Document)origin;
+            var target = (Domains.MySQL.Entities.Document)origin;
 
             if (!target.IsBook || !target.IsMain || target.IsAbstract)
             {
@@ -47,7 +47,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             this.SourceName = target.Additions.FirstOrDefault(c => c.AdditionCategoryId == new Guid("362DF64A-AB98-42EA-B4D2-D6F4958BC436"))?.Description;
 
             this.UpdateTime = target.UpdateTime;
-            this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
+            //this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
         }
 
 
