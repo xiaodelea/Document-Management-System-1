@@ -44,7 +44,7 @@ namespace DocumentManagementSystem.Models.Worker.Books.Book
             this.Priority = target.Priority;
             this.IsChecked = target.IsChecked;
 
-            this.SourceName = target.Additions.FirstOrDefault(c => c.AdditionCategoryId == new Guid("362DF64A-AB98-42EA-B4D2-D6F4958BC436"))?.Description;
+            this.SourceName = target.Additions.FirstOrDefault(c => c.Description == "书籍来源")?.Description;
 
             this.UpdateTime = target.UpdateTime;
             //this.TimeStamp = BitConverter.ToInt64(target.TimeStamp, 0);
