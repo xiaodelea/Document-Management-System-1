@@ -597,5 +597,13 @@ namespace DocumentManagementSystem.Controllers
 
             return HttpNotFound();
         }
+
+        public string TransDB()
+        {
+            var v = new Models.ViewModels.Books4.TransDB.TransDB();
+            v.Do();
+
+            return "Finished";
+        }
     }
 }
