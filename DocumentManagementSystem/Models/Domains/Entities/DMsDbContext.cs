@@ -2,6 +2,7 @@
 
 namespace DocumentManagementSystem.Models.Domains.Entities
 {
+    [DbConfigurationType(typeof(DbConfiguration))]
     public class DMsDbContext : DbContext
     {
         public DMsDbContext() : base("DMsConnection")
