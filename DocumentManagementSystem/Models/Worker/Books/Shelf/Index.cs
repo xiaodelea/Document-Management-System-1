@@ -22,7 +22,10 @@ namespace DocumentManagementSystem.Models.Worker.Books.Shelf
                 query = query.Where(c => c.Title.Contains(titlePart));
             }
             if (isRoot.HasValue)
-                query = query.Where(c => c.ParentDocumentId == null);
+                if (isRoot.Value)
+                    query = query.Where(c => c.ParentDocumentId == null);
+                else
+                    query = query.Where(c => c.ParentDocumentId != null);
 
             this.Count = query.Count();
 
